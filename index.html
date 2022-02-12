@@ -7,6 +7,10 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- 侧边栏样式1 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
+  <!-- 侧边栏样式2 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
 </head>
 <body>
   <div id="app"></div>
@@ -14,13 +18,16 @@
     window.$docsify = {
       name: '',
       repo: '',
-      coverpage: true,
+      maxLevel: 3,     // 解析 MarkDown 文件时的最大目录层数
+      // coverpage: true,  //封面
       loadNavbar: true,
       loadSidebar: true,
-      subMaxLevel: 3
+      subMaxLevel: 9,     //菜单栏显示目录的层数
+      // auto2top: true,  // 切换显示的文档时，自动跳转到页面顶部
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,6 @@
 - 我的
-  - [**主页**]()
-  - [**JavaScript——github**]()
-  - [**JavaScript——gitee**]()
+  <!-- - [**主页**](https://fan-yue.github.io/) -->
+  - [**JavaScript**](https://fan-yue.github.io/DocsBCYjs_git/)
 - 开发必备
   - [**在线ASCII码表**](http://www.fly63.com/tool/ascii/)
   - [**正则表达式调试工具**](https://regexr.com/)

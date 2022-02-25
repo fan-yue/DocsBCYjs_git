@@ -6,7 +6,7 @@
 - [06数据类型](docs/06数据类型.md)
 - [07typeof检测变量数据类型和字面量](docs/07typeof检测变量数据类型和字面量.md)
 - [08数据类型转换](docs/08数据类型转换.md)
-- [09运算符video](docs/09运算符video.md)
+- [09运算符](docs/09运算符video.md)
 - [10流程控制和断点调试video](docs/10流程控制和断点调试video.md)
 
 

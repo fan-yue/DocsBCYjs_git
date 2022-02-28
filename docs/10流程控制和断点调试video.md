@@ -191,3 +191,120 @@ JS 语言提供了两种分支结构语句：**if语句**     **switch语句**
     </script>
 ```
 
+#### switch语句（多分支语句）
+
+`switch语句`也是多分支语句，它用于基于不同的条件来执行不同的代码。当要针对变量设置一系列的`特定值`的选项时，就可以使用switch。
+
+语法结构
+
+```
+switch(表达式){
+  case value1:
+     //表达式等于 value1 时要执行的代码
+     break;
+  case value2:
+     //表达式等于value2 时要执行的代码
+     break;
+  ...
+  default:
+     //表达式不等于任何一个value时要执行的代码       
+}
+//执行思路，利用我们表达式的值和case后面的选项值相匹配，如果匹配上，就执行该case里面的语句，如果都没有匹配上，就执行default里面的语句。
+
+```
+
+例子：
+
+```
+<script>
+    switch (4) {
+        case 1:
+            console.log('这是1');
+            break;
+        case 2:
+            console.log('这是2');
+        case 3:
+            console.log('这是3');
+        default:
+            console.log('啥都不是');
+    }
+</script>
+```
+
+##### switch注意事项
+
+```
+<script>
+    //switch注意事项
+    var num = 1;
+    switch (num) {
+        case 1:
+            console.log(1);
+            break;
+        case 2:
+            console.log(2);
+            break;
+        default:
+            console.log(3);
+    }
+    //1.开发里面，表达式我们经常写变量。
+    //2.我们num的值和case里面的值相匹配的时候是 全等 === ，必须是值和数据类型一直才可以 num === 1;
+    //3.break如果当前的case里面没有break ，则不会推迟switch，会执行下一个case。
+</script>
+```
+
+##### switch语句——案例（查询水果）
+
+用户在弹出框输入一个水果，如果有该水果，就弹出水果的价格，没有就提示无。
+
+思路：
+
+1、弹出promet输入框，让用户输入水果名称，把这个值取过来保存变量。
+
+2、将这个变量作为switch括号里面的表达式。
+
+3、case后面的值写几个不同的水果名称，注意一定要加引号，因为是全等匹配。
+
+4、弹出不同的价格即可。同样注意每个case之后加上break，需要退出switch语句。
+
+5、将default设置为没有无。
+
+```
+    <script>
+        // 1、弹出promet输入框，让用户输入水果名称，把这个值取过来保存变量。
+
+        // 2、将这个变量作为switch括号里面的表达式。
+
+        // 3、case后面的值写几个不同的水果名称，注意一定要加引号，因为是全等匹配。
+
+        // 4、弹出不同的价格即可。同样注意每个case之后加上break，需要退出switch语句。
+
+        // 5、将default设置为没有无。
+        
+        var fruit = prompt('输入水果名称');
+        switch (fruit) {
+            case '苹果':
+                console.log('apple price is 3.5/500g');
+                break;
+            case '榴莲':
+                console.log('榴莲不好吃');
+            default:
+                alert('无，我只有两个。');
+        }
+    </script>
+```
+
+#### 多分支语句，switch语句和if else if语句的区别
+
+1、一般情况下，两个语句可以相互替换。
+
+2、`switch...case`语句通常处理case为比较确定值的情况下，而`if...else...`语句更加灵活，常用于范围判断（大于、等于某个范围）。
+
+3、switch语句进行条件判断后直接跳到执行程序的语句中，效率更高。而if...else语句有几种条件，需要多次判断。
+
+4、分支较少时，if...else语句的执行效率比switch语句高。
+
+
+
+
+

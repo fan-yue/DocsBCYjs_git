@@ -223,10 +223,76 @@
             console.log('hello world');
         }
     </script> -->
-    <script>
+    <!-- <script>
+        //for   循环的执行过程
         for(var i=1;i<=100;i++){
             console.log('hello world');
         }
+        // 1、首先执行里面的计数器变量 var i = 1,在for里面只执行一次。
+        // 2、i<=100 用来判断是否满足条件。如果满足条件，就去执行循环体，不满足条件则退出循环。
+        // 3、最后去执行 i++  i++是单独写的代码，表示递增。
+        // 4、接着去执行 i <= 100 ,如果满足条件，则接着执行循环体，不满足条件退出循环(第二轮)。
+    </script> -->
+    <!-- <script>
+        // for循环可以执行相同的代码
+        for (var i = 1;i < 10;i++) {
+            console.log('123123');
+        }
+        // 通过prompt来控制输出循环的次数
+        var a = prompt('...');
+        for(var i = 1;i <= a;i++){
+            console.log('我是可以被控制得');
+        }
+    </script> -->
+    <!-- <script>
+        // 循环金额一重复执行不同的代码 ，因为我们有计数器变量 i 的存在 i 每次循环值都在变化
+        // 我们想要输出1个人的年龄，1~99岁
+        for(var i = 1; i < 100;i++){
+            console.log('我今年是'+ i +'岁');
+        }
+        // for循环中使用if else if多分支语句
+        for(var i = 1;i < 100 ;i++){
+            if(i == 1){
+                console.log('1岁刚出生');
+            }else if(i == 99){
+                console.log('真棒，活到了99岁了呢');
+            }else{
+                console.log('我今年是'+ i +'岁');
+            }
+        }
+    </script> -->
+    <!-- <script>
+        var sum = 0;  //和的变量，值为0
+        var average = 0; //存储平均数的变量
+        for(var i = 1;i <= 100;i++){
+            // sum = sum + i;
+            // += 赋值运算符的写法
+            sum += i;
+        }
+        average = sum / 100;
+        console.log(average);
+    </script> -->
+    <!-- <script>
+        var even = 0;
+        var odd = 0;
+        for(var i = 1;i <= 100; i++){
+            if(i % 2 == 0){
+                even += i;
+            }else{
+                odd += i;
+            }
+        }
+        console.log('偶数和为'+even);
+        console.log('奇数和为'+odd);
+    </script> -->
+    <script>
+        var res = 0; //存储1~100能够被3整除的数字之和的变量
+        for(var i = 1;i <= 100;i++){
+            if(i % 3 ===0){
+                res += i;
+            }
+        }
+        console.log('1~100能够被3整除的数字之和为'+res);
     </script>
 </body>
 </html>

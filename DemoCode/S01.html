@@ -285,7 +285,7 @@
         console.log('偶数和为'+even);
         console.log('奇数和为'+odd);
     </script> -->
-    <script>
+    <!-- <script>
         var res = 0; //存储1~100能够被3整除的数字之和的变量
         for(var i = 1;i <= 100;i++){
             if(i % 3 ===0){
@@ -293,6 +293,178 @@
             }
         }
         console.log('1~100能够被3整除的数字之和为'+res);
+    </script> -->
+    <!-- <script>
+        //双重for循环
+        for(外循环的初始;外循环的条件;外形循环的操作表达式){
+            for(内循环的初始;内循环的条件;内循环的操作表达式){
+                需执行的代码;
+            }
+        }
+        //1、内循环可以理解为 console.log(）
+        //2、外层循环一次，里面的循环将全部执行。
+    </script>
+    <script>
+        // 例子：
+        for(var i = 1;i < 4;i++){
+            console.log('外层循环第'+i+'次');
+            for(var j = 1;j < 3; j++){
+                console.log('内循环'+j+'次');
+            }
+        }
+    </script> -->
+    <!-- <script>
+        // 用双重for循环打印3行3列⭐
+        var str = '';
+        for(var i = 1; i <= 3;i++){ //负责打印3行
+            for(var j = 1; j <= 3; j++){    //内循环负责每一次打印出来的内容
+                str = str + '⭐';
+            }
+            str = str + '\n'    //当内循环的星星循环完后，需要添加转移字符 \n , 否则就是以一堆的状态显示出来的
+            // str += '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var a = prompt('几行');
+        var b = prompt('几列');
+        var str = '';
+        for(var i = 1; i <= a;i++){ //负责打印n行
+            for(var j = 1; j <= b; j++){    //内循环负责每一次打印出来的内容
+                str = str + '⭐';
+            }
+            str = str + '\n'    //当内循环的星星循环完后，需要添加转移字符 \n , 否则就是以一堆的状态显示出来的
+            // str += '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var str = '';
+        for(var i = 1;i <= 10;i++){     //i = 1 时，外循环一次，内循环10次
+            // str = str + '⭐' + '\n'; 
+            for(var j = i;j <= 10; j++){        //当内循环10次后，跳出，执行第二次外循环，此时i = 2；内循环j=2，运行9次。依次类推。
+                str = str + '⭐'; 
+            }
+            str = str + '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var str= '';        
+        // 外循环第一次，i = 1;
+        for(var i = 1; i <= 10;i++){
+            // 外循环第一次时，内循环，j = 1， j<=1, 此时，j只循环一次，显示为一颗星
+            for(var j= 1; j <= i;j++){
+                str = str + '⭐';
+            }
+            str = str +'\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        // 99乘法表
+        // 一共有9行，因为每行个数不一样，所有需要用到双重 for 循环
+        // 外层的 for 循环控制 行数 i 
+        // 内循环 for 循环控制 公示的循环 j
+        // 核心算法，每一行的公示个数正好要和行数一致。j<=i
+        // 每行打印完后，需要重新换行，使用 \n 换行符进行换行。
+        var str= '';        
+        // 外循环第一次，i = 1;
+        for(var i = 1; i <= 9;i++){
+            // 外循环第一次时，内循环，j = 1， j<=1, 此时，j只循环一次
+            for(var j= 1; j <= i; j++){
+                // 1 * 1 = 1;
+                // 1 * 2 = 2;
+                str += i +'*'+ j + '=' + i * j + '\t';
+            }
+            str = str +'\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        while (条件表达式) {
+            //循环制行语句
+        }
+        // 执行思路：当条件表达式为true时，执行循环体，否则，退出循环体。
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        while (a <= 100) {
+            console.log('我今年'+a+'岁了');
+            a++;
+        }
+    </script> -->
+    <!-- <script>
+        var sum = 0;
+        var j = 1;
+        while(j <= 100){
+            sum += j;
+            j++
+        }
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        var msg = prompt('请输入123');
+        while(msg !== '123'){
+            msg = prompt('不输入123，是看不到后面的内容的');
+        }
+        alert('真乖！');
+    </script> -->
+    <!-- <script>
+        do {
+            // 循环体，条件表达式为 true 时，重复执行循环体代码
+        } while (条件表达式);
+    </script> -->
+    <!-- <script>
+        var i = 1;
+        do {
+            console.log('今年我'+i+'岁了');
+            i++
+        } while (i <= 10);
+    </script> -->
+    <!-- <script>
+        var sum = 0;
+        var i = 1;
+        do {
+            sum += i;
+            i++
+        } while (i <= 100);
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        do {
+            var msg = prompt('请输入123');
+        } while (msg !== '123');
+        alert('真乖~');
+    </script> -->
+    <!-- <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                console.log('这个包子有虫子，扔掉');
+                continue; // 跳出本次循环，跳出的是第3次循环 
+            }
+            console.log('我正在吃第' + i + '个包子呢');
+        }
+    </script> -->
+    <!-- <script>
+        // 求1~100之间，除了能够被7整除之外的整数和
+        var sum = 0;
+        for(var i = 1; i <= 100; i++){
+            if(i % 7 == 0){
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum);
+    </script> -->
+    <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                console.log('这个包子有虫子，扔掉,后面的我也不吃了。。。。');
+                break; // 当 i == 3 时，直接结束循环 
+            }
+            console.log('我正在吃第' + i + '个包子呢');
+        }
     </script>
 </body>
 </html>

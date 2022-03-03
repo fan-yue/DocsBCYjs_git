@@ -457,7 +457,7 @@
         }
         console.log(sum);
     </script> -->
-    <script>
+    <!-- <script>
         for (var i = 1; i <= 5; i++) {
             if (i == 3) {
                 console.log('这个包子有虫子，扔掉,后面的我也不吃了。。。。');
@@ -465,6 +465,71 @@
             }
             console.log('我正在吃第' + i + '个包子呢');
         }
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        var b = [1,2,3,4,5,6];
+    </script>
+    <script>
+        var 数组名 = new Array();
+        var arr = new Array(); //创建一个新的空数组
+    </script> -->
+    <!-- <script>
+        // 1.利用数组字面量方式创建空的数组 
+        var 数组名 =[];
+        // 2.使用数组字面量方式创建带初始值的数组
+        var 数组名 =['小白','小黑','小黄','瑞奇'];
+        // 3.数组中可以存放任意类型的数据，例如字符串，数字，布尔值等
+        var arrStus =['小白',12,true,28.9];
+    </script>
+    <script>
+        var arrStus =['小白',12,true,28.9];
+        console.log(arrStus[0]);    //小白
+        console.log(arrStus[1]);    //12
+        console.log(arrStus[2]);    //true
+        console.log(arrStus[3]);    //28.9
+        console.log(arrStus[4]);    //undefined
+    </script> -->
+    <!-- <script>
+        var arr = ['星期一','星期二','星期三','星期四','星期五','星期六','星期七'];
+        console.log(arr[6]);
+    </script> -->
+    <!-- <script>
+        // 数组索引访问数组中的元素
+        var arr = ['red','green', 'blue'];
+        console.log(arr[0]) // red
+        console.log(arr[1]) // green
+        console.log(arr[2]) // blue
+
+        // for循环遍历数组
+        var arr = ['red','green', 'blue'];
+        for (var i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+        //1、因为数组索引值是从0开始的，所以初始化变量也是从0开始， i<3; 0、1、2,三个值
+        //2、输出的时候,arr[i], i 计数器作为索引号进行使用。
+    </script> -->
+    <!-- <script>
+        var arr = [1,2,'哈哈哈','成龙',100,900];
+        for(var i = 0;i < arr.length; i++){
+            console.log(arr[i]);
+        }
+    </script> -->
+    <script>
+        // 1、求数组[2,6,1,7,4]里面所有元素的和以及平均值。
+        // 思路：
+        //      1.声明一个求和变量 sum。
+        //      2.遍历这个数组，把里面每个数组元素加到 sum 里面。
+        //      3.用求和变量 sum 除以数组的长度就可以得到数组的平均值。
+        var arr = [2,6,1,7,4];
+        var sum = 0;
+        var average = 0;
+        for(var i = 0; i < arr.length;i++){
+            sum = sum + arr[i];     //i是计数器，我们需要加的是数组的元素，所以需要 arr[i] 来获取。 
+            // sun += arr[i];   
+        }
+        average = sum / arr.length;
+        console.log('arr这个数组的总和是'+sum+',平均数是'+average);
     </script>
 </body>
 </html>

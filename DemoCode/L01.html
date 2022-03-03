@@ -129,7 +129,7 @@
         // }
         // for(vasdf1);
     </script>
-    <script>
+    <!-- <script>
         // var a = prompt('....');
         // for(var i = 1;i <=a; i++){
         //     console.log('....');
@@ -142,6 +142,168 @@
             }else{
                 console.log('这是我的岁数' + a +',哈哈哈');
             }
+        }
+    </script> -->
+    <!-- <script>
+        var a=0;
+        for(var i=1;i<=100;i++){
+            a+=i
+        }
+        console.log(a);
+    </script> -->
+    <!-- <script>
+        for(var i = 1;i < 4;i++){
+            console.log('这是第'+ i +'次！');
+            for(var k = 1; k < 3; k++){
+                console.log('内循环'+ k +'次');
+            }
+        }
+    </script> -->
+    <!-- <script>
+        // 用双重for循环打印3行3列⭐
+        var str = '';
+        for(var i = 1; i <= 3;i++){ //负责打印3行
+            for(var j = 1; j <= 3; j++){    //内循环负责每一次打印出来的内容
+                str = str + '⭐';
+            }
+            // str = str + '\n';    //当内循环的星星循环完后，需要添加转移字符 \n , 否则就是以一堆的状态显示出来的
+            str += '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var a = prompt('123');
+        console.log(a);
+    </script> -->
+    <!-- <script>
+        // 99乘法表
+        // 一共有9行，因为每行个数不一样，所有需要用到双重 for 循环
+        // 外层的 for 循环控制 行数 i 
+        // 内循环 for 循环控制 公示的循环 j
+        // 核心算法，每一行的公示个数正好要和行数一致。j<=i
+        // 每行打印完后，需要重新换行，使用 \n 换行符进行换行。
+        var str= '';     
+        // 外循环第一次，i = 1;
+        for(var i = 1; i <= 9;i++){
+            // 外循环第一次时，内循环，j = 1， j<=1, 此时，j只循环一次
+            for(var j= 1; j <= i; j++){
+                // 1 * 1 = 1;
+                // 1 * 2 = 2;
+                str += j +'*'+ i + '=' + i * j + '\t';
+                // str = str + j +'*'+ i + '=' + i * j + '\t';
+            }
+            str = str +'\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        for(var s=1;s<6;s++){
+            for(var c=1;c<6;c++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    </script>
+    <script>
+        for(var r=5;r>=1;r--){
+            for(var i=1;i<=r;i++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    </script>
+    <script>
+        for(var p=1;p<=5;p++){
+            for(var t=1;t<=p;t++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    </script>
+    <script>
+        for(var a=1;a<=9;a++){
+            for(var b=1;b<=a;b++){
+                document.write(a+"*"+b+"="+(a*b)+"")
+            }
+            document.write("<br>")
+        }
+    </script> -->
+    <!-- <script>
+
+        for(var i = 1;i<=9;i++){
+            console.log(i);
+        }
+
+        
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        while(a < 10){
+            console.log(a);
+            a++;
+        }
+    </script>
+    <script>
+        var a = 1;
+        while (a <= 100) {
+            console.log('我今年'+a+'岁了');
+            a++;
+        }
+    </script>
+    <script>
+        var sum = 0;
+        var j = 1;
+        while(j <= 100){
+            sum += j;
+            j++
+        }
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        var msg = prompt('请输入123');
+        while(msg !== '123'){
+            msg = prompt('不输入123，是看不到后面的内容的。');
+        }
+        alert('真乖！');
+    </script> -->
+    <!-- <script>
+        var i = 1;
+        do {
+            console.log('今年我'+i+'岁了');
+            i++
+        } while (i <= 10);
+    </script> -->
+    <!-- <script>
+        var a = 0;
+        var b = 1;
+        while(b <= 100){
+            a+=b;
+            b++;
+        }document.write(a+"<br>");
+
+        var c = prompt("请输入");
+        while(c!=="1"){
+            c = prompt("请输入");
+        }document.write(a);
+
+    </script>
+    <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                console.log('这个包子有虫子，扔掉');
+                continue; // 跳出本次循环，跳出的是第3次循环 
+            }
+            console.log('我正在吃第' + i + '个包子呢');
+        }
+    </script>
+     -->
+     <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                console.log('这个包子有虫子，扔掉,后面的我也不吃了。。。。');
+                break; // 当 i == 3 时，直接结束循环 
+            }
+            console.log('我正在吃第' + i + '个包子呢');
         }
     </script>
 </body>

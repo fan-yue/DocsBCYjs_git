@@ -515,7 +515,7 @@
             console.log(arr[i]);
         }
     </script> -->
-    <script>
+    <!-- <script>
         // 1、求数组[2,6,1,7,4]里面所有元素的和以及平均值。
         // 思路：
         //      1.声明一个求和变量 sum。
@@ -530,6 +530,109 @@
         }
         average = sum / arr.length;
         console.log('arr这个数组的总和是'+sum+',平均数是'+average);
-    </script>
+    </script> -->
+    <!-- <script>
+        // 求数组[2,6,1,77,52,25,7]中的最大值
+        // 声明一个保存最大元素的变量max
+        // 默认最大值可以取第一个数组的元素
+        // 遍历数组，将每个数组元素和 max 进行比较
+        // 如果这个数组元素大于 max ，就讲数组元素存在 max 里面，否则进行下一轮匹配
+        // 最后输入 max
+        var arr = [2,6,1,77,52,25,7];   
+        var max = arr[0];          //默认数组中的第一个元素为当前最大值。
+        for(var i = 0; i < arr.length; i++ ){   //遍历数组元素
+            if(arr[i] < max){       //当循环第一个数组元素时，如果数组元素大于默认的第一个值时，就通过变量更新，使 max 的值为6。通过 for 循环，依次进行判断。
+                max = arr[i];
+            }
+        }
+        console.log(max);           //循环完毕后，输入最大值为77   
+    </script> -->
+    <!-- <script>
+        // 数组转换为分割字符串，将数组  ['red','green','blue','pink']  转换为分割字符串，并且用 | 或者其他符号分割。
+        var arr = ['red','green','blue','pink'];
+        // 1、创建一个新变量
+        // 2、遍历原来的数组，分别把里面数据取出来，加到字符串里面，并且在后面加一个分隔符
+        var str = '';           // 1、创建一个空字符串
+        var a = '&'+'\t';       // 2、可以定义的连接符
+        for(var i = 0;i < arr.length; i++){            //遍历数组
+            str += arr[i]+a;        //更新字符变
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var arr = ['red', 'green', 'blue', 'pink'];
+        // arr[4] = op;
+        console.log(arr[8]);
+        arr.length = 7;
+        console.log(arr);
+        console.log(arr[4])
+        console.log(arr[5]);
+        console.log(arr[6]); 
+    </script> -->
+    <!-- <script>
+        var arr = ['red', 'green', 'blue', 'pink'];
+        console.log(arr);   //'red', 'green', 'blue', 'pink'
+        arr[3] = 'demo';    
+        console.log(arr);    //'red', 'green', 'blue', 'pink','demo'
+        arr[4] = 'oooo';
+        console.log(arr);   //'red', 'green', 'blue', 'pink','demo','oooo'
+        arr[8] = '8888';
+        console.log(arr);   // ['red', 'green', 'blue', 'demo', 'oooo', 空属性 × 3, '8888'],索引靠后，之间会显示空的数组元素。
+        arr[0] = 'No red';
+        console.log(arr);   //['No red', 'green', 'blue', 'demo', 'oooo', 空属性 × 3, '8888'] ,修改已有的数组索引号，会替换掉之前的数组元素。
+        arr1 = '试一试';
+        console.log(arr1);  //试一试,直接给数组名赋值，等于更新数据，数组元素直接被修改为字符串。
+    </script> -->
+    <!-- <script>
+        var arr = [];   //创建一个空数组
+        for(var i = 0; i < 100; i++){       
+            arr[i] = i + 1;            //通过遍历数组，arr[i] 是数组的索引值， i+1 是数组元素的值。
+        }
+        console.log(arr);
+    </script> -->
+    <!-- <script>
+        // 案例：将数组 [2, 0, 6, 11, 77, 0, 52, 0, 25, 7] 中大于等于10的元素选出来，放入新数组。
+        // 1、声明一个新的数组用来存放新数据 newArr.
+        // 2、遍历原来的旧数组，使用 if 判断大于等于 10 的元素
+        // 3、依次存放到新数组中。
+        var arr = [2, 0, 6, 11, 77, 0, 52, 0, 25, 7];
+        var newArr = [];        // 定义一个变量 用来计算 新数组的索引号
+        var j = 0;              
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {     //如果数组arr中的元素大于等于10时，就存放到新的数组中去，否则就不执行 if 中的语句。 2>=10 不成立，0>=10 不成立 6，1都不成立，11>=10 ,成立,依次类推，77，25都成立。
+                // 给新数组         
+                newArr[j] = arr[i];     //newArr[0] = 11,第一个数组为11，  newArr[1] = 77, newArr[2] = 25
+                j++;        // 索引号 不断自加
+            }
+        }
+        console.log(newArr);    // 11,77,52,25
+    </script> -->
+    <!-- <script>
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 因为新数组为空，所以，数组的长度为0
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                // 给新数组,索引号应该从0开始，依次递增，newArr.length 的值是 0;
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);
+    </script> -->
+    <script>
+        // 案例1：删除指定数组元素（数组去重），将数组[2, 0, 6, 1, 77, 0, 52, 0, 25, 7]中的 0 去掉后，形成一个不包含 0 的新数组。
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 创建空的新数组，用来储存不包含0的新数组
+        var newArr = [];
+        // 遍历数组
+        for( var i = 0;i < arr.length; i++){    
+            // 如果 arr 的数组元素 不等于 0 ，第一次循环，2 不等于 0 ，成立，第二次循环 0 = 0 ，不执行if中的执行语句。依次类推。
+            if(arr[i] != 0){        
+                // newArr[0] = 2 ，
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);    //for循环第一次循环，遍历出了，2,依次类推，将不包含0的元素排除掉即可。
+    </script>  
 </body>
 </html>

@@ -35,13 +35,106 @@
         //数字的字符串+数值类型
         console.log('100'+100); //100100
     </script> -->
-    <script>
+    <!-- <script>
         var a = 1;
         do{
         console.log('我今年'+a+'岁了')
         a++
         }while(a <= 10)
+    </script> -->
+    <!-- <script>
+        var sum="";
+        for(var i=1;i<=5;i++){
+            for(var j=1;j<=5;j++){
+                sum+="★";
+            }
+            sum += '\n';   
+        }
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        var sum = 0;
+        var j = 1;
+        while(j <= 100){
+            sum += j;
+            // sum = sum + j;
+            j++
+        }
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        var a = '';
+       for(var i = 1; i <= 100;){
+
+       }
+    </script> -->
+    <!-- <script>
+        var arr = ['贾陆强','刘宇杰','田嘉锐']; //0,1,2
+        for(var i = 0; i < 3;i++){
+            console.log(arr[i]);
+        }
+    </script> -->
+    <!-- <script>
+        // 1、求数组[2,6,1,7,4]里面所有元素的和以及平均值。
+        // 思路：
+        //      1.声明一个求和变量 sum。
+        //      2.遍历这个数组，把里面每个数组元素加到 sum 里面。
+        //      3.用求和变量 sum 除以数组的长度就可以得到数组的平均值。
+        var arr = [2,6,1,7,4,10];
+        var sum = 0;
+        var average = 0;
+        for(var i = 0; i < arr.length;i++){
+            sum = sum + arr[i];     //i是计数器，我们需要加的是数组的元素，所以需要 arr[i] 来获取。 
+            // sun += arr[i];   
+        }
+        average = sum / arr.length;
+        console.log('arr这个数组的总和是'+sum+',平均数是'+average);
+    </script> -->
+    <!-- <script>
+        // 求数组[2,6,1,77,52,25,7]中的最大值
+        // 声明一个保存最大元素的变量max
+        // 默认最大值可以取第一个数组的元素
+        // 遍历数组，将每个数组元素和 max 进行比较
+        // 如果这个数组元素大于 max ，就讲数组元素存在 max 里面，否则进行下一轮匹配
+        // 最后输入 max
+        var arr = [2,6,1,77,52,25,7];   
+        var max = arr[0];          //默认数组中的第一个元素为当前最大值。
+        for(var i = 0; i < arr.length; i++ ){   //遍历数组元素
+            if(arr[i] > max){       //当循环第一个数组元素时，如果数组元素大于默认的第一个值时，就通过变量更新，使 max 的值为6。通过 for 循环，依次进行判断。
+                max = arr[i];
+            }
+        }
+        console.log(max);           //循环完毕后，输入最大值为77
+    </script> -->
+    <!-- <script>
+        // 数组转换为分割字符串，将数组  ['red','green','blue','pink']  转换为分割字符串，并且用 | 或者其他符号分割。
+        var arr = ['red','green','blue','pink'];
+        // 1、创建一个新变量
+        // 2、遍历原来的数组，分别把里面数据取出来，加到字符串里面，并且在后面加一个分隔符
+        var str = '';           // 1、创建一个空字符串
+        var a = '***' + '\t';       // 2、可以定义的连接符
+        for(var i = 0;i < arr.length; i++){  
+            // str = str +arr[i] + a;         //遍历数组
+            str += arr[i]+a;        //更新字符变量
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var arr = ['red', 'green', 'blue', 'pink','orange'];
+    </script> -->
+    <script>
+        var arr = ['red', 'green', 'blue', 'pink'];
+        console.log(arr);   //'red', 'green', 'blue', 'pink'
+        arr[4] = 'demo';    
+        console.log(arr);    //'red', 'green', 'blue', 'pink','demo'
+        arr[5] = 'oooo';
+        console.log(arr);   //'red', 'green', 'blue', 'pink','demo','oooo'
+        arr[8] = '8888';
+        console.log(arr);   // ['red', 'green', 'blue', 'demo', 'oooo', 空属性 × 3, '8888'],索引靠后，之间会显示空的数组元素。
+        arr[0] = 'No red';
+        console.log(arr);   //['No red', 'green', 'blue', 'demo', 'oooo', 空属性 × 3, '8888'] ,修改已有的数组索引号，会替换掉之前的数组元素。
+        arr = '试一试';
+        console.log(arr);  //试一试,直接给数组名赋值，等于更新数据，数组元素直接被修改为字符串。
     </script>
-    
 </body>
 </html>

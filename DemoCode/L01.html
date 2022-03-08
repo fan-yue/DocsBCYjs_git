@@ -377,12 +377,113 @@
         arr = '试一试';
         console.log(arr);  //试一试,直接给数组名赋值，等于更新数据，数组元素直接被修改为字符串。
     </script> -->
-    <script>
+    <!-- <script>
         var arr = [];   //创建一个空数组
         for(var i = 0; i < 100; i++){       
             arr[i] = i + 1;            //通过遍历数组，arr[i] 是数组的索引值， i+1 是数组元素的值。
         }
         console.log(arr);
-    </script>
+    </script> -->
+    <!-- <script>
+        var a = [1,2,3,4,5,'尹子豪'];
+        for(var i=0;i<a.length;i++){
+            document.write(a[i]);
+        }
+        document.write('哈哈哈哈');
+    </script> -->
+        <!-- <script>
+        // 案例：将数组 [2, 0, 6, 11, 77, 0, 52, 0, 25, 7] 中大于等于10的元素选出来，放入新数组。
+        // 1、声明一个新的数组用来存放新数据 newArr。
+        // 2、遍历原来的旧数组，使用 if 判断大于等于 10 的元素
+        // 3、依次存放到新数组中。
+        var arr = [2, 0, 6, 11, 77, 0, 52, 0, 25, 7];
+        // 定义一个变量 用来计算 新数组的索引号
+        var newArr = [];        
+        var j = 0;              
+        for (var i = 0; i < arr.length; i++) {
+        		//如果数组arr中的元素大于等于10时，就存放到新的数组中去，否则就不执行 if 中的语句。 2>=10 不成立，0>=10 不成立 6，1都不成立，11>=10 ,成立,依次类推，77，25都成立。
+            if (arr[i] >= 10) {     
+             		// 给新数组，newArr[0] = 11,第一个数组为11，  newArr[1] = 77, newArr[2] = 25         
+                newArr[j] = arr[i]; 
+                // 索引号 不断自加
+                j++;      
+            }
+        }
+        console.log(newArr);    // 11,77,52,25
+    </script> -->
+    <!-- <script>
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 因为新数组为空，所以，数组的长度为0
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                // 给新数组,索引号应该从0开始，依次递增，newArr.length 的值是 0;
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);
+    </script> -->
+    <!-- <script>
+        // 案例1：删除指定数组元素（数组去重），将数组[2, 0, 6, 1, 77, 0, 52, 0, 25, 7]中的 0 去掉后，形成一个不包含 0 的新数组。
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 创建空的新数组，用来储存不包含0的新数组
+        var newArr = [];
+        // 遍历数组
+        for( var i = 0;i < arr.length; i++){    
+            // 如果 arr 的数组元素 不等于 0 ，第一次循环，2 不等于 0 ，成立，第二次循环 0 = 0 ，不执行if中的执行语句。依次类推。
+            if(arr[i] != 0){        
+                // newArr[0] = 2 ，
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);    //for循环第一次循环，遍历出了，2,依次类推，将不包含0的元素排除掉即可。
+    </script>   -->
+    <!-- <script>
+        // 案例：将数组 [2, 0, 6, 11, 77, 0, 52, 0, 25, 7] 中大于等于10的元素选出来，放入新数组。
+        // 1、声明一个新的数组用来存放新数据 newArr。
+        // 2、遍历原来的旧数组，使用 if 判断大于等于 10 的元素
+        // 3、依次存放到新数组中。
+        var arr = [2, 0, 6, 11, 77, 0, 52, 0, 25, 7];
+        // 定义一个变量 用来计算 新数组的索引号
+        var newArr = [];        
+        var j = 0;       
+        for (var i = 0; i < arr.length; i++) {
+        		//如果数组arr中的元素大于等于10时，就存放到新的数组中去，否则就不执行 if 中的语句。 2>=10 不成立，0>=10 不成立 6，1都不成立，11>=10 ,成立,依次类推，77，25都成立。
+            if (arr[i] >= 10) {     
+             		// 给新数组，newArr[0] = 11,第一个数组为11，  newArr[1] = 77, newArr[2] = 25         
+                newArr[j] = arr[i];  
+                // 索引号 不断自加
+                j++;        
+            }
+        }
+        console.log(newArr);    // 11,77,52,25
+    </script> -->
+    <!-- <script>
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 因为新数组为空，所以，数组的长度为0
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                // 给新数组,索引号应该从0开始，依次递增，newArr.length 的值是 0;
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);
+    </script> -->
+    <script>
+        // 案例1：删除指定数组元素（数组去重），将数组[2, 0, 6, 1, 77, 0, 52, 0, 25, 7]中的 0 去掉后，形成一个不包含 0 的新数组。
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 创建空的新数组，用来储存不包含0的新数组
+        var newArr = [];
+        // 遍历数组
+        for( var i = 0;i < arr.length; i++){    
+            // 如果 arr 的数组元素 不等于 0 ，第一次循环，2 不等于 0 ，成立，第二次循环 0 = 0 ，不执行if中的执行语句。依次类推。
+            if(arr[i] != 0){        
+                // newArr[0] = 2 ，
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);    //for循环第一次循环，遍历出了，2,依次类推，将不包含0的元素排除掉即可。
+    </script>  
 </body>
 </html>

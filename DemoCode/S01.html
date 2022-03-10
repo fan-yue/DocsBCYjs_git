@@ -836,5 +836,166 @@
         }
         console.log(fun());     //undefined
     </script> -->
+    <!-- <script>
+        function maxValue() {
+        var max = arguments[0];
+        for (var i = 0; i < arguments.length; i++) {
+            if (max < arguments[i]) {
+                max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(maxValue(2, 4, 5, 9)); // 9
+        console.log(maxValue(12, 4, 9)); // 12
+    </script> -->
+    <!-- <script>
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = reverse([1, 3, 4, 6, 9]);
+        console.log(arr1);
+    </script> -->
+    <!-- <script>
+        function sort(arr) {
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j+1]) { 
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1]; 
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        var re = sort([5,7,3,8,1]);
+        console.log(re);
+    </script> -->
+    <!-- <script>
+        // arguments的使用，只有函数才有arguments对象，而且每个函数都内置好了这个arguments；
+        // 函数声明
+        function fn() {
+            console.log(arguments);  //里面存储了所有传递过来的实参
+            console.log(arguments); // 3
+            console.log(arguments[2]); // 3
+        }
+        // 函数调用
+        fn(1,2,3);
+    </script> -->
+    <!-- <script>
+        // 可以按照数组的方式遍历arguments,来获取实际参数的个数
+        function fn() {
+            for(var i = 0;i < arguments.length;i++){
+                console.log(arguments[i]);
+            }
+        }
+        fn(10,11);
+        fn(1,2,3,4,5,6,7,8);
+    </script> -->
+    <!-- <script>
+        // 使用arguments,来用函数求任意个数的最大值。
+        function getmax(){
+            var max = arguments[0];
+            for(var i = 1;i<arguments.length; i++){
+                if(arguments[i] > max){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var re = getmax(1,4,23,23,5,3,43);
+        var re1 = getmax(100,123,1231231123,123123);
+        console.log(re,re1);
+    </script> -->
+    <!-- <script>
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = reverse([1, 3, 4, 6, 9]);
+        console.log(arr1);
+        var arr2 = reverse(['qwe','asd','zxv']);
+        console.log(arr2);
+    </script> -->
+    <!-- <script>
+        // 利用函数判断是否为闰年，闰年特性，能被4整除并且不能被100整数，或者能被400整除
+        function getYear(year){
+            // 如果是闰年我们返回 true ，否则返回 false
+            var flag = false;
+            if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                flag = true;
+            }
+            return flag;
+        }
+        var re = getYear(2000); //true
+        console.log(re);
+        var re2 = getYear(1999);    //false
+    </script> -->
+    <!-- <script>
+        //函数是可以相互调用的
+        function fn1(){
+            console.log(11);
+            fn2();    
+        }
+
+        function fn2(){
+            console.log(22);
+        }
+        fn1();
+    </script> -->
+    <!-- <script>
+        function fn1(){
+            console.log(111);
+            fn2();
+            console.log('fn1');
+        }
+        function fn2(){
+            console.log(222);
+            console.log('fn2');
+        }
+        fn1();
+    </script> -->
+    <!-- <script>
+        function monthDay(){
+            var year = prompt('请输入年份');
+            if(getYear(year)){
+                alert('是闰年，2月有29天');
+            }else{
+                alert('是平年，2月有28天');
+            }
+        }
+        monthDay();
+
+         // 利用函数判断是否为闰年，闰年特性，能被4整除并且不能被100整数，或者能被400整除
+         function getYear(year){
+            // 如果是闰年我们返回 true ，否则返回 false
+            var flag = false;
+            if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                flag = true;
+            }
+            return flag;
+        }
+    </script> -->
+    <!-- <script>
+        // 自定义函数（命名函数）
+        function 自定义函数名(){
+
+        }
+    </script> -->
+    <script>
+        var fn = function(a){
+            console.log('哈哈哈哈');
+            console.log(a);
+        }
+        fn('真好玩');
+    </script>
 </body>
 </html>

@@ -990,12 +990,82 @@
 
         }
     </script> -->
-    <script>
+    <!-- <script>
         var fn = function(a){
             console.log('哈哈哈哈');
             console.log(a);
         }
         fn('真好玩');
-    </script>
+    </script> -->
+    <!-- <script>
+        var num = 10;
+        var num = 11;   //全局作用域
+        function fn() {
+            var num = 20;   //局部作用域（函数作用域），只在函数内部起效果。
+            console.log(num);
+        }
+        fn();
+        console.log(num);
+    </script> -->
+    <!-- <script>
+        var num = 1;
+        function fn() {
+            console.log(num);
+        }
+        fn();
+    </script> -->
+    <!-- <script>
+        function fn() {
+            var num = 1;
+            num2 = 2;
+        }
+        fn();
+        // console.log(num);   //报错,已声明的局部变量不可以在外部调用。
+        console.log(num2);  //2;如果在函数内部，没有声明，直接赋值的变量也属于全局变量。
+    </script> -->
+    <!-- <script>
+        // 作用域链: 内部函数访问外部函数的变量，采取的是链式查找的方式来决定取哪个值，这种结构我们称为作用域链表
+        var num = 10;
+        function fn() { //外部函数
+            var num = 20;
+            
+            function fun() { //内部函数
+                console.log(num);  // 20 ,一级一级访问
+            }
+            fun();
+        }
+        fn();   
+    </script> -->
+    <!-- <script>
+        // 案例：根据作用域链，判断以下代码的结果是几？
+        function fn1() {
+            var num = 123;
+            function fn2() {
+                var num = 0;
+                console.log(num);   //0
+            }
+            fn2();
+        }
+        var num = 4567;
+        fn1();
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        function fn1() {
+            var a = 2;
+            var b = '22';
+            fn2();
+            function fn2() {
+                var a = 3;
+                fn3();
+                function fn3() {
+                    var a = 4;
+                    console.log(a);     //求a的值？
+                    console.log(b);     //求b的值？
+                }               
+            }
+        }
+        fn1();
+    </script> -->
 </body>
 </html>

@@ -1067,5 +1067,115 @@
         }
         fn1();
     </script> -->
+
+    <!-- <script>
+        console.log(a);     //输出？
+    </script> -->
+    
+    <!-- <script>
+        // 变量提升，把所有变量声明到当前作用域的最前面，但是不提升赋值操作。
+        console.log(num);   //输出？
+        var num = 1;
+        
+        // 以上代码相当于执行了以下代码
+        var a;
+        console.log(a);
+        a = 10;
+
+    </script> -->
+
+    <!-- <script>
+        fn1();          //输出？
+        function fn1(){
+            console.log(111);       
+        }
+    </script> -->
+
+    <!-- <script>
+        fn2();         //输出？  
+        var fn2 = function(){
+            console.log(222);       
+        }
+        // fn2();
+
+        // 以上代码相当于执行如下操作
+        var fn3;    //
+        fn3();
+        fn3 = function(){
+            console.log(333);
+        }
+    </script> -->
+
+    <!-- <script>
+        var num = 60;
+        fun();
+        function fun(){
+            console.log(num);
+            var num = 20;
+        }
+    </script> -->
+
+    <!-- <script>
+        var num = 10;
+        function fn() {
+            console.log(num);
+            var num = 20;
+            console.log(num);
+        }
+        fn();
+    </script> -->
+
+    <!-- <script>
+        var num;
+        function fn(){
+            var num;
+            console.log(num);
+            num = 20;
+            console.log(num);
+        }
+        num = 10;
+        fn();
+    </script> -->
+
+    <!-- <script>
+        var a = 18;
+        fn1();
+        function fn1(){
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+    </script> -->
+    
+    <!-- <script>
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9;
+            // 相当于 var a = 9; b = 9;c = 9;  b和c的前面没有var声明,当全局变量看
+            // 集体声明 var a = 9,b = 9,c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+    </script> -->
+    
+    <script>
+        function f1() {
+            var a;
+            a = b = c = 9;
+            console.log(a);	//9
+            console.log(b);	//9
+            console.log(c);	//9
+        }
+        f1();
+        console.log(c);	//9
+        console.log(b);	//9
+        console.log(a);	//报错 a是局部变量
+
+    </script>
 </body>
 </html>

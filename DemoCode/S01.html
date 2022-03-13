@@ -1163,7 +1163,7 @@
         }
     </script> -->
     
-    <script>
+    <!-- <script>
         function f1() {
             var a;
             a = b = c = 9;
@@ -1176,6 +1176,95 @@
         console.log(b);	//9
         console.log(a);	//报错 a是局部变量
 
+    </script> -->
+
+    <script>
+        // 1、利用字面量创建对象
+        // 创建一个空的对象
+        var obj = {};  
+    </script>
+
+    <!-- <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        //对象名.属性名
+        console.log(obj.username,obj.age);
+        // 对象名['属性名']
+        console.log(obj['age']);
+        // 对象名.方法名()  ,注意，方法名后面一定要带括号
+        obj.sayHi();
+    </script> -->
+    
+    <!-- <script>
+        // 利用 new object 创建对象
+        var obj = new Object(); //创建了一个空的对象
+        obj.name = '张三丰';
+        obj.age = 18;
+        obj.sex = '男';
+        obj.sayHi = function() {
+            console.log('hi~');
+        }
+
+        //1.我们是利用等号赋值的方法添加对象
+        //2.每个属性和方法之间用分号结束
+        console.log(obj.name);
+        console.log(obj['sex']);
+        obj.sayHi();
+    </script> -->
+
+    <!-- <script>
+        //构造函数的语法格式
+        function 构造函数名() {
+            this.属性 = 值;
+            this.方法 = function() {}
+        }
+        new 构造函数名();
+    </script> -->
+
+    <!-- <script>
+        function Star(uname,age,sex) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang){
+                console.log(sang);
+            }
+        }
+        var ldh = new Star('刘德华',18,'男');
+        console.log(typeof ldh) // object对象，调用函数返回的是对象
+        console.log(ldh.name);
+        console.log(ldh['sex']);
+        ldh.sing('冰雨');
+        //把冰雨传给了sang
+
+        var zxy = new Star('张学友',19,'男');
+    </script> -->
+
+    <!-- <script>
+        for(变量 in 对象名字){
+            // 在此执行代码
+        }
+    </script> -->
+
+    <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        for(var k in obj){
+            console.log(k);         //k变量输出 属性名
+            console.log(obj[k]);    //使用 obj[k]   输出 属性值
+        }
     </script>
 </body>
 </html>

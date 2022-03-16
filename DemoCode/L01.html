@@ -525,7 +525,7 @@
         }
         myname();
     </script> -->
-    <script>
+    <!-- <script>
         function getSum() {
             var sum = 0;
             for(var i = 1;i <= 100; i++){
@@ -537,6 +537,515 @@
         getSum();
         getSum();
         getSum();
+    </script> -->
+    <!-- <script>
+        function suibian(){
+            console.log('随便写个');
+        }
+        suibian();
+    </script> -->
+
+    <!-- <script>
+        function getSum() {
+            var sum = 0;
+            for(var i = 1;i <= 100; i++){
+                sum = sum + i;
+                // sum += i;
+            }
+            console.log(sum);
+        }
+        getSum();
+        getSum();
+    </script> -->
+    
+    <!-- <script>
+        function look(aru,aru2) {       //形参是接受实参的，aru = '内容',形参类似于一个变量
+            console.log(aru,aru2);
+        }
+        look('这就是实参，aru这个就是形参，形参和实参都是可以自定义的。','呐，这是第二个实参');
+        look('实参是可以变的，你看我现在就输出的是另外的内容。','呐,呐，呐。');
+    </script> -->
+
+    <!-- <script>
+        function getSum(start,end){1
+            var sum = 0;
+            for(var a = start;a <= end; a++){
+                sum += a;
+            }
+            console.log(sum);
+        }
+        getSum(1,3);
+        getSum(10,50);
+    </script> -->
+
+    <!-- <script>
+        function sum(num1, num2) {
+            console.log(num1 + num2);
+            // console.log(num1,num2);
+        }
+        sum(100, 200);             // 300，形参和实参个数相等，输出正确结果
+
+        sum(100, 400, 500, 700);   // 500，实参个数多于形参，只取到形参的个数
+
+        sum(200);                  // 实参个数少于形参，多的形参定义为undefined，结果为NaN
+    </script> -->
+
+    <!-- <script>
+        function fun(a,b) {
+            if(a>b){
+                return a;
+            }else{
+                return b;
+            }
+        }
+        console.log(fun(1,2));
+    </script> -->
+
+    <!-- <script>
+        // 利用函数求数组[5,2,99,101,67,77] 中的最大数值
+        function getArrMax(arr) {    //形参，接受一个数组
+            var max = arr[0];
+            for(var i = 1;i <=arr.length; i++){
+                if(arr[i] > max){
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        // console.log(getArrMax([5,2,99,101,67,77]));     //实参，传一个数组过去
+        var re = getArrMax([4,34,123,4,123,123]);
+        // var re = getArrMax([5,2,99,101,67,77]);         //通过变量的方式将 调用函数，保存起来
+        // console.log(re);    //输出变量
+        console.log(re);
+    </script> -->
+
+    <!-- <script>
+        var a=0;
+        for(var i = 1;i <= 100;i++){
+            a = a + i
+        }
+        console.log(a);
+    </script> -->
+
+    <!-- <script>   
+        function fun(a,b) {
+            if(a>b){
+                return a;
+            }else{
+                return b;
+            }
+            
+        }
+        console.log(fun(7,2));
+
+    </script> -->
+
+    <!-- <script>
+        var arr=[1,2,123123,123];
+        var max = arr[0];
+        for(var i = 0 ;i < arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i]
+            }
+            console.log(max);
+        }
+    </script> -->
+
+    <!-- <script>
+      function getmax(){
+            var max = arg[0];
+            for(var i = 1;i<arg.length; i++){
+                if(arg[i] > max){
+                    max = arg[i];
+                }
+            }
+            return max;
+        }
+        var re = getmax(1,4,23,23,43);
+        console.log(re);
+    </script> -->
+
+    <!-- <script>
+        var a=10;
+        var b=5  ;
+        console.log(a+b);  
+    </script> -->
+
+
+    <!-- <script>
+        var a = (['12','234','435']);
+        console.log(a[2]); 
+    </script> -->
+
+    <!-- <script>
+        function add(a,b) {
+            return a+b;
+            alert('hhhh');
+        }
+        console.log(add(1,2));
+    </script> -->
+
+    <!-- <script>
+        function demo(a,b) {
+            return [a,b,3,123,'尹子豪'];
+        }
+        var ok = demo(1,2);
+        console.log(ok);
+    </script> -->
+    
+    <!-- <script>
+        function demo() {
+            console.log(arguments);
+            console.log(arguments[3]);
+        }
+        demo(1,2,3,4);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,23,212,123];
+        for(var i = 0;i<arr.length;i++){
+            console.log(arr[i]);
+        }
+    </script> -->
+
+    <!-- <script>
+        function demo() {
+            for(var i = 0;i<arguments.length;i++){
+                console.log(arguments[i]);
+            }
+        }
+        demo(1,2,23,212,123);
+        demo(0,12,3,4444,4444);
+    </script> -->
+
+    <!-- <script>
+        var arr = [900,100,1000,1100];
+
+    </script>
+
+    <script>
+        function demo() {  
+            var max = arguments[0];          //默认数组中的第一个元素为当前最大值。
+            for(var i = 0; i < arguments.length; i++ ){   //遍历数组元素
+                if(arguments[i] > max){       //当循环第一个数组元素时，如果数组元素大于默认的第一个值时，就通过变量更新，使 max 的值为6。通过 for 循环，依次进行判断。
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var re = demo(900,100,1000,1100);
+        var re1 = demo(1000,10000,100000);
+        console.log(re1);
+    </script> -->
+    
+    <!-- <script>
+        var arr = ['hhh','kkk','pppp'];
+        var arr = ['pppp','kkkk','hhhh'];
+    </script> -->
+
+    <!-- <script>
+        function demo(arr) {
+            var newArr = [];
+            for(var i = arr.length - 1; i>=0;i--){
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var op = demo([1,3,4,5,2]);
+        console.log(op);
+    </script> -->
+
+    <!-- <script>
+        // 闰年：能被4整除并且不能被100整除，或者能被400整除）
+        function getYear(year) {
+            var flag = false;
+            if(year % 4 == 0 && year % 100 !=0 || year % 400 == 0){
+                flag = true;
+            }
+            return flag;
+        }
+        var re = getYear(1990);
+        console.log(re);
+    </script> -->
+
+    <!-- <script>
+        function a(){
+            return ;
+        }
+        var aa=a(6);
+        console.log(aa);
+    </script> -->
+
+    <!-- <script>
+        function a(){
+            var b=0;
+            for(var a=1;a<100;a++){
+                b+=a;
+            }
+            return a;
+        }
+        document.write(a());
+    </script> -->
+
+    <!-- <script>
+        var num = 10;
+        var num = 11;   //全局作用域
+        function fn() {
+            var num = 20;   //局部作用域（函数作用域），只在函数内部起效果。
+            var a = 100;
+            console.log(num);
+        }
+        fn();
+        console.log(num);
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        function fn1(){
+            console.log(111);
+            fn2();
+            console.log('fn1');
+        }
+        function fn2(){
+            console.log(222);
+            console.log('fn2');
+        }
+        fn1();
+    </script> -->
+
+    <!-- <script>
+        function demo() {
+            console.log(666);
+        }
+        demo();
+    </script> -->
+
+    <!-- <script>
+        var fn = function(a){
+            console.log('哈哈哈哈');
+            console.log(a);
+        }
+        fn('真好玩');
+    </script> -->
+
+    <!-- <script>
+        function demo() {
+            var a = 1;
+            b = 2;
+            console.log(a);
+        }
+        demo();
+        console.log(b);
+
+    </script> -->
+    
+    <!-- <script>
+        // 作用域链: 内部函数访问外部函数的变量，采取的是链式查找的方式来决定取哪个值，这种结构我们称为作用域链表
+        var num = 10;
+        function fn() { //外部函数
+            var num = 20;
+            
+            function fun() { //内部函数
+                console.log(num);  // 20 ,一级一级访问
+            }
+            fun();
+        }
+        fn();   
+    </script> -->
+
+    <!-- <script>
+        var a = 1;
+        function demo() {
+            var b = 2;
+            c = 3;
+        }
+    </script> -->
+
+    <!-- <script>
+        var a = 1;
+        function fn1() {
+            var a = 2;
+            var b = '22';
+            fn2();
+            function fn2() {
+                var a = 3;
+                fn3();
+                function fn3() {
+                    var a = 4;
+                    console.log(a);     //求a的值？
+                    console.log(b);     //求b的值？
+                }               
+            }
+        }
+        fn1();
+    </script> -->
+
+    <!-- <script>
+        console.log(a);     //输出？
+    </script> -->
+    
+    <!-- <script>
+        console.log(num);   //输出？
+        var num = 1;
+    </script> -->
+
+    <!-- <script>
+        var fn1 = function(){
+            console.log(111);       
+        }
+        fn1();          //输出,111
+    </script> -->
+
+    <!-- <script>
+        fn2();         //报错。  
+        var fn2 = function(){
+            console.log(222);       
+        }
+        // fn2();
+    </script> -->
+
+    <!-- <script>
+        // 变量提升，把所有变量声明到当前作用域的最前面，但是不提升赋值操作。
+        console.log(num);   //输出？
+        var num = 1;
+        
+        // 以上代码相当于执行了以下代码
+        var a;
+        console.log(a);
+        a = 10;
+    </script> -->
+
+    <!-- <script>
+        // fn2();
+        // var fn2 = function demo() {
+        //     console.log(222);
+        // }
+        
+        
+        var fn3 = function() {
+            console.log(333);
+        }
+        fn3();
+    </script> -->
+
+    <!-- <script>
+        fn1();          //输出？
+        function fn1(){
+            console.log(111);       
+        }
+    </script> -->
+    
+    <!-- <script>
+        var num = 60;
+        fun();
+        function fun(){
+            console.log(num);   //
+            var num = 20;
+        }
+
+        function fun(){
+            var num;
+            console.log(num);
+            num = 20;
+        }
+    </script> -->
+
+    <!-- <script>
+        var num = 10;
+        function fn() {
+            console.log(num);   //
+            var num = 20;
+            console.log(num);   //
+        }
+        fn();
+
+        function fn() {
+            var num;
+            console.log(num);   //un
+            num = 20;
+            console.log(num);   //20
+        }
+    </script> -->
+
+    <!-- <script>
+        var a = 18;
+        fn1();
+        function fn1(){
+            var b = 9;
+            console.log(a);     //un
+            console.log(b);     //9
+            var a = '123';
+        }
+
+        function demo() {
+            var a;
+            var b = 9;
+            console.log(a);     //un
+            console.log(b);     //9
+        }
+    </script> -->
+
+    <!-- <script>
+        f1();
+        console.log(c);     //9
+        console.log(b);     //9
+        console.log(a);     //报错
+        function f1() {
+            var a = b = c = 9;
+            // 相当于 var a = 9; b = 9;c = 9;  b和c的前面没有var声明,当全局变量看
+            // 集体声明 var a = 9,b = 9,c = 9;
+            console.log(a);     //9
+            console.log(b);     //9
+            console.log(c);     //9
+        }
+
+
+    </script> -->
+
+    <!-- <script>
+        var a = [1,2,3,4,5];
+        for(var b = 0;b <a.length;b++){
+            console.log(a[b]);
+        }
+    </script> -->
+
+    <!-- <script>
+        var a = '黎家良';
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        var arr=[1,3,6,78,9956,123123];
+        for(i=1;i<=arr.length-1;i++){
+            var b=0
+            if(arr[b]>arr[i]){
+                arr[i]=arr[b]
+            }
+            document.write(arr[0])
+        }
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,23,3,4,5];
+        console.log(arr.length);
+    </script> -->
+
+    <script>
+
+        var YangJingBo = {
+            username : '杨静波',
+            age : 17,
+            sex : '男性',
+            sayHi : function(){
+                console.log('哈哈哈');
+            }
+        }
+        //对象名.属性名
+        console.log(YangJingBo.username,YangJingBo.age);
+        // 对象名['属性名']
+        console.log(YangJingBo['username'],YangJingBo['age']);
+        // 对象名.方法名()
+        YangJingBo.sayHi();
     </script>
 </body>
 </html>

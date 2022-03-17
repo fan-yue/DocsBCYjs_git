@@ -324,5 +324,172 @@
             console.log(c);         //9
         }
     </script> -->
+
+    <!-- <script>
+        // var obj = {};   //利用字面量创建了空对象
+        var obj = {
+            user : '张三',
+            age : 18,
+            sex :'男',
+            sayHi : function(){
+                console.log("hahhah");
+            }
+        }
+        // console.log(obj.user);
+        // obj.sayHi();
+        console.log(obj['user']);
+    </script> -->
+
+<!--     <script>
+        // 利用 new object 创建对象
+        var obj = new Object(); //创建了一个空的对象
+        obj.name = '张三丰';
+        obj.age = 18;
+        obj.sex = '男';
+        obj.sayHi = function() {
+            console.log('hi~');
+        }
+
+        //1.利用等号赋值的方法添加对象
+        //2.每个属性和方法之间用分号结束
+        console.log(obj.name);
+        console.log(obj['sex']);
+        obj.sayHi();
+    </script> -->
+
+    <!-- <script>
+        //利用new Object(),创建一个对象
+        var obj = new Object(); //创建了一个空对象
+        obj.name = '张三';
+        obj.age = 18;
+        obj.sex = '男';
+        obj.sayHi = function(){
+            console.log('你好');
+        }
+        console.log(obj.name);
+        obj.sayHi();
+    </script> -->
+    
+    <!-- <script>
+        //构造函数的语法格式
+        function 构造函数名() {
+            this.属性 = 值;
+            this.方法 = function() {}
+        }
+        new 构造函数名();
+    </script> -->
+
+    <!-- <script>
+        function Sayhi(name,age,sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.cook = function(song){
+                console.log(song);
+            }
+        }
+        var a = new Sayhi('张三',18,'男性');
+        var b = new Sayhi('李四',19,'女性');
+        console.log(a.name);  
+        a.cook('哈哈哈');
+        console.log(b.name);
+    </script> -->
+
+    <!-- <script>
+        for(变量 in 对象名字){
+            // 在此执行代码
+        }
+    </script> -->
+
+    <!-- <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        for(var k in obj){
+            // console.log(k);         //k变量输出 属性名
+            console.log(obj[k]);    //使用 obj[k]   输出 属性值
+        }
+    </script> -->
+
+    <!-- <script>
+        console.log(Math.PI);
+        console.log(Math.max(1, 3, 2));
+
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        var a = getMaxOfArray(1,3,23,50,90);
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        var a = getMaxOfArray([1,0,23,123,1231234,5454545]);
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        var myMath = {
+            PI: 3.141592653,
+            max: function() {
+                var max = arguments[0];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            min: function() {
+                        var min = arguments[0];
+                        for (var i = 1; i < arguments.length; i++) {
+                            if (arguments[i] < min) {
+                                min = arguments[i];
+                            }
+                        }
+                        return min;
+                    }
+        }
+        console.log(myMath.PI);
+        console.log(myMath.max(1, 5, 9));
+        console.log(myMath.min(1, 5, 9));
+    </script> -->
+
+    <script>
+        var ok = {
+            PI:3.141592653,
+            max:function(){
+                return "哈哈哈";
+                // var max = arguments[0];
+                // for (var i = 1; i < arguments.length; i++) {
+                //     if (arguments[i] > max) {
+                //         max = arguments[i];
+                //     }
+                // }
+                // return max;
+            },
+            min:function(){
+                return "min是求最小值的";
+                // var min = arguments[0];
+                // for (var i = 1; i < arguments.length; i++) {
+                //     if (arguments[i] < min) {
+                //         min = arguments[i];
+                //     }
+                // }
+                // return min;
+            }
+        };
+        ok.PI;
+        console.log(ok.PI);
+        console.log(ok.max(1,5,9));
+        console.log(ok.min(1,23,0));
+    </script>
 </body>
 </html>

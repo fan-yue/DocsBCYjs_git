@@ -1030,7 +1030,7 @@
         console.log(arr.length);
     </script> -->
 
-    <script>
+    <!-- <script>
 
         var YangJingBo = {
             username : '杨静波',
@@ -1046,6 +1046,237 @@
         console.log(YangJingBo['username'],YangJingBo['age']);
         // 对象名.方法名()
         YangJingBo.sayHi();
+    </script> -->
+
+    <!-- <script>
+        var a = 1;
+        function demo() {
+            var b = 2;
+            c = 3;
+        }
+    </script> -->
+
+    <!-- <script>
+        // 案例：根据作用域链，判断以下代码的结果是几？
+        function fn1() {
+            var num = 123;
+            function fn2() {
+                var num = 0;
+                console.log(num);   //0
+            }
+            fn2();
+        }
+        var num = 4567;
+        fn1();
+    </script> -->
+
+    <!-- <script>
+        var a = 1;
+        function fn1() {
+            var a = 2;
+            var b = '22';
+            fn2();
+            function fn2() {
+                var a = 3;
+                fn3();
+                function fn3() {
+                    var a = 4;
+                    console.log(a);     //求a的值？
+                    console.log(b);     //求b的值？
+                }               
+            }
+        }
+        fn1();
+    </script> -->
+    
+    <!-- <script>
+        var num = 60;
+        fun();
+        function fun(){
+            console.log(num);   //
+            var num = 20;
+        }
+    </script> -->
+
+    <!-- <script>
+        var num = 10;
+        function fn() {
+            console.log(num);   //un
+            var num = 20;
+            console.log(num);   //20
+        }
+        fn();
+    </script> -->
+
+    <!-- <script>
+        var a = 18;
+        fn1();
+        function fn1(){
+            var b = 9;
+            console.log(a);     //un
+            console.log(b);     //9
+            var a = '123';
+        }
+    </script> -->
+
+    <!-- <script>
+        f1();
+        console.log(c); //9
+        console.log(b); //9
+        console.log(a); //报错
+        function f1() {
+            var a = b = c = 9;
+            // 相当于 var a = 9; b = 9;c = 9;  b和c的前面没有var声明,当全局变量看
+            // 集体声明 var a = 9,b = 9,c = 9;
+            console.log(a);     //9
+            console.log(b);     //9
+            console.log(c);     //9
+        }
+    </script> -->
+
+    <!-- <script>
+        var ob={
+            username:'夏冰雹',
+            age:18,
+            sex:"女",
+            sayhi:function(){
+                console.log('夏冰雹');
+            }
+        }
+        
+
+    </script> -->
+
+    <!-- <script>
+        var obj = new Object();     //创建了一个空对象
+        obj.name = '张三';
+        obj.age = 20;
+        obj.sex = '男';
+        obj.sayHi = function(){
+            console.log("hhh");
+        }
+        console.log(obj.name,obj.age,obj.sex);
+        obj.sayHi();
+    </script> -->
+
+    <!-- <script>
+        //构造函数的语法格式
+        function 构造函数名() {
+            this.属性名 = 值;
+            this.方法 = function() {}
+        }
+        new 构造函数名();
+    </script> -->
+
+    <!-- <script>
+        function Sum(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        var zs = new Sum('张三',18,'男');
+        console.log(zs.name,zs.age,zs.sex);
+    </script> -->
+
+    <!-- <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        // for(变量 in 对象名字){
+        //     // 在此执行代码
+        // }
+
+        for(var a in obj){
+            // console.log(k);
+            console.log(obj[a]);
+        }
+    </script> -->
+
+    <!-- <script>
+        var obj={
+            a:'薛',
+            b:31,
+            c:'女',
+            sayHi:function{
+                console.log('xxx');
+            }
+        }
+        for(var a in obj){
+            console.log(obj[a]);
+        }
+    </script> -->
+
+    <!-- <script>
+        var a=0;
+        for(var i=1;i<=100;i++){
+            a+=i;
+        }
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        console.log(Math.max());
+        console.log(Math.PI);
+
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        var a = getMaxOfArray([1,23,4,5,6,7,8,9]);
+        console.log(a);
+    </script> -->
+
+    <script>
+        var obj = {
+            PI: 3.141592653,
+            max:function(){
+                var max = arguments[0];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            min:function(){
+                var min = arguments[0];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] < min) {
+                        min = arguments[i];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(obj.PI);
+        var a = obj.max(1, 5, 9);
+        var b = obj.min(1, 5, 9);
+        console.log(a,b);
+
+
+
+        // var myMath = {
+        //     PI: 3.141592653,
+        //     max: function() {
+                
+        //     },
+        //     min: function() {
+        //                 var min = arguments[0];
+        //                 for (var i = 1; i < arguments.length; i++) {
+        //                     if (arguments[i] < min) {
+        //                         min = arguments[i];
+        //                     }
+        //                 }
+        //                 return min;
+        //             }
+        // }
+        // console.log(myMath.PI);
+        // console.log(myMath.max(1, 5, 9));
+        // console.log(myMath.min(1, 5, 9));
     </script>
 </body>
 </html>

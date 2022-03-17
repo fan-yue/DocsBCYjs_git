@@ -1598,10 +1598,251 @@
         console.log(newArr);
     </script> -->
     
-    <script>
+    <!-- <script>
         // 数组排序
         // 1、翻转数组
-        var arr = ['red','blue','green'];
+/*         var arr = ['red','blue','green'];
+        arr.reverse();
+        console.log(arr);   // ['green', 'blue', 'red']
+
+        // 2、数组排序(冒泡排序)
+        var arr1 = [3,4,1,2,9];
+        arr1.sort();
+        console.log(arr1);  //[1, 2, 3, 4, 9] */
+
+        var arr2 = [2,31,23,41,9,0];
+        arr2.sort(function(a,b){
+            return a - b; //升序的顺序排列
+            return b - a; //降序的排列
+        });
+        console.log(arr2);
+    </script> -->
+
+    <!-- <script>
+        //返回数组元素索引号方法 indexOf(数组元素)  作用就是返回该数组元素的索引号,只返回第一个满足条件的索引号，从前面开始查找
+        //它只发返回第一个满足条件的索引号
+        //如果找不到元素，则返回-1
+        var arr = ['red','green','blue','pink','blue'];
+        console.log(arr.indexOf('blue'));  // 2
+        // 返回数组元素索引号方法 lastIndexOf(数组元素)  作用就是返回该数组元素的索引号,只返回第一个满足条件的索引号，从后面开始查找
+        console.log(arr.lastIndexOf('blue')); // 4
+    </script> -->
+
+    <!-- <script>
+        // 封装一个去重的函数 unique 独一无二的
+        function unique(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        var demo = unique(['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']);
+        var demo1 = unique(['blue','green','blue']);
+        console.log(demo);
+        console.log(demo1);
+    </script> -->
+
+    <!-- <script>
+        // 数组转换为字符串
+        // 1、toString() 将数组转换为字符串
+        var arr = [1,2,3];
+        console.log(arr.toString());
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,3];
+        console.log(arr.join());    //括号里面不写值，默认使用逗号分割
+        console.log(arr.join('.')); //写值后，可以自定义分割符号
+        console.log(arr.join('&')); 
+    </script> -->
+
+    <!-- <script>
+        var str = 'abc';
+        console.log(str.length);
+        // 对象 才有属性和方法   复杂数据类型才有  属性和方法
+        // 简单数据类型为什么会有 length 属性呢？
+        // js中的基本包装类型: 会把简单数据类型  包装成为了  复杂数据类型
+        // 1、把简单数据类型包装为复杂数据类型
+        var temp = new String('abc');   //使用 new String 创建的字符串为  复杂数据类型
+        // 2、通过临时变量的值 给 str
+        str = temp;
+        // 3、销毁这个临时变量
+        temp = null;
+    </script> -->
+
+    <!-- <script>
+        // 字符串的不可变性
+        var str = 'demo';
+        console.log(str);
+        str = 'new demo';
+        console.log(str);       //当字符串重新赋值后，会占用一块内存资源，当赋值的字符串过多后，内存占用过大，会造成电脑卡顿。
+        // 所以根据字符串的不可变性，不建议大量拼接字符串
+        var str = '';
+        for(var i = 1;i <= 1000000; i++){
+            str += i;
+        }
+        console.log(str);
+    </script> -->
+
+    <!-- <script>
+        // 字符串对象  根据字符返回位置  str.indexOf('要查找的字符', [起始的位置])
+        var str = '改革春风吹满地，春天来了';
+        console.log(str.indexOf('春')); //默认从0开始查找 ，结果为2
+        console.log(str.indexOf('春', 3)); // 从索引号是 3的位置开始往后查找，结果是8
+    </script> -->
+
+    <!-- <script>
+        // 查找字符串 “abcoefoxyozzopp” 中所有o出现的位置以及次数
+        // 核心算法：先查找第一个o出现的位置
+        // 然后 只要 indexOf返回的结果不是 -1 就继续往后查找
+        // 因为 indexOf 只能查找到第一个，所以后面的查找，一定是当前索引加1，从而继续查找
+        var str = "abcoefoxyozzopp";
+        var index = str.indexOf('o');   //3
+        var num = 0;
+        // console.log(index);
+        while (index !== -1) {
+            console.log(index);
+            num++;
+            index = str.indexOf('o', index + 1);
+        }
+        console.log('o出现的次数是: ' + num);
+    </script> -->
+
+    <!-- <script>
+        var arr = 'andy';
+        console.log(arr.charAt(3)); //y
+        // 遍历所有字符
+        for(var i = 0;i < arr.length;i++){
+            console.log(arr .charAt(i));
+        }
+    </script> -->
+
+    <!-- <script>
+        // charCodeAt(index)       获取指定位置处字符的ASCII码(index索引号)  目的：判断用户按下了那个键位
+        var str = 'andy';
+        console.log(str.charCodeAt(0));
+    </script> -->
+
+    <!-- <script>
+        var arr = 'andy';
+        console.log(arr[0]);
+    </script> -->
+
+    <!-- <script>
+        // 判断一个字符串 “abcoefoxyozzopp” 中出现次数最多的字符，并统计其次数
+        // 核心算法：利用 charAt() 遍历这个字符串
+        // 把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1
+        // 遍历对象，得到最大值和该字符
+        // 有一个对象 来判断是否有该属性 对象['属性名']
+        var o = {
+            age: 18
+        }
+        if (o['sex']) {
+            console.log('里面有该属性');
+
+        } else {
+            console.log('没有该属性');
+
+        }
+
+        //  判断一个字符串 'abcoefoxyozzopp' 中出现次数最多的字符，并统计其次数。
+        // o.a = 1
+        // o.b = 1
+        // o.c = 1
+        // o.o = 4
+        // 核心算法：利用 charAt() 遍历这个字符串
+        // 把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1
+        // 遍历对象，得到最大值和该字符
+        var str = 'abcoefoxyozzopp';
+        var o = {};
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i); // chars 是 字符串的每一个字符
+            if (o[chars]) { // o[chars] 得到的是属性值
+                o[chars]++;
+            } else {
+                o[chars] = 1;
+            }
+        }
+        console.log(o);
+        // 2. 遍历对象
+        var max = 0;
+        var ch = '';
+        for (var k in o) {
+            // k 得到是 属性名
+            // o[k] 得到的是属性值
+            if (o[k] > max) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('最多的字符是' + ch);
+    </script> -->
+
+    <!-- <script>
+        var arr = 'string';
+        console.log(arr.concat('red'));         //stringred
+    </script> -->
+
+    <!-- <script>
+        // substr('截取的起始位置','截取几个字符')
+        var str = '改革春风吹满地';
+        console.log(str.substr(2,2));   //春风 ,第一个2是索引号的2,从第几个开始，第二个2,是取几个字符
+    </script> -->
+
+    <!-- <script>
+        // slice('截取的起始位置','截取的截止位置，截止位置不取')		
+        // 从 start 位置开始，截取到 end 位置 ，end 取不到 (两个都是索引号)
+         var str = '改革春风吹满地';
+         console.log(str.slice(0,3));   //革春,0和3都是索引号
+    </script> -->
+
+    <!-- <script>
+        // substring('截取的起始位置','截取的截止位置，截止位置不取')		
+        // 从 start 位置开始，截取到 end 位置 ，end 取不到 (基本和 slice 相同，但是不接受负)
+        var str = '改革春风吹满地';
+        console.log(str.substring(0,2));    //改革,0和2都是索引号
+    </script> -->
+    
+    <!-- <script>
+        // 1. 替换字符 replace('被替换的字符', '替换为的字符')  它只会替换第一个字符
+        var str = 'andyandy';
+        console.log(str.replace('a', 'b'));         //bndyandy
+        // 有一个字符串 'abcoefoxyozzopp'  要求把里面所有的 o 替换为 *
+        var str1 = 'abcoefoxyozzopp';
+        while (str1.indexOf('o') !== -1) {
+            str1 = str1.replace('o', '*');
+        }
+        console.log(str1);      //abc*ef*xy*zz*pp
+    </script> -->
+
+    <!-- <script>
+        var str = 'a,b,c,d';
+        console.log(str.split(','));
+        // 返回的是一个数组 ['a', 'b', 'c', 'd']
+    </script> -->
+    
+    <!-- <script>
+        // 2. 字符转换为数组 split('分隔符')    前面我们学过 join 把数组转换为字符串
+        var str2 = 'red, pink, blue';
+        console.log(str2.split(','));       //['red', ' pink', ' blue']
+        var str3 = 'red&pink&blue';
+        console.log(str3.split('&'));       //['red', 'pink', 'blue']
+    </script> -->
+
+    <!-- <script>
+        var arr = 'ABC';
+        console.log(arr.toLowerCase(arr));  //abc
+    </script> -->
+    
+    <script>
+        // 简单数据类型 null ，返回的是一个空的对象 object
+        var timer = null;   
+        console.log(typeof timer);      //object
+        
     </script>
 </body>
 </html>

@@ -462,7 +462,7 @@
         console.log(myMath.min(1, 5, 9));
     </script> -->
 
-    <script>
+    <!-- <script>
         var ok = {
             PI:3.141592653,
             max:function(){
@@ -490,6 +490,387 @@
         console.log(ok.PI);
         console.log(ok.max(1,5,9));
         console.log(ok.min(1,23,0));
-    </script>
+    </script> -->
+
+    <!-- <script>
+        //绝对值
+        console.log(Math.abs(1));   //1
+        console.log(Math.abs(-1));  //1
+        console.log(Math.abs('-1'));    //1,隐式转换，会把字符串 -1 转换为数字型
+        console.log(Math.abs('string'));       //NaN
+
+
+    </script> -->
+
+    <!-- <script>
+        // round()，四舍五入，但是.5特殊，会往大了取。
+        console.log(Math.round(1.1));       //1
+        console.log(Math.round(1.5));       //2
+        console.log(Math.round(1.9));       //2
+        console.log(Math.round(-1.1));      //-1
+        console.log(Math.round(-1.5));      //-1
+    </script> -->
+
+    <!-- <script>
+        //向下取整
+        console.log(Math.floor(1.1));       //1
+        console.log(Math.floor(1.9));       //1
+    </script> -->
+
+    <!-- <script>
+        //向上取整
+        console.log(Math.ceil(1.1));        //2
+        console.log(Math.ceil(1.9));        //2
+    </script> -->
+
+    <!-- <script>
+        console.log(Math.random());
+        // 得到一个两数之间的随机整数
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        }
+        
+        console.log(getRandomInt(1,10));
+    </script> -->
+
+    <!-- <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        }
+        // var arr = ['张三','李四','王二麻子'];
+        // var arrR = getRandomInt(0,3);   //通过索引值，进行判定
+        // console.log(arr[arrR]);
+        // // 优化方法
+        var arr1 = ['张三','李四','王二麻子','甲','乙','丙','丁']
+        var arrR1 = getRandomInt(0,arr1.length);
+        console.log(arr1[arrR1]);
+    </script> -->
+
+    <!-- <script>
+        var now = new Date();
+        console.log(now);
+    </script> -->
+
+    <!-- <script>
+        var now = new Date();       //返回当前时间
+        var now1 = new Date('2021-3-18 8:8:8');  //有参数，返回输入日期的时间
+        var now2 = new Date('2021/3/18');
+        console.log(now);
+        console.log(now1);
+        console.log(now2);
+    </script> -->
+
+    <!-- <script>
+        var a = new Date();
+        console.log(a.getFullYear());
+        console.log(a.getMonth()+1);
+        console.log(a.getDate());
+        console.log(a.getDay());
+        console.log(a.getHours());
+        console.log(a.getMinutes());
+        console.log(a.getSeconds());
+    </script> -->
+    
+    <!-- <script>
+        var now = new Date();
+        var year = now.getFullYear();   
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        // console.log('今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒');    
+        console.log('今天是'+year+'年'+month+'月'+day+'日'+hours,minutes,seconds);    
+    </script> -->
+
+    
+    <!-- <script>
+        function getTimes() {
+            var a = new Date();
+            var h = a.getHours();
+            h = h < 10 ? '0'+h : h;
+            var m = a.getMinutes();
+            m = m < 10 ? '0'+m : m;
+            var s = a.getSeconds();
+            s = s < 10 ? '0'+s : s;
+            return h+':'+m+':'+s;
+        }
+        var times = getTimes();
+        console.log(times);
+    </script> -->
+
+    <!-- <script>
+        var time = new Date();
+        console.log(time.valueOf());
+        console.log(time.getTime());
+    </script> -->
+
+    <!-- <script>
+        var time = +new Date();
+        console.log(time);
+
+        
+        console.log(Date.now());
+    </script> -->
+
+    <!-- <script>
+        function demo(time) {
+            var nowTime = +new Date();   
+            var input = +new Date(time);
+            var times = (input - nowTime)/1000;
+            var d = parseInt(times/60/60/24);   //天数
+            d = d < 10 ? '0'+d : d;
+            var h = parseInt(times/60/60%24);   //小时数
+            h = h < 10 ? '0'+h : h;
+            var m = parseInt(times/60%60);   //分钟数
+            m = m < 10 ? '0'+m : m;
+            var s = parseInt(times%60);     //秒数
+            s = s < 10 ? '0'+s : s;
+            return d+'天'+h+'时'+m+'分'+s+'秒';
+        }
+        var a = demo('2022-3-20 18:00:00');
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        // var arr = [1,2,3,4];
+        // console.log(arr[0]);
+
+        var arr = new Array();
+        var arr1 = new Array(2);
+        console.log(arr);
+        console.log(arr1);
+        var arr2 = new Array(2,3);
+        console.log(arr2);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,3,4];
+        var obj = {};
+        console.log(arr instanceof Array);
+        console.log(obj instanceof Array);
+
+        console.log(Array.isArray(arr));
+        console.log(Array.isArray(obj));
+    </script> -->
+
+    <!-- <script>
+        function demo(arr){
+            if(arr instanceof Array){
+                var newArr = [];
+                for(var i = arr.length - 1;i >=0;i--){
+                    newArr[newArr.length] = arr[i];
+                }
+                return newArr;
+            }else{
+                return '你这输入的格式不对';
+            }
+        }
+        var de = demo([1,2,3,4,5]);
+        console.log(de);
+    </script> -->
+
+    <!-- <script>
+        // var arr = [1,2,3,4];
+        // arr.push(1,3,4,6);
+        // console.log(arr);
+        // console.log(arr.push(10));
+
+        var arr = [1,2,3,4];
+        // arr.unshift(0,'00','000','0000');s
+        // console.log(arr);
+        // arr.pop();
+        // console.log(arr);
+        arr.shift();
+        console.log(arr);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1500, 1200, 2000, 2100, 1800];
+        var newArr = [];
+        // for(var i = 0;i<arr.length;i++){
+        //     if(arr[i]<2000){
+        //         newArr[newArr.length] = arr[i];
+        //     }
+        // }
+        // console.log(newArr);
+
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i]<2000){
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr);
+    </script> -->
+
+    <!-- <script>
+        var arr = ['red','blue','green'];
+        arr.reverse();
+        console.log(arr);
+    </script> -->
+
+    <!-- <script>
+        var arr = [3,4,12,1,2,9,33333];
+        // arr.sort();
+        // console.log(arr);
+        arr.sort(function(a,b){
+            // return a-b; //升序
+            return b-a; //降序
+        })
+        console.log(arr);
+    </script> -->
+
+    <!-- <script>
+        var arr = ['red','green','blue','pink','blue'];
+        console.log(arr.indexOf('blue'));
+        console.log(arr.lastIndexOf('blue'));
+    </script> -->
+
+    <!-- <script>
+        function demo(arr) {
+            var newArr = [];
+            for(var i = 0; i < arr.length; i++){
+                if(newArr.indexOf(arr[i]) === -1){
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        var de = demo(['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']);
+        console.log(de);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,3];
+        var arr1 = [4,5,6];
+        console.log(arr.toString());
+        console.log(arr1.join('+++++'));
+    </script> -->
+
+    <!-- <script>
+        var str = 'abc';
+        console.log(str.length);
+    </script> -->
+
+    <!-- <script>
+        // var str = 'demo';
+        // console.log(str);
+        // str = 'new demo';
+
+        var str = '';
+        for(var i = 1;i<=1000000;i++){
+            str = str + i;
+        }
+        console.log(str);
+    </script> -->
+
+    <!-- <script>
+        var str = '一二三四五五四三二一';
+        console.log(str.lastIndexOf('二',2));
+    </script> -->
+
+    <!-- <script>
+        var str = "abcoefoxyozzopp";
+        var index = str.indexOf('o');   //3 
+        var num = 0;
+        while(index !== -1){
+            console.log(index);
+            num++;
+            index = str.indexOf('o',index+1);
+        }
+        console.log('o出现的次数'+num);
+    </script> -->
+
+    <!-- <script>
+        var arr = 'andy';
+        // console.log(arr.charAt(1));     //y
+        // for(var i= 0;i<arr.length;i++){
+        //     console.log(arr.charAt(i));
+        // }
+
+        // console.log(arr.charCodeAt(0)); //a
+
+        console.log(arr[0]);
+    </script> -->
+
+    <!-- <script>
+        // var o = {
+        //     age : 18
+        // }
+        // if(o['sex']){
+        //     console.log('有个年龄');
+        // }else{
+        //     console.log('没有年龄');
+        // }
+
+        var str = 'abcoefoxyozzopp';
+        var o = {};
+        for(var i = 0;i<str.length;i++){
+            var chars = str.charAt(i);
+            if(o[chars]){
+                o[chars]++;
+            }else{
+                o[chars] = 1;
+            }
+        }
+        console.log(o);
+
+        var max = 0;
+        var ch = '';
+        for(var k in o){
+            // k是属性名
+            // o[k]属性值
+            if(o[k]>max){
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('最多的字符'+ch);
+    </script> -->
+
+    <!-- <script>
+        var str = 'string';
+        console.log(str.concat('red'));
+
+        var str1 = '改革春风吹满地';
+        console.log(str1.substr(0,2));
+
+        var str2 = '改革春风吹满地';
+        console.log(str2.slice(0,3));
+
+        var str3 = '改革春风吹满地';
+        console.log(str3.substring(0,2));
+    </script> -->
+
+    <!-- <script>
+        // var str = 'hello world';
+        // console.log(str.replace('o','Q'));
+
+        var str = 'abcoefoxyozzopp';
+        while(str.indexOf('o') !== -1){
+            str = str.replace('o','Q');
+        }
+        console.log(str);
+    </script> -->
+
+    <!-- <script>
+        var str = 'a,b,c,d';
+        console.log(str.split('**'));       ///除了逗号都是一个数组
+        console.log(str.split(','));        //逗号就是一个数组
+        console.log(str.split());       //不带符号还是一个数组
+    </script> -->
+
+    <!-- <script>
+        var str = 'Abc';
+        console.log(str.toUpperCase());
+
+        var str1 = 'ABC';
+        console.log(str1.toLowerCase());
+    </script> -->
 </body>
 </html>

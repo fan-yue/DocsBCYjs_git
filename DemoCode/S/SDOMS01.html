@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="time">2022-3-20</div>
+    <script>
+        // 1.因为我们文档页面从上往下加载，所以得先有标签，所以script写在标签下面
+        // 2.get 获得 element 元素 by 通过 驼峰命名法
+        // 3.参数 id是大小写敏感的字符串
+        // 4.返回的是一个元素对象
+        var timer = document.getElementById('time');
+        console.log(timer);
+        // 5. console.dir 打印我们的元素对象，更好的查看里面的属性和方法
+        console.dir(timer);
+    </script> -->
+
+    <!-- <ul>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+    </ul>
+    <script>
+        // 1.返回的是获取过来元素对象的集合 以伪数组的形式存储
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+        // 2.依次打印,遍历
+        for (var i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+        // 3.如果页面中只有 1 个 li，返回的还是伪数组的形式
+        // 4.如果页面中没有这个元素，返回的是空伪数组
+    </script> -->
+
+    <!-- <ul>
+        <li>知否知否，应是等你好久</li>
+    </ul>
+    <script>
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+    </script> -->
+
+    <!-- <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+
+    <script>
+        // document.querySelectorAll    ，根据指定选择器返回所有元素对象
+        var a = document.querySelectorAll('.box');
+        console.log(a);
+        var b = document.querySelectorAll('#nav');
+        console.log(b);
+        var c = document.querySelectorAll('li');
+        console.log(c);
+    </script> -->
+    
+    <!-- <script>
+        // 获取body 元素
+        var bodyEle = document.body;
+        console.log(bodyEle);
+    </script>
+    <script>
+        // 获取HTML元素
+        var HtmlEle = document.documentElement;
+        console.log(HtmlEle);
+    </script> -->
+
+    <!-- <button id="btn">点击按钮</button>
+    <script>
+        // 点击一个按钮，弹出对话框
+        // 1. 事件是有三部分组成  事件源  事件类型  事件处理程序   我们也称为事件三要素
+        //(1) 事件源 事件被触发的对象   谁  按钮
+        var btn = document.getElementById('btn');
+        //(2) 事件类型  如何触发 什么事件 比如鼠标点击(onclick) 还是鼠标经过 还是键盘按下
+        //(3) 事件处理程序  通过一个函数赋值的方式 完成
+        btn.onclick = function() {
+            alert('出现弹窗');
+        }
+    </script> -->
+   
+    <!-- <div>点我</div>
+    <script>
+        // 执行事件步骤
+        // 点击div 控制台输出 我被选中了
+        // 1. 获取事件源
+        var div = document.querySelector('div');
+        // 2.绑定事件 注册事件
+        // div.onclick 
+        // 3.添加事件处理程序 
+        div.onclick = function() {
+            console.log('我被选中了');
+        }
+    </script> -->
+
+    <!-- <div></div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+
+    <script>
+        // innerText 和 innerHTML的区别 
+        // 1. innerText 不识别html标签,去除空格和换行
+        var div = document.querySelector('div');
+        div.innerText = '<strong>今天是：</strong> 2019';
+        // 2. innerHTML 识别html标签 保留空格和换行的
+        div.innerHTML = '<strong>今天是：</strong> 2019';
+        // 这两个属性是可读写的  可以获取元素里面的内容
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+    </script> -->
+    
+    <!-- <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>123</p>
+    <script>
+        // 当点击显示当前系统时间按钮，div里面的文字需要发生变化
+        // 1.获取元素
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // 2.绑定时间
+        btn.onclick = function(){
+            // div.innerText = '2022-3-20';
+            div.innerText = getTimes();
+        }
+        
+        function getTimes() {
+            var now = new Date();
+            var year = now.getFullYear();   
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            // console.log('今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒');    
+            return '今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒';
+        }
+        // 元素也可以不添加事件
+        var p = document.querySelector('p');
+        p.innerText = getTimes();
+    </script> -->
+
+    <!-- <button id="a">点击为a图片</button>
+    <button id="b">点击为b图片</button>
+    <img src="./images/A.png" title="A">
+
+    <script>
+        // 修改元素属性src的路径，已替换照片
+        // 1、获取元素
+        var a = document.getElementById('a');
+        var b = document.getElementById('b');
+        var img = document.querySelector('img');
+        // 2、绑定事件
+        b.onclick = function(){
+            img.src = './images/B.png';
+            img.title = 'B';
+        }
+        a.onclick = function(){
+            img.src = 'images/A.png';
+            img.title = 'A';
+        }
+    </script> -->
+
+    <!-- <img src="./images/A.png" alt="">
+    <div>上午</div>
+    <script>
+        // 1、根据系统不同时间来判断，所以需要用到日期内置对象
+        // 2、利用分支语句来设置不同的图片
+        // 3、需要一个图片，并且根据时间修改图片，需要用到操作元素src属性
+        // 4、需要一个div元素，显示不同的问候语，修改元素内容即可。
+        // 1、获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        // 2、得到当前的小时数
+        var date = new Date();
+        var h = date.getHours();
+        // 3、判断小时数改变图片和文字信息。
+        if( h < 12 ){
+            img.src = './images/A.png';
+            div.innerHTML = '上午';
+        }else if( h < 18){
+            img.src = './images/B.png';
+            div.innerHTML = '下午';
+        }else{
+            img.src = './images/C.png';
+            div.innerHTML = '晚上';
+        }
+    </script> -->
+
+    <!-- <button>按钮</button>
+    <input type="text" value="输入内容">
+    <script>
+        // 1、获取元素
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+        // 2、注册事件，处理程序
+        btn.onclick = function(){
+            // input.innerHTML = '已经惦记了';  innerHTML仅用于普通盒子，如果div便签里面的内容
+            // input.innerHTML = '已经点击了';
+            input.value = '被点击';
+            // 如果某个表单被禁用，不能再点击 disabled ，需要按钮禁用，可以设置为
+            // btn.disabled = true;
+            this.disabled = true;   //this 指向的是事件函数的调用者 btn
+        }
+    </script> -->
+
+    <div style="width: 200px;height: 200px;background-color: pink;"></div>
+    <script>
+        // 1、获取元素
+        var div1 = document.querySelector('div');
+        // 2、绑定事件
+        div1.onclick = function(){
+            this.style.backgroundColor = 'red';
+            this.style.width = '250px';
+        }
+    </script>
+</body>
+</html>

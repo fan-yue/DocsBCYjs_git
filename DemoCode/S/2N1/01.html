@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="a">aaaa</div>
+
+    <script>
+        var demo  = document.getElementById('a');
+        console.log(demo);
+        console.dir(demo);
+    </script> -->
+
+    <!-- <ul>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+        <li>知否知否，应是等你好久</li>
+    </ul>
+
+    <script>
+        // 1、获取标签
+        var a = document.getElementsByTagName('li');
+        console.log(a);
+        console.log(a[0]);
+        for(var i=0;i<a.length;i++){
+            console.log(a[i]);
+        }
+    </script> -->
+
+    <!-- <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+
+    <script>
+        var demo = document.getElementsByClassName('box');
+        console.log(demo[0]);
+    </script> -->
+
+    <!-- <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+    <div id="nav">
+        <ul>
+            <li>111</li>
+            <li>222</li>
+        </ul>
+    </div>
+
+    <script>
+        var demo = document.querySelector('li');
+        console.log(demo);
+    </script> -->
+
+    <!-- <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+
+    <script>
+        var demo = document.querySelectorAll('.box');
+        console.log(demo);
+    </script> -->
+
+    <!-- <script>
+        // var demo = document.body;
+        // console.log(demo);
+
+        var demo  = document.documentElement;
+        console.log(demo);
+    </script> -->
+
+
+    <!-- <div id="dmm">邓明明</div>
+    <div id="yzh">尹子豪</div>
+    <div id="wcw">吴城伟</div>
+
+    <script>
+        var a = document.getElementsByTagName('div');
+        console.log(a);
+        for(var i = 0;i<a.length;i++){
+            console.log(a[i]);
+        }
+    </script> -->
+
+    <!-- <button>按钮</button>
+    <script>
+        // 1、获取标签
+        var btn1 = document.querySelector('button');
+        // 2、事件类型，事件处理程序
+        btn1.onmousedown = function(){
+            alert('出现弹窗');
+        }
+    </script> -->
+
+    <div>我学习了</div>
+    <span>尹子豪</span>
+    <script>
+        var a = document.querySelector('div');
+        a.innerText = '<b>今天你们都没学习</b>';
+        var b = document.querySelector('span');
+        b.innerHTML = '<i>吴诚伟</i>';
+    </script>
+</body>
+</html>

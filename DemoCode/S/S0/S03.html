@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="手机">
+    <script>
+        // 1、获取元素
+        var text1 = document.querySelector('input');
+        // 2、绑定事件
+        text1.onfocus = function(){
+            // console.log('获得焦点');
+            if(text1.value === '手机'){
+                text1.value = '';
+            }
+             // 获取焦点，需要把文本框的文字颜色变深
+             text1.style.color = 'black';
+        } 
+        text1.onblur = function(){
+            // console.log('失去了焦点');
+            if(text1.value === ''){
+                text1.value = '手机';   
+            }
+            // 失去焦点，需要把文本框的文字颜色变浅      
+            text1.style.color = 'red';
+        }
+    </script>
+</body>
+</html>

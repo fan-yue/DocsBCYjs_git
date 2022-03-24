@@ -12,7 +12,7 @@ W3C 已经定义了一系列的 DOM 接口，通过这些 DOM 接口可以改变
 - 元素：页面中的所有标签都是元素，DOM中使用 element 表示
 - 节点：网页中的所有内容都是节点（标签，属性，文本，注释等），DOM中使用node表示
 
-### 获取元素
+### 获取元素(标签)
 
 #### 获取页面元素
 
@@ -372,7 +372,7 @@ element.innerHTML
 
 
 
-#### 改变常用元素操作属性
+#### 改变常用元素（标签）操作属性
 
 1、src、href
 
@@ -432,7 +432,7 @@ element.innerHTML
 
 根据不同时间，页面显示不同图片，同时显示不同的问候语
 
-如果是上午时间打开页面时，显示下午好，显示A图片
+如果是上午时间打开页面时，显示上午好，显示A图片
 
 如果是下午时间打开页面时，显示下午好，显示B图片
 
@@ -442,11 +442,11 @@ element.innerHTML
 
 思路：
 
-1、根据系统不同时间来判断，所以需要用到日期内置对象
+1、根据系统不同时间来判断，所以需要用到日期内置对象。
 
-2、利用分支语句来设置不同的图片
+2、利用分支语句来设置不同的图片。
 
-3、需要一个图片，并且根据时间修改图片，需要用到操作元素src属性
+3、需要一个图片，并且根据时间修改图片，需要用到操作元素src属性。
 
 4、需要一个div元素，显示不同的问候语，修改元素内容即可。
 
@@ -519,9 +519,318 @@ type，value，checked，selected，disabled
 
 ##### 行内样式操作
 
-例子：
+语法：
 
 ```
+// element.style
+div.style.backgroundColor = 'pink';
+div.style.width = '250px';
+```
 
+
+
+###### 行内样式操作——案例1：
+
+css
+
+```
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+```
+
+html
+
+```
+		<div></div>
+    <script>
+        // 1、获取元素
+        var div1 = document.querySelector('div');
+        div1.onclick = function(){
+            // div.style 里面的属性，采取驼峰命名法
+            this.style.backgroundColor = 'red';
+            this.style.width = '250px';
+        }
+    </script>
+```
+
+
+
+###### 行内样式操作——案例2：
+
+html
+
+```
+    <div class="box">
+        <img src="./images/A.png" alt="">
+        <i class="b">x</i>
+    </div>
+    <script>
+        // 1、获取元素
+        var btn = document.querySelector('.b');
+        var box = document.querySelector('.box');
+        // 2、注册事件 ，程序处理
+        btn.onclick = function(){
+            box.style.display = 'none';
+        }
+    </script>
+```
+
+
+
+###### 行内样式操作——案例3：显示隐藏文本框内容
+
+当鼠标点击文本框时，默认文字隐藏，鼠标离开文本框时，里面文字显示
+
+css
+
+```
+    <style>
+        input{
+            color: #666;
+        }
+    </style>
+```
+
+html
+
+```
+<input type="text" value="手机">
+    <script>
+        // 1、获取元素
+        var text1 = document.querySelector('input');
+        // 2、绑定事件
+        text1.onfocus = function(){
+            // console.log('获得焦点');
+            if(text1.value === '手机'){
+                text1.value = '';
+            }
+             // 获取焦点，需要把文本框的文字颜色变深
+             text1.style.color = 'black';
+        } 
+        text1.onblur = function(){
+            // console.log('失去了焦点');
+            if(text1.value === ''){
+                text1.value = '手机';   
+            }
+            // 失去焦点，需要把文本框的文字颜色变浅      
+            text1.style.color = 'red';
+        }
+    </script>
+```
+
+##### 类名样式操作
+
+语法：
+
+```
+// element.className
+```
+
+###### 类名样式操作——案例1：比较使用行内样式和类名样式操作的区别
+
+`css`
+
+```
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .change{
+            background-color: red;
+            font-size: 25px;
+            color: #fff;
+            margin-top: 100px;
+        }
+    </style>
+```
+
+`html`
+
+```
+<div>
+        <p>文本</p>
+    </div>
+    <script>
+        var div1 = document.querySelector('div');
+        div1.onclick = function(){
+            // 使用行内样式修改元素样式，但是仅仅适用于样式比较少或者功能简单的情况下使用
+            // this.style.backgroundColor = 'red';
+            // this.style.color = '#fff';
+            // this.style.fontSize = '25px';
+            // this.style.marginTop = '100px';
+            // 使用类名样式操作来看下，代码会更加简洁，适用于样式比较多的或者功能复杂的情况
+            this.className = 'change';
+        }
+    </script>
+```
+
+注意：
+
+1、js里面的样式采取驼峰命名法，比如： fontSize、backgroundColor
+
+2、js修改style样式操作，产生的行内样式，css权重比较高
+
+3、如果样式修改较多，可以采取操作类名方式更改元素样式
+
+4、class 因为是个保留字，因此使用`className`来操作元素类名属性
+
+5、className 会直接更改元素的类名，会覆盖原先的类名
+
+
+
+###### 类名样式操作——案例1：密码框格式提示错误信息
+
+用户如果离开密码框，里面输入的个数不是6~16，则提示错误信息，否则提示输入信息正确
+
+思路；
+
+①先判断的事件，需要用到表单失去焦点
+
+②如果输入正确则提示正确的信息，颜色使用为绿色
+
+③如果输入不是6~16位，我们采取`className`修改样式
+
+④因为样式可能变化较多，我们采取`className`进行样式修改
+
+`css`
+
+```
+    <style>
+        .msg{
+            color: blue;
+        }
+        .re{
+            color: red;
+        }
+        .rg{
+            color: green;
+        }
+    </style>
+```
+
+`html`
+
+```
+<input type="text" class="ipt">
+    <span class="msg">请输入6~16为字母</span>
+    <script>
+        // 1、获取元素
+        var ipt1 = document.querySelector('.ipt');
+        var msg1 = document.querySelector('.msg');
+        // 2、绑定失去焦点事件
+        ipt1.onblur = function(){
+            // 过去表单里面值的长度 ipt1.value.length
+            if(this.value.length < 6 || this.value.length >16){
+                msg1.className = 're';
+                msg1.innerHTML = '你输入的位数不正确，要求6~16位哦!';
+            }else{
+                msg1.className = "rg";
+                msg1.innerHTML = '恭喜，你终于输入对了。';
+            }
+        }
+    </script>
+```
+
+
+
+#### 操作元素小结
+
+![image-20220323213905909](18DOM文档对象模型.assets/image-20220323213905909.png)
+
+
+
+#### 排他思想
+
+###### 案例：思考，使用操作元素所学内容，完成以下操作
+
+[点击第一个按钮为粉色，其他按钮默认无颜色，点击第二个按钮时，其他按钮默认也是无颜色的状态，依次类推](..\DemoCode\S\S0\S06.html)
+
+![image-20220323215030887](18DOM文档对象模型.assets/image-20220323215030887.png)
+
+
+
+如果有同一组元素，我们相要某一个元素实现某种样式，需要用到循环的排他思想算法：
+
+1. 所有元素全部清除样式（干掉其他人）
+2. 给当前元素设置样式 （留下我自己）
+3. 注意顺序不能颠倒，首先干掉其他人，再设置自己
+
+```
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        // 1. 获取所有按钮元素
+        var btns = document.getElementsByTagName('button');
+        // btns得到的是伪数组  里面的每一个元素 btns[i]
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                // (1) 我们先把所有的按钮背景颜色去掉  干掉所有人
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].style.backgroundColor = '';
+                }
+                // (2) 然后才让当前的元素背景颜色为pink 留下我自己
+                this.style.backgroundColor = 'pink';
+
+            }
+        }
+        //2. 首先先排除其他人，然后才设置自己的样式 这种排除其他人的思想我们成为排他思想
+    </script>
+```
+
+
+
+##### 案例：换肤效果
+
+`css`
+
+```
+    <style>
+        body{
+            background: url(./images/A.png) repeat;
+        }
+        ul{
+            display: inline-block;
+            border: 3px solid aqua;
+        }
+    </style>
+```
+
+`html`
+
+```
+<ul class="box">
+        <li>
+            <img src="./images/A.png" alt="">
+        </li>
+        <li>
+            <img src="./images/B.png" alt="">
+        </li>
+        <li>
+            <img src="./images/C.png" alt="">
+        </li>   
+    </ul>
+    <script>
+        // 1、获取元素
+        var img1 = document.querySelector('.box').querySelectorAll('img');
+        // console.log(img1);
+        for(var i = 0;i<img1.length;i++){
+            img1[i].onclick = function(){
+                // this.src 就是我们图片的路径， ./images/B.png
+                // console.log(this.src);
+                // 将this.src 路径设置给 body 上
+                document.body.style.backgroundImage = 'url('+this.src+')';
+            }
+        }
+    </script>
 ```
 

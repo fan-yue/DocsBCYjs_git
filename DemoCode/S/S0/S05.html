@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .msg{
+            color: blue;
+        }
+        .re{
+            color: red;
+        }
+        .rg{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="ipt">
+    <span class="msg">请输入6~16为字母</span>
+    <script>
+        // 1、获取元素
+        var ipt1 = document.querySelector('.ipt');
+        var msg1 = document.querySelector('.msg');
+        // 2、绑定失去焦点事件
+        ipt1.onblur = function(){
+            // 过去表单里面值的长度 ipt1.value.length
+            if(this.value.length < 6 || this.value.length >16){
+                msg1.className = 're';
+                msg1.innerHTML = '你输入的位数不正确，要求6~16位哦!';
+            }else{
+                msg1.className = "rg";
+                msg1.innerHTML = '恭喜，你终于输入对了。';
+            }
+        }
+    </script>
+</body>
+</html>

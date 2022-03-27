@@ -623,6 +623,8 @@ html
     </script>
 ```
 
+
+
 ##### 类名样式操作
 
 语法：
@@ -836,9 +838,228 @@ html
 
 
 
-##### 案例：表格隔行换色案例
+#### 自定义属性操作
 
-###### 仿写网站如下
+##### 获取属性值的两种方法
 
-<iframe height='800' scrolling='no' title='Fancy Animated SVG Menu' src='https://fund.eastmoney.com/' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://fund.eastmoney.com/'>Fancy Animated SVG Menu</a> by Jean Gontijo (<a href='https://fund.eastmoney.com/'>@jeangontijo</a>) on <a href='https://fund.eastmoney.com/'>CodePen</a>. </iframe>
+```
+    <div id="demo"></div>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1.获取元素的属性值 
+        // (1) element.属性  
+        console.log(div1.id);       //demo
+        // (2) element.getAttribute('属性')  get得到获取 attribute 属性的意思，自定义属性，即编程人员自定的属性
+        console.log(div1.getAttribute('id'));   //demo
+    </script>
+```
 
+###### (1) element.属性  	
+
+###### (2) element.getAttribute('属性')
+
+##### 获取属性值两种方法的区别
+
+- element.属性  获取内置属性值(元素本身自带的属性)
+- element.getAttribute('属性')：主要用于获取自定义属性的。自定义属性：即编程人员自定的属性。
+
+```
+    <div id="demo" index="1" ></div>
+    <script>
+        var div1 = document.querySelector('div');
+        console.log(div1.index);    //undefined
+        console.log(div1.getAttribute('index'));    //1
+    </script>
+```
+
+
+
+##### 设置属性值的两种方法
+
+```
+    <div id="demo" index="1"></div>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1、设置元素的属性值
+        // (1) element.属性名 = '值';
+        div1.id = 'test';
+        // (2) element.setAttribute('属性名','属性值'),只要针对自定义属性，可以修改，也可以新增。
+        div1.setAttribute('index',2);
+        div1.setAttribute('class','footer');    //class 比较特殊，必须写class，否则css样式不生效。
+    </script>
+```
+
+###### (1) element.属性名 = '值';
+
+###### (2) element.setAttribute('属性名','属性值'),只要针对自定义属性，可以修改，也可以新增。
+
+##### 设置属性值两种方法的区别
+
+- element.属性
+- element.setAttribute('属性')；  主要用于设置自定义属性。
+
+
+
+##### 移出属性值
+
+###### (1)移除属性值 removeAttribute('属性');
+
+```
+    <div id="demo" index="1"></div>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1、移除属性值 removeAttribute('属性');
+        div1.removeAttribute('index');
+    </script>
+```
+
+
+
+##### 案例：tab栏切换
+
+显示效果：
+
+
+
+
+
+思路：
+
+
+
+
+
+代码：
+
+`CSS`
+
+```
+    <style>
+        .tab_list ul,.tab_list li{
+            margin: 0;
+            padding: 0;
+        }
+        .tab ul li{
+            list-style: none;
+            float: left;
+            border: 1px solid black;
+            border-left: none;
+            padding: 20px;
+        }
+        .current{
+            color: white;
+            background-color: red;
+        }
+        .item{
+            display: none;
+        }
+
+    </style>
+```
+
+`HTML`
+
+```
+<div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current" >商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(50000)</li>
+                <li>手机社区</li>            
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">商品介绍模块</div>
+            <div class="item">规格与包装模块</div>
+            <div class="item">售后保障模块</div>
+            <div class="item">商品评价模块</div>
+            <div class="item">手机社区模块</div>
+        </div>
+    </div>
+    
+    <script>
+        // 获取元素
+        var tab_list = document.querySelector('.tab_list');
+        var list = tab_list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        // 利用for循环绑定点击事件
+        for(var i = 0;i < list.length;i++){
+            // 开始给5个li标签设置index属性和值
+            list[i].setAttribute('index',i);
+            list[i].onclick = function(){
+                // 1.模块选项卡，点击某一个，默认第一个li标签的中的底色是红色，其余不变(利用排他思想)修改类名的方式
+                // 使用排它思想，将所有li中的class样式current清除
+                for(var i = 0;i<list.length;i++){   
+                    list[i].className = '';
+                }
+                // 给自己加样式
+                this.className = 'current';
+                // 2、选项卡解决了，需要处理内容模块。当点击对应的选项卡，出现对应的内容.
+                // 利用li标签中自定义属性的功能，自定义一个属性。
+                var index = this.getAttribute('index');
+                console.log(index);
+                // 使用排它思想，将所有item中的div全部隐藏
+                for(var i = 0;i < items.length;i++){
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block'了;
+            }
+        }
+    </script>
+```
+
+
+
+##### H5自定义属性
+
+自定义属性目的：
+
+- 保存并保存数据，有些数据可以保存到页面中而不用保存到数据库中
+- 有些自定义属性很容易引起歧义，不容易判断到底是内置属性还是自定义的，所以H5有了规定
+
+
+
+##### 设置H5自定义属性
+
+H5规定自定义属性 `data-`开头作为属性名并赋值
+
+```
+    <!-- 自定义属性 -->
+    <div data-index = "1"></div>
+    <script>
+        var  div1 = document.querySelector('div');
+        // 或者使用JavaScript设置
+        div1.setAttribute('data-obj',10);
+    </script>
+```
+
+ 
+
+##### 获取H5自定义属性
+
+- 兼容性获取 `element.getAttribute('data-index')`
+- H5新增的：`element.dataset.index` 或`element.dataset['index']` IE11才开始支持]
+
+```
+		<div getTime="20" data-index="2" data-list-name="andy"></div>
+    <script>
+        var div1 = document.querySelector('div');
+        console.log(div1.getAttribute('getTime'));
+        div1.setAttribute('data-time', 20);
+        console.log(div1.getAttribute('data-index'));
+        console.log(div1.getAttribute('data-list-name'));
+        // h5新增的获取自定义属性的方法 它只能获取data-开头的
+        // dataset 是一个集合里面存放了所有以data开头的自定义属性
+        console.log(div1.dataset);
+        console.log(div1.dataset.index);
+        console.log(div1.dataset['index']);
+        // 如果自定义属性里面有多个-链接的单词，我们获取的时候采取 驼峰命名法
+        console.log(div1.dataset.listName);
+        console.log(div1.dataset['listName']);
+    </script>
+```
+
+在以后开发中，一定要知道其代码的写法及意义。

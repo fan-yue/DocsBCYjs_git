@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="demo" ></div>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1.获取元素的属性值 
+        // (1) element.属性  
+        console.log(div1.id);       //demo
+        // (2) element.getAttribute('属性')  get得到获取 attribute 属性的意思
+        console.log(div1.getAttribute('id'));   //demo
+    </script> -->
+
+
+    <!-- <div id="demo" index="1" ></div>
+    <script>
+        var div1 = document.querySelector('div');
+        console.log(div1.index);    //undefined
+        console.log(div1.getAttribute('index'));    //1
+    </script> -->
+
+    <!-- <div id="demo" index="1"></div>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1、设置元素的属性值
+        // (1) element.属性名 = '值';
+        div1.id = 'test';
+        // (2) element.setAttribute('属性名','属性值'),只要针对自定义属性，可以修改，也可以新增。
+        div1.setAttribute('index',2);
+        div1.setAttribute('class','footer');    //class 比较特殊，必须写class，否则css样式不生效。
+    </script> -->
+
+    <!-- <div id="demo" index="1"></div>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1、移除属性值 removeAttribute('属性');
+        div1.removeAttribute('index');
+    </script> -->
+</body>
+</html>

@@ -750,7 +750,7 @@ html
 
 ###### 案例：思考，使用操作元素所学内容，完成以下操作
 
-[点击第一个按钮为粉色，其他按钮默认无颜色，点击第二个按钮时，其他按钮默认也是无颜色的状态，依次类推](../DeomCode/S/S0/S06.htm)
+[点击第一个按钮为粉色，其他按钮默认无颜色，点击第二个按钮时，其他按钮默认也是无颜色的状态，依次类推](../DeomCode/S/S0/S06.html)
 
 ![image-20220323215030887](18DOM文档对象模型.assets/image-20220323215030887.png)
 
@@ -833,4 +833,12 @@ html
         }
     </script>
 ```
+
+
+
+##### 案例：表格隔行换色案例
+
+###### 仿写网站如下
+
+<iframe height='800' scrolling='no' title='Fancy Animated SVG Menu' src='https://fund.eastmoney.com/' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://fund.eastmoney.com/'>Fancy Animated SVG Menu</a> by Jean Gontijo (<a href='https://fund.eastmoney.com/'>@jeangontijo</a>) on <a href='https://fund.eastmoney.com/'>CodePen</a>. </iframe>
 

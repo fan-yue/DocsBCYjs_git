@@ -112,13 +112,71 @@
         }
     </script> -->
 
-    <div>我学习了</div>
+    <!-- <div>我学习了</div>
     <span>尹子豪</span>
     <script>
-        var a = document.querySelector('div');
-        a.innerText = '<b>今天你们都没学习</b>';
+        // var a = document.querySelector('div');
+        // a.innerText = '<b>今天你们都没学习</b>';
         var b = document.querySelector('span');
-        b.innerHTML = '<i>吴诚伟</i>';
+        b.innerHTML = '<i>吴诚<br/>伟</i>';
+    </script> -->
+
+    <!-- <div></div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+
+    <script>
+        // 这两个属性是可读写的  可以获取元素里面的内容
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+    </script> -->
+
+    <!-- <div id="a" class="demo">刘鑫</div>
+
+    <script>
+        // var a = document.getElementById('a');
+        // var a = document.getElementsByClassName('demo');
+        // var a = document.querySelector('div');
+        // var a = document.querySelector('#a');
+        // var a = document.querySelector('.demo');
+        // var a = document.querySelectorAll('.demo');
+        // var a = document.getElementsByTagName('div');
+        console.log(a);
+    </script> -->
+
+    <!-- <button>按钮</button>
+    <script>
+        var a = document.querySelector('button');
+        a.onclick = function(){
+            console.log('识时务者为俊杰');
+        }
+    </script> -->
+
+    <button>按钮，按一下，显示当前时间</button>
+    <div></div>
+    <script>
+        // 获取标签
+        var btn1 = document.querySelector('button');
+        var div1 = document.querySelector('div');
+        // 绑定事件
+        btn1.onclick = function(){
+            div1.innerHTML = getTimes();
+        }
+
+        function getTimes() {
+            var now = new Date();
+            var year = now.getFullYear();   
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            // console.log('今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒');    
+            return '今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒';
+        }
     </script>
 </body>
 </html>

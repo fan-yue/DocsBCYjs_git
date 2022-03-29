@@ -291,7 +291,7 @@ JavaScript 的 DOM 操作可以改变网页内容、结构和样式，我们可�
 
 注意：以下都是属性
 
-#### 改变元素内容
+#### 改变元素（标签）内容
 
 ##### innerText
 
@@ -917,15 +917,17 @@ html
 
 ##### 案例：tab栏切换
 
-显示效果：
+显示效果：[table栏切换](https://codepen.io/fan-yue/pen/YzYVLeQ)
 
-
+<iframe height="600" style="width: 100%;" scrolling="no" title="tab栏切换" src="https://codepen.io/fan-yue/embed/YzYVLeQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/fan-yue/pen/YzYVLeQ">
+  tab栏切换</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 
 
 思路：
-
-
 
 
 

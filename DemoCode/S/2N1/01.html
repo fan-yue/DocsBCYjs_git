@@ -155,7 +155,7 @@
         }
     </script> -->
 
-    <button>按钮，按一下，显示当前时间</button>
+    <!-- <button>按钮，按一下，显示当前时间</button>
     <div></div>
     <script>
         // 获取标签
@@ -177,6 +177,88 @@
             // console.log('今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒');    
             return '今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒';
         }
-    </script>
+    </script> -->
+
+    <!-- <button>按钮</button>
+    <div></div>
+
+    <script>
+        var op=document.querySelector('button');
+        var iu=document.querySelector('div');
+         op.onclick= function() {
+                iu.innerText=ok();
+          }
+
+          function ok(){
+          var n=new Date();
+          var m=n.getHours();
+          var b=n.getMinutes();
+          var v=n.getSeconds();
+          return m+":"+b+":"+v;
+          }
+    </script> -->
+
+    <!-- <button id="a">点击为a图片</button>
+    <button id="b">点击为b图片</button>
+    <img src="./../images/A.png" alt="">
+
+    <script>
+        var a = document.getElementById('a');
+        var b = document.getElementById('b');
+        var img1 = document.querySelector('img');
+        b.onclick = function(){
+            img1.src = './../images/B.png';locationbar
+        }
+        a.onclick = function(){
+            img1.src = './../images/A.png'
+        }
+    </script> -->
+
+    <!-- <img src="./../images/A.png" alt="">
+    <div>上午</div>
+
+    <script>
+        // 1、根据系统不同时间来判断，所以需要用到日期内置对象
+        // 2、利用分支语句来设置不同的图片
+        // 3、需要一个图片，并且根据时间修改图片，需要用到操作元素src属性
+        // 4、需要一个div元素，显示不同的问候语，修改元素内容即可。
+        // 1、获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        // 2、得到当前的小时数
+        var date = new Date();
+        var h = date.getHours();
+        // 3、判断小时数改变图片和文字信息。
+        if( h < 12 ){
+            img.src = './../images/A.png';
+            div.innerHTML = '上午';
+        }else if( h < 18){
+            img.src = './../images/B.png';
+            div.innerHTML = '下午';
+        }else{
+            img.src = './../images/C.png';
+            div.innerHTML = '晚上';
+        }
+    </script> -->
+
+    <!-- <img src="../images/A.png" alt="" id="div">
+    <div></div>
+
+    <script>
+        var img = document.querySelector('img');
+        var img1 = document.querySelector('div');
+        var f = new Date();
+        var s = f.getHours();
+        if(s < 12){
+            img.src = '../images/A.png';
+            img1.innerHTML = '上午';
+        }else if(s < 18){
+            img.src = '../images/B.png';
+            img1.innerHTML = '中午';
+        }else{
+            img.src = '../images/C.png';
+            img1.innerHTML = '下午';
+        }
+    </script> -->
 </body>
 </html>

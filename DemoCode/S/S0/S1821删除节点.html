@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>删除</button>
+    <ul>
+        <li>甲</li>
+        <li>乙</li>
+        <li>丙</li>
+    </ul>
+    <script>
+        // 获取元素
+        var ul1 = document.querySelector('ul');
+        var btn1 = document.querySelector('button');
+        // 删除元素
+        // ul1.removeChild(ul1.children[0]);
+        // 点击按钮，依次删除li中的文字，当li标签删除没有后，就会报错。
+        // btn1.onclick = function(){
+        //     ul1.removeChild(ul1.children[0]);
+        // }
+        btn1.onclick = function(){
+            if(ul1.children.length == 0){
+                this.disabled = true;
+            }else{
+                ul1.removeChild(ul1.children[0]);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding:0;
+}
+li{
+    list-style: none;
+}
+.nav{
+    background: #fcfcfc;
+}
+.nav>li{
+    float: left;
+}
+.nav>li a{
+    text-decoration: none;
+    color: black;
+}
+.nav_a1{
+    display: inline-block;
+    padding: 12px 15px 12px 18px;
+}
+.nav_a1:hover{
+    background:#edeef0;
+}
+/* 平替方法，但是也有bug，鼠标取消悬浮后，会消失，不符合要求 */
+/* .nav_a1:hover +.nav_1{
+    display: block;
+} */
+.nav_1{
+    border: 1px solid #ebbe7a;
+    display: none;
+
+}
+.nav_1>li{
+    border-bottom: 1px solid #fecc5b;
+    text-align: center;
+    line-height: 20px;
+    padding: 12px 15px;
+}

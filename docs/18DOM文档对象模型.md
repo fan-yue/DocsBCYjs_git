@@ -531,7 +531,7 @@ div.style.width = '250px';
 
 ###### 行内样式操作——案例1：
 
-css
+`css`
 
 ```
     <style>
@@ -543,7 +543,7 @@ css
     </style>
 ```
 
-html
+`html`
 
 ```
 		<div></div>
@@ -586,7 +586,7 @@ html
 
 当鼠标点击文本框时，默认文字隐藏，鼠标离开文本框时，里面文字显示
 
-css
+`css`
 
 ```
     <style>
@@ -596,7 +596,7 @@ css
     </style>
 ```
 
-html
+`html`
 
 ```
 <input type="text" value="手机">
@@ -683,7 +683,7 @@ html
 
 4、class 因为是个保留字，因此使用`className`来操作元素类名属性
 
-5、className 会直接更改元素的类名，会覆盖原先的类名
+5、className 会直接更改元素的类名，会`覆盖`原先的类名
 
 
 
@@ -915,9 +915,9 @@ html
 
 
 
-##### 案例：tab栏切换
+##### 案例：S10-tab栏切换
 
-显示效果：[table栏切换](https://codepen.io/fan-yue/pen/YzYVLeQ)
+显示效果：[S10-table栏切换](https://codepen.io/fan-yue/pen/YzYVLeQ)
 
 <iframe height="600" style="width: 100%;" scrolling="no" title="tab栏切换" src="https://codepen.io/fan-yue/embed/YzYVLeQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/fan-yue/pen/YzYVLeQ">
@@ -1065,3 +1065,582 @@ H5规定自定义属性 `data-`开头作为属性名并赋值
 ```
 
 在以后开发中，一定要知道其代码的写法及意义。
+
+
+
+
+
+### 节点操作
+
+获取元素通常使用两种方式：
+
+|   1.利用DOM提供的方法获取元素   | 2.利用节点层级关系获取元素 |
+| :-----------------------------: | :------------------------: |
+|    document.getElementById()    | 利用父子兄节点关系获取元素 |
+| document.getElementsByTagName() |  逻辑性强，但是兼容性较差  |
+|    document.querySelector 等    |                            |
+|        逻辑性不强，繁琐         |                            |
+
+这两种方式都可以获取元素节点，我们后面都会使用，但是节点操作更简单
+
+一般的，节点至少拥有三个基本属性
+
+
+
+#### 节点概述
+
+网页中的所有内容都是节点（标签、属性、文本、注释等），在DOM 中，节点使用 node 来表示。
+
+HTML DOM 树中的所有节点均可通过 JavaScript 进行访问，所有 HTML 元素（节点）均可被修改，也可以创建或删除。
+
+![image-20220330162806852](18DOM文档对象模型.assets/image-20220330162806852.png)
+
+一般的，节点至少拥有nodeType（节点类型）、nodeName（节点名称）和nodeValue（节点值）这三个基本属性。
+
+- 元素节点：nodeType 为1
+
+- 属性节点：nodeType 为2
+
+- 文本节点：nodeType 为3(文本节点包括文字、空格、换行等)
+
+  
+
+我们在实际开发中，节点操作主要操作的是**元素节点**
+
+利用 DOM 树可以把节点划分为不同的层级关系，常见的是**父子兄层级关系**。
+
+
+
+#### 父级节点
+
+```
+node.parentNode
+```
+
+- `parentNode`属性可以返回某节点的父结点，注意是最近的一个父结点
+- 如果指定的节点没有父结点则返回null
+
+###### 例子：
+
+```
+    <!-- 父节点 -->
+     <div class="demo">
+         <div class="box">
+             <span class="erweima">×</span>
+         </div>
+     </div>
+ 
+     <script>
+         // 1. 父节点 parentNode
+         var erweima = document.querySelector('.erweima');
+         // var box = document.querySelector('.box');
+         // 得到的是离元素最近的父级节点(亲爸爸) 如果找不到父节点就返回为 null
+         console.log(erweima.parentNode);
+     </script>
+```
+
+
+
+#### 子结点
+
+```
+parentNode.childNodes(标准)
+```
+
+- `parentNode.childNodes` 返回包含指定节点的子节点的集合，该集合为即时更新的集合
+- 返回值包含了所有的子结点，包括元素节点，文本节点等
+- 如果只想要获得里面的元素节点，则需要专门处理。所以我们一般不提倡使用`childNodes`
+
+```
+parentNode.children(非标准)
+```
+
+- `parentNode.children` 是一个只读属性，返回所有的子元素节点
+- 它只返回子元素节点，其余节点不返回 （**这个是我们重点掌握的**）
+- 虽然 children 是一个非标准，但是得到了各个浏览器的支持，因此我们可以放心使用
+
+```
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+    <script>
+        // DOM 提供的方法（API）获取
+        var ul = document.querySelector('ul');
+        var lis = ul.querySelectorAll('li');
+        // 1. 子节点  childNodes 所有的子节点 包含 元素节点 文本节点等等
+        console.log(ul.childNodes);
+        console.log(ul.childNodes[0].nodeType);
+        console.log(ul.childNodes[1].nodeType);
+        // // 2. children 获取所有的子元素节点 也是我们实际开发常用的
+        console.log(ul.children);
+    </script>
+```
+
+
+
+##### 第一个子结点
+
+```
+parentNode.firstChild
+```
+
+- `firstChild` 返回第一个子节点，找不到则返回null
+- 同样，也是包含所有的节点
+
+```
+parentNode.firstElementChild
+```
+
+- 第一个子结点(兼容性)
+- `firstElementChild` 返回第一个子节点，找不到则返回null
+- 有兼容性问题，IE9以上才支持
+
+
+
+##### 最后一个子结点
+
+```
+parentNode.lastChild
+```
+
+- `lastChild` 返回最后一个子节点，找不到则返回null
+- 同样，也是包含所有的节点
+
+```
+parentNode.lastElementChild
+```
+
+- 最后一个子结点(兼容性)
+
+- `lastElementChild` 返回最后一个子节点，找不到则返回null
+
+- 有兼容性问题，IE9以上才支持
+
+  ###### 例子：
+
+```
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+        <li>我是li5</li>
+    </ol>
+    <script>
+        var ol = document.querySelector('ol');
+        // 1. firstChild 第一个子节点 不管是文本节点还是元素节点
+        console.log(ol.firstChild);
+        console.log(ol.lastChild);
+        // 2. firstElementChild 返回第一个子元素节点 ie9才支持
+        console.log(ol.firstElementChild);
+        console.log(ol.lastElementChild);
+        // 3. 实际开发的写法  既没有兼容性问题又返回第一个子元素
+        console.log(ol.children[0]);			//第一个子元素节点
+        console.log(ol.children[ol.children.length - 1]);//最后一个子元素节点
+    </script>
+```
+
+实际开发中，firstChild 和 lastChild 包含其他节点，操作不方便，而 firstElementChild 和 lastElementChild 又有兼容性问题，那么我们如何获取第一个子元素节点或最后一个子元素节点呢？
+
+
+
+##### 使用children索引来获取元素
+
+```
+// 数组元素个数减1 就是最后一个元素的索引号
+parentNode.chilren[parentNode.chilren.length - 1]
+```
+
+- 如果想要第一个子元素节点，可以使用 `parentNode.chilren[0]`
+
+- 如果想要最后一个子元素节点，可以使用
+
+  ###### 例子：
+
+```
+<ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol>
+    <script>
+        var ol = document.querySelector('ol');
+        // 1.firstChild 获取第一个子结点的，包含文本结点和元素结点
+        console.log(ol.firstChild);
+        // 返回的是文本结点 #text(第一个换行结点)
+        
+        console.log(ol.lastChild);
+        // 返回的是文本结点 #text(最后一个换行结点)
+        // 2. firstElementChild 返回第一个子元素结点
+        console.log(ol.firstElementChild);
+        // <li>我是li1</li>
+        
+        // 第2个方法有兼容性问题，需要IE9以上才支持
+        // 3.实际开发中，既没有兼容性问题，又返回第一个子元素
+        console.log(ol.children[0]);
+        // <li>我是li1</li>
+        console.log(ol.children[3]);
+        // <li>我是li4</li>
+        // 当里面li个数不唯一时候，需要取到最后一个结点时这么写
+        console.log(ol.children[ol.children.length - 1]);
+    </script>
+```
+
+
+
+##### 案例：S17案例-新浪下拉菜单（使用技术：子节点，鼠标事件，获取元素）
+
+参考网址链接：[新浪首页](https://www.sina.com.cn/)
+
+效果预览如下：[S17案例-新浪下拉菜单](https://codepen.io/fan-yue/pen/LYejxPd)
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/fan-yue/embed/LYejxPd?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/fan-yue/pen/LYejxPd">
+  Untitled</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+`CSS`
+
+```
+*{
+    margin: 0;
+    padding:0;
+}
+li{
+    list-style: none;
+}
+.nav{
+    background: #fcfcfc;
+}
+.nav>li{
+    float: left;
+}
+.nav>li a{
+    text-decoration: none;
+    color: black;
+}
+.nav_a1{
+    display: inline-block;
+    padding: 12px 15px 12px 18px;
+}
+.nav_a1:hover{
+    background:#edeef0;
+}
+/* 平替方法，但是也有bug，鼠标取消悬浮后，会消失，不符合要求 */
+/* .nav_a1:hover +.nav_1{
+    display: block;
+} */
+.nav_1{
+    border: 1px solid #ebbe7a;
+    display: none;
+
+}
+.nav_1>li{
+    border-bottom: 1px solid #fecc5b;
+    text-align: center;
+    line-height: 20px;
+    padding: 12px 15px;
+}
+```
+
+`HTML`
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./S17.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#" class="nav_a1">微博</a>
+            <ul class="nav_1">
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="nav_a1">博客</a>
+            <ul class="nav_1">
+                <li>
+                    <a href="#">博客评论</a>
+                </li>
+                <li>
+                    <a href="#">未读提醒</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="nav_a1">邮箱</a>
+            <ul class="nav_1">
+                <li>
+                    <a href="#">免费邮箱</a>
+                </li>
+                <li>
+                    <a href="#">VIP邮箱</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+```
+
+`js`
+
+```
+<script>
+        // 获取元素
+        var nav1 = document.querySelector('.nav');
+        var lis = nav1.children;
+        // console.log(lis);
+        for(var i = 0;i<lis.length;i++){
+            lis[i].onmouseover = function(){
+            this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function(){
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+```
+
+
+
+#### 兄弟节点
+
+##### 下一个兄弟节点
+
+```
+node.nextSibling
+```
+
+- `nextSibling` 返回当前元素的下一个兄弟元素节点，找不到则返回null
+- 同样，也是包含所有的节点
+
+
+
+##### 上一个兄弟节点
+
+```
+node.previousSibling
+```
+
+- `previousSibling` 返回当前元素上一个兄弟元素节点，找不到则返回null
+- 同样，也是包含所有的节点
+
+
+
+##### 下一个兄弟节点(兼容性)
+
+```
+node.nextElementSibling
+```
+
+- `nextElementSibling` 返回当前元素下一个兄弟元素节点，找不到则返回null
+- 有兼容性问题，IE9才支持
+
+
+
+##### 上一个兄弟节点(兼容性)
+
+```
+node.previousElementSibling
+```
+
+- `previousElementSibling` 返回当前元素上一个兄弟元素节点，找不到则返回null
+- 有兼容性问题，IE9才支持
+
+
+
+###### 例子：
+
+```
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        var div1 = document.querySelector('div');
+        // 1.nextSibling 下一个兄弟节点 包含元素节点或者 文本节点等等
+        console.log(div1.nextSibling);		// #text
+        // previousSibling 上一个兄弟节点，包含元素节点或者 文本节点等等
+        console.log(div1.previousSibling);	// #text
+        // 2. nextElementSibling 得到下一个兄弟元素节点
+        console.log(div1.nextElementSibling);	//<span>我是span</span>
+        // previousElementSibling 得到上一个兄弟元素节点
+        console.log(div1.previousElementSibling);//null
+    </script>
+```
+
+
+
+##### 通过封装函数解决兄弟节点的兼容性问题         <font color= yellow>了解</font>
+
+```
+function getNextElementSibling(element) {
+    var el = element;
+    while(el = el.nextSibling) {
+        if(el.nodeType === 1){
+            return el;
+        }
+    }
+    return null;
+}
+```
+
+
+
+#### 创建节点
+
+```
+document.createElement('tagName');
+```
+
+- `document.createElement()` 方法创建由 tagName 指定的HTML 元素
+- 因为这些元素原先不存在，是根据我们的需求动态生成的，所以我们也称为**动态创建元素节点**
+
+##### 添加节点
+
+```
+node.appendChild(child)
+```
+
+- `node.appendChild()` 方法将一个节点添加到指定父节点的子节点列表**末尾**。类似于 CSS 里面的 after 伪元素。
+
+  
+
+```
+node.insertBefore(child,指定元素)
+```
+
+- `node.insertBefore()` 方法将一个节点添加到父节点的指定子节点**前面**。类似于 CSS 里面的 before 伪元素。
+
+
+
+###### 例子：
+
+```
+    <ul>
+        <li>123</li>
+    </ul>
+    <script>
+        // 1. 创建节点元素节点
+        var li = document.createElement('li');
+        // 2. 添加节点 node.appendChild(child)  node 父级  child 是子级 后面追加元素  类似于数组中的push
+        // 先获取父亲ul
+        var ul = document.querySelector('ul');
+        ul.appendChild(li);
+        // // 3. 添加节点 node.insertBefore(child, 指定元素);
+        var lili = document.createElement('li');
+        ul.insertBefore(lili, ul.children[0]);
+
+        var li1 = document.createElement('li');
+        ul.appendChild(li1);
+        // // 4. 我们想要页面添加一个新的元素分两步: 1. 创建元素 2. 添加元素
+    </script>
+```
+
+
+
+##### 案例：S1820-简单留言板——发布留言功能
+
+效果预览如下：[S1820-简单留言板——发布留言功能](https://codepen.io/fan-yue/pen/KKZvWBx)
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="S1820案例-简单留言版案例" src="https://codepen.io/fan-yue/embed/KKZvWBx?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/fan-yue/pen/KKZvWBx">
+  S1820案例-简单留言版案例</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+
+
+```
+    <textarea>123</textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+
+    <script>
+        var text1 = document.querySelector('textarea');
+        var btn1 = document.querySelector('button');
+        var ul1 = document.querySelector('ul');
+        // 绑定事件
+        btn1.onclick = function(){
+            if(text1.value == ''){
+                alert('你没输入内容，就是在占用资源');
+            }else{
+                var li1 = document.createElement('li');
+                li1.innerHTML = text1.value;
+                // 添加元素，从后面添加
+                // ul1.appendChild(li1);
+                ul1.insertBefore(li1,ul1.children[0]);
+            }
+        }
+    </script>
+```
+
+
+
+##### 删除节点
+
+```
+node.removeChild(child)
+```
+
+- `node.removeChild()`方法从 DOM 中删除一个子节点，返回删除的节点
+
+  ###### 例子：
+
+```
+    <button>删除</button>
+    <ul>
+        <li>甲</li>
+        <li>乙</li>
+        <li>丙</li>
+    </ul>
+    <script>
+        // 获取元素
+        var ul1 = document.querySelector('ul');
+        var btn1 = document.querySelector('button');
+        // 删除元素
+        // ul1.removeChild(ul1.children[0]);
+        // 点击按钮，依次删除li中的文字，当li标签删除没有后，就会报错。
+        // btn1.onclick = function(){
+        //     ul1.removeChild(ul1.children[0]);
+        // }
+        btn1.onclick = function(){
+            if(ul1.children.length == 0){
+                this.disabled = true;
+            }else{
+                ul1.removeChild(ul1.children[0]);
+            }
+        }
+    </script>
+```
+

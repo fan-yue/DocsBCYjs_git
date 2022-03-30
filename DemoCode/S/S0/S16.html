@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol>
+    <script>
+        var ol = document.querySelector('ol');
+        // 1.firstChild 获取第一个子结点的，包含文本结点和元素结点
+        console.log(ol.firstChild);
+        // 返回的是文本结点 #text(第一个换行结点)
+        
+        console.log(ol.lastChild);
+        // 返回的是文本结点 #text(最后一个换行结点)
+        // 2. firstElementChild 返回第一个子元素结点
+        console.log(ol.firstElementChild);
+        // <li>我是li1</li>
+        
+        // 第2个方法有兼容性问题，需要IE9以上才支持
+        // 3.实际开发中，既没有兼容性问题，又返回第一个子元素
+        console.log(ol.children[0]);
+        // <li>我是li1</li>
+        console.log(ol.children[3]);
+        // <li>我是li4</li>
+        // 当里面li个数不唯一时候，需要取到最后一个结点时这么写
+        console.log(ol.children[ol.children.length - 1]);
+    </script>
+</body>
+</html>

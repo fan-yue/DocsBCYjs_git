@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./S17.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#" class="nav_a1">微博</a>
+            <ul class="nav_1">
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="nav_a1">博客</a>
+            <ul class="nav_1">
+                <li>
+                    <a href="#">博客评论</a>
+                </li>
+                <li>
+                    <a href="#">未读提醒</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="nav_a1">邮箱</a>
+            <ul class="nav_1">
+                <li>
+                    <a href="#">免费邮箱</a>
+                </li>
+                <li>
+                    <a href="#">VIP邮箱</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // 获取元素
+        var nav1 = document.querySelector('.nav');
+        var lis = nav1.children;
+        // console.log(lis);
+        for(var i = 0;i<lis.length;i++){
+            lis[i].onmouseover = function(){
+            this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function(){
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

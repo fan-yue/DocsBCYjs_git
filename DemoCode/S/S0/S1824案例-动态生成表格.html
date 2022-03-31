@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table cellspacing="0" border="1">
+        <thead>
+            <td>姓名</td>
+            <td>考试科目</td>
+            <td>考试成绩</td>
+            <td>删除</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>我是案例，没有添加</td>
+                <td>HTML</td>
+                <td>100</td>
+                <td>
+                    <a href="#">删除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 1、先去准备好学生的数据，使用数组对象，创建数据
+        var datas = [
+            {
+                name:'路人甲',
+                subject:'JavaScript',
+                score:100
+            },
+            {
+                name:'路人乙',
+                subject:'HTML',
+                score:90
+            },
+            {
+                name:'路人丙',
+                subject:'CSS',
+                score:96
+            },
+            {
+                name:'路人丁',
+                subject:'Jquery',
+                score:80
+            },
+            {
+                name:'路人丁',
+                subject:'Jquery',
+                score:80
+            },
+            {
+                name:'路人丁',
+                subject:'Jquery',
+                score:80
+            },
+            {
+                name:'路人丁',
+                subject:'Jquery',
+                score:80
+            },
+            {
+                name:'路人丁',
+                subject:'Jquery',
+                score:80
+            }
+        ];
+        // 2、往tbody 里面创建行，有几个人，就创建几个行
+        var tbody1 = document.querySelector('tbody');
+        for(var i = 0;i<datas.length;i++){  //外层for循环管行，tr
+            // 3、创建tr行
+            var tr1 = document.createElement('tr');
+            tbody1.appendChild(tr1);
+            // 行里面创建单元格(跟数据有关) td 单元格的数量取决于每个对象里面的属性个数， for循环遍历对象
+            for(var k in datas[i]){  //里面for循环管列数，td
+                // 创建单元格
+                var td = document.createElement('td');
+                // 插入创建的单元格
+                td.innerHTML = datas[i][k];
+                tr1.appendChild(td);
+                // 把对象里面的属性值给 td
+                    //获取对象里面的属性值 datas[i][k]
+                // console.log(datas[i][k]);
+            }
+            // 3、创建有删除2个字对应的单元格
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="#">删除</a>';
+            tr1.appendChild(td);
+        }
+        /* for(var k in datas){
+            k 是属性名
+            datas[k] 是属性值
+        } */
+
+        // 3、添加删除操作 
+        var as = document.querySelectorAll('a');
+        for(var i = 0;i<as.length;i++){
+            as[i].onclick = function(){
+                // 点击a 删除 当前a 所在的行（对应的链接）node.removeChild(child)
+                tbody1.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+</html>

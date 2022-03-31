@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea>123</textarea>
+    <button>发布</button>
+    <ul>
+        <li>
+            这个案例,没有加js功能
+            <a href="#">删除</a>
+        </li>
+    </ul>
+
+    <script>
+        var text1 = document.querySelector('textarea');
+        var btn1 = document.querySelector('button');
+        var ul1 = document.querySelector('ul');
+        // 绑定事件
+        btn1.onclick = function(){
+            if(text1.value == ''){
+                alert('你没输入内容，就是在占用资源');
+            }else{
+                var li1 = document.createElement('li');
+                li1.innerHTML = text1.value + "<a href='javascript:;'>删除</a>";
+                // 添加元素，从后面添加
+                // ul1.appendChild(li1);
+                ul1.insertBefore(li1,ul1.children[0]);
+                // 删除元素，删除当前的li元素
+                    // 获取a标签的元素
+                var as = document.querySelectorAll('a');
+                for(var i = 0;i<as.length;i++){
+                    as[i].onclick = function(){
+                        // node.removeChild(chilld);删除的是li当前a所在的li ，this,parentNode
+                        ul1.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

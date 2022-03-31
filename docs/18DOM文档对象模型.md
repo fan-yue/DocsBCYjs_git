@@ -1524,6 +1524,8 @@ document.createElement('tagName');
 - `document.createElement()` 方法创建由 tagName 指定的HTML 元素
 - 因为这些元素原先不存在，是根据我们的需求动态生成的，所以我们也称为**动态创建元素节点**
 
+
+
 ##### 添加节点
 
 ```
@@ -1643,4 +1645,190 @@ node.removeChild(child)
         }
     </script>
 ```
+
+
+
+##### 案例：S1822删除留言案例
+
+效果预览如下：[S1822删除留言案例](https://codepen.io/fan-yue/pen/Exowaae)
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="S1822删除留言案例" src="https://codepen.io/fan-yue/embed/Exowaae?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/fan-yue/pen/Exowaae">
+  S1822删除留言案例</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+
+
+`HTML`
+
+```
+    <textarea>123</textarea>
+    <button>发布</button>
+    <ul>
+        <li>
+            这个案例,没有加js功能
+            <a href="#">删除</a>
+        </li>
+    </ul>
+
+    <script>
+        var text1 = document.querySelector('textarea');
+        var btn1 = document.querySelector('button');
+        var ul1 = document.querySelector('ul');
+        // 绑定事件
+        btn1.onclick = function(){
+            if(text1.value == ''){
+                alert('你没输入内容，就是在占用资源');
+            }else{
+                var li1 = document.createElement('li');
+                li1.innerHTML = text1.value + "<a href='javascript:;'>删除</a>";
+                // 添加元素，从后面添加
+                // ul1.appendChild(li1);
+                ul1.insertBefore(li1,ul1.children[0]);
+                // 删除元素，删除当前的li元素
+                    // 获取a标签的元素
+                var as = document.querySelectorAll('a');
+                for(var i = 0;i<as.length;i++){
+                    as[i].onclick = function(){
+                        // node.removeChild(chilld);删除的是li当前a所在的li ，this,parentNode
+                        ul1.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+```
+
+
+
+##### 复制节点(克隆节点)
+
+```
+node.cloneNode()
+```
+
+- `node.cloneNode()`方法返回调用该方法的节点的一个副本。 也称为克隆节点/拷贝节点
+
+- 如果括号参数为空或者为 false ，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点
+
+- 如果括号参数为 true ，则是深度拷贝，会复制节点本身以及里面所有的子节点
+
+  ###### 例子：
+
+```
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    
+    <script>
+        var ul1 = document.querySelector('ul');
+        var li1 = ul1.children[0].cloneNode(true);
+        // 1、如果括号参数为空或者为FALSE，则是浅拷贝，即只克隆复制节点本身，不克隆里面的字节点。
+        // 2、括号参数为 true ，则是深度拷贝，会复制节点本身以及里面所有的子节点
+        ul1.appendChild(li1);
+    </script>
+```
+
+
+
+##### 案例：S1824案例-动态生成表格
+
+效果预览如下：[S1824案例-动态生成表格](https://codepen.io/fan-yue/pen/MWrEaME)
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="S1824案例-动态生成表格" src="https://codepen.io/fan-yue/embed/MWrEaME?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/fan-yue/pen/MWrEaME">
+  S1824案例-动态生成表格</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+`HTML`
+
+```
+    <table cellspacing="0" border="1">
+        <thead>
+            <td>姓名</td>
+            <td>考试科目</td>
+            <td>考试成绩</td>
+            <td>删除</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>我是案例，没有添加</td>
+                <td>HTML</td>
+                <td>100</td>
+                <td>
+                    <a href="#">删除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 1、先去准备好学生的数据，使用数组对象，创建数据
+        var datas = [
+            {
+                name:'路人甲',
+                subject:'JavaScript',
+                score:100
+            },
+            {
+                name:'路人乙',
+                subject:'HTML',
+                score:90
+            },
+            {
+                name:'路人丙',
+                subject:'CSS',
+                score:96
+            },
+            {
+                name:'路人丁',
+                subject:'Jquery',
+                score:80
+            }
+        ];
+        // 2、往tbody 里面创建行，有几个人，就创建几个行
+        var tbody1 = document.querySelector('tbody');
+        for(var i = 0;i<datas.length;i++){  //外层for循环管行，tr
+            // 3、创建tr行
+            var tr1 = document.createElement('tr');
+            tbody1.appendChild(tr1);
+            // 行里面创建单元格(跟数据有关) td 单元格的数量取决于每个对象里面的属性个数， for循环遍历对象
+            for(var k in datas[i]){  //里面for循环管列数，td
+                // 创建单元格
+                var td = document.createElement('td');
+                // 插入创建的单元格
+                td.innerHTML = datas[i][k];
+                tr1.appendChild(td);
+                // 把对象里面的属性值给 td
+                    //获取对象里面的属性值 datas[i][k]
+                // console.log(datas[i][k]);
+            }
+            // 3、创建有删除2个字对应的单元格
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="#">删除</a>';
+            tr1.appendChild(td);
+        }
+        /* for(var k in datas){
+            k 是属性名
+            datas[k] 是属性值
+        } */
+
+        // 3、添加删除操作 
+        var as = document.querySelectorAll('a');
+        for(var i = 0;i<as.length;i++){
+            as[i].onclick = function(){
+                // 点击a 删除 当前a 所在的行（对应的链接）node.removeChild(child)
+                tbody1.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+```
+
+
+
+#### 三种动态创建元素的区别
 

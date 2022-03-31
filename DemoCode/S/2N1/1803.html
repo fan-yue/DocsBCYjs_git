@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* button{
+            background-color: pink;
+        } */
+        .but1{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+
+    <script>
+        var bt1 = document.getElementsByTagName('button');
+        var bt2 = document.querySelectorAll('button');
+        
+        for(var i = 0;i<bt1.length;i++){
+            bt1[i].onclick = function(){
+                for(var i = 0;i<bt1.length;i++){
+                    bt1[i].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'pink';
+            }
+        }
+
+    </script>
+
+    <!-- <script>
+        var btn1 = document.querySelectorAll('button');
+        btn1[0].onclick = function(){
+            btn1[0].className = 'but1';
+        }
+        btn1[0].onblur = function(){
+            btn1[0].className = ' ';
+        }
+
+        btn1[1].onclick = function(){
+            btn1[1].className = 'but1';
+        }
+        btn1[1].onblur = function(){
+            btn1[1].className = ' ';
+        }
+
+        btn1[2].onclick = function(){
+            btn1[2].className = 'but1';
+        }
+        btn1[2].onblur = function(){
+            btn1[2].className = ' ';
+        }
+
+        btn1[3].onclick = function(){
+            btn1[3].className = 'but1';
+        }
+        btn1[3].onblur = function(){
+            btn1[3].className = ' ';
+        }
+        
+        btn1[4].onclick = function(){
+            btn1[4].className = 'but1';
+        }
+        btn1[4].onblur = function(){
+            btn1[4].className = ' ';
+        }
+    </script> -->
+</body>
+</html>

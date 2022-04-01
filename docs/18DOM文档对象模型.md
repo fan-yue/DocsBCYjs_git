@@ -1832,3 +1832,237 @@ node.cloneNode()
 
 #### 三种动态创建元素的区别
 
+##### doucument.write()
+
+```
+    <button>点击</button>
+    <p>abc</p>
+
+    <script>
+        //三种创建元素的区别 
+        // 1、document.write
+        var btn1 = document.querySelector('button');
+        btn1.onclick = function(){
+            document.write('<div>123</div>');
+        }
+    </script>
+```
+
+
+
+##### element.innerHTML
+
+`创建单个元素`
+
+```
+    <div class="inner"></div>
+    <script>
+        // 使用innerHTML创建元素
+        var inner1 = document.querySelector('.inner');
+        inner1.innerHTML = '<a href="#">百度</a>';
+    </script>
+```
+
+使用`innerHTML`创建多个元素
+
+```
+    <div class="inner"></div>
+    <script>
+        // 使用innerHTML创建多个元素
+        var inner1 = document.querySelector('.inner');
+        for(var i = 0;i<=100;i++){
+            inner1.innerHTML += '<a href="#">百度</a>';
+        }
+
+        // 使用innerHTML创建多个元素，检测加载时间需要多久，加载时长1500~2000毫秒
+        function fn(){
+            var d1 = +new Date();
+            var str = '';
+            for(var i = 0 ;i < 1000;i++){
+                document.body.innerHTML += '<div style="width:100px;height: 10px;border: 1px solid black;"></div>';
+            }
+            var d2 = +new Date();
+            console.log(d2-d1);
+        }
+        fn();
+    </script>
+```
+
+`解决使用innerHTML创建多个元素时，加载时间过长的办法,使用数组追加的方式，`
+
+```
+<!-- 解决使用innerHTML创建多个元素时，加载时间过长的办法,使用数组追加的方式 -->
+    <div class="inner"></div>
+    <script>
+        var inner1 = document.querySelector('.inner');
+        var arr = [];
+        for(var i = 0;i<100;i++){
+            arr.push('<a href="#">百度</a>');
+        }
+        inner1.innerHTML = arr.join('');
+
+        // 使用innerHTML创建多个元素，用数组追加的方式，检测加载时间需要多久，加载时长5毫秒
+        function fn(){
+            var d1 = +new Date();
+            var array = [];
+            for(var i = 0;i<1000;i++){
+                array.push('<div style="width:100px;height:10px;border:1px solid blue;"></div>');
+            }
+            document.body.innerHTML = array.join('');
+            var d2 = +new Date();
+            console.log(d2-d1);
+        }
+        fn();
+    </script>
+```
+
+
+
+##### document.createElement()
+
+`创建单个元素`
+
+```
+		<div class="create"></div>
+    <script> 
+        // 使用createElement()创建元素
+        var create1 = document.querySelector('.create');
+        var a = document.createElement('a');
+        create1.appendChild(a);
+    </script>
+```
+
+使用`createElement()`创建多个元素
+
+```
+       <div class="create"></div>
+    <script> 
+        // 使用createElement()创建元素
+        var create1 = document.querySelector('.create');
+        var a = document.createElement('a');
+        create1.appendChild(a);
+
+        // 使用createElement()创建多个元素，检测加载时间需要多久，加载时间10~13毫秒
+        function fn(){
+            var d1 = +new Date();
+            for(var i = 0;i<1000;i++){
+                var div1 = document.createElement('div');
+                div1.style.width = '100px';
+                div1.style.height = '100px';
+                div1.style.border = '1px solid red';
+                document.body.appendChild(div1);
+            }
+            var d2 = +new Date();
+            console.log(d2-d1);
+        }
+        fn();
+    </script>
+```
+
+
+
+区别：
+
+- `document.write()` 是直接将内容写入页面的内容流，但是文档流执行完毕，则它会导致页面全部重绘
+
+- `innerHTML` 是将内容写入某个 DOM 节点，不会导致页面全部重绘
+
+- `innerHTML` 创建多个元素效率更高（不要拼接字符串，采取数组形式拼接），结构稍微复杂
+
+- `createElement()`创建多个元素效率稍低一点点，但是结构更清晰
+
+  <font color=red>总结：不同浏览器下， innerHTML 效率要比 createElement 高</font>
+
+
+
+### DOM重点核心
+
+文档对象模型（Document Object Model，简称 `DOM`），是W3C组织推荐的处理可扩展标记语言的**标准编程接口**
+
+W3C已经定义了一系列的DOM接口，通过这些DOM接口可以改变网页的内容、结构和样式
+
+1、对于JavaScript，为了能够使JavaScript操作HTML，JavaScript就有了一套自己的DOM编程接口
+
+2、对于HTML，DOM使HTML形成了一个DOM树，包含文档、元素、节点
+
+![image-20220401091240468](18DOM文档对象模型.assets/image-20220401091240468.png)
+
+
+
+对于DOM操作，我们主要针对子元素的操作，主要有
+
+- 创建
+- 增
+- 删
+- 改
+- 查
+- 属性操作
+- 时间操作
+
+
+
+#### 创建
+
+1. document.write
+2. innerHTML
+3. createElement
+
+
+
+#### 增
+
+1. appendChild
+2. insertBefore
+
+
+
+#### 删
+
+1. removeChild
+
+   
+
+#### 改
+
+- 主要修改dom的元素属性，dom元素的内容、属性、表单的值等
+
+1. 修改元素属性：src、href、title 等
+
+2. 修改普通元素内容：innerHTML、innerText
+
+3. 修改表单元素：value、type、disabled
+
+4. 修改元素样式：style、className
+
+   
+
+#### 查
+
+- 主要获取查询dom的元素
+
+  1、DOM提供的API方法：getElementById、getElementsByTagName (古老用法，不推荐)
+
+  2、H5提供的新方法：querySelector、querySelectorAll (提倡)
+
+  3、利用节点操作获取元素：父(parentNode)、子(children)、兄(previousElementSibling、nextElementSibling) 提倡
+
+  
+
+#### 属性操作
+
+- 主要针对于自定义属性
+
+1. setAttribute：设置dom的属性值
+
+2. getAttribute：得到dom的属性值
+
+3. removeAttribute：移除属性
+
+   
+
+   
+
+   
+
+
+

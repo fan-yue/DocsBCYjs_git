@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        var divs = document.querySelectorAll('div');
+        divs[0].onclick = function(){
+            alert('hahah');
+            // 1、传统方式删除事件，不删除事件，点击事件的方法就可以一直被点击
+            divs[0].onclick = null;
+        }
+        // 2、传统方式添加事件
+        // divs[1].addEventListener('click',function(){
+        //     alert('wuwu');
+        // })
+            // 将方法分割出来，使用函数调用的方法，但是里面的fn调用时不需要加小括号
+            divs[1].addEventListener('click',fn);
+            function fn(){
+                alert('1123');
+                // 使用removeEventListener()方法删除事件
+                divs[1].removeEventListener('click',fn);
+            }
+
+        // detachEvent删除事件方式(兼容), 你得找个ie9以下的浏览器。这个代码才能用。
+        divs[2].attachEvent('onclick',fn1);
+        function fn1(){
+            alert('你得找个ie9以下的浏览器。这个代码才能用');
+            //  使用detachEvent()方法删除事件，你得找个ie9以下的浏览器。这个代码才能用。
+            divs[2].detachEvent('onclick',fn1);
+        }
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background-color: pink;"></div>
+    
+    <script>
+        var div1 = document.querySelector('div');
+        // 1. e.target 返回的是触发事件的对象（元素）  this 返回的是绑定事件的对象（元素）
+        // 区别 ： e.target 点击了那个元素，就返回那个元素 this 那个元素绑定了这个点击事件，那么就返回谁
+        div1.addEventListener('click',function(e){
+            console.log(e.target);
+            console.log(this);
+        })
+    </script>
+
+    <ul>
+        <li>123</li>
+        <li>456</li>
+        <li>789</li>
+    </ul>
+    <script>
+        var ul1 = document.querySelector('ul');
+        ul1.addEventListener('click',function(e){
+            // 1. e.target 返回的是触发事件的对象（元素）  this 返回的是绑定事件的对象（元素）
+            // 区别 ： e.target 点击了那个元素，就返回那个元素 ,   this 那个元素绑定了这个点击事件，那么就返回谁
+            // 我们给ul绑定了事件，那么this 就指向 ul ，但是我们点击的是li标签，结果却返回了 ul 元素
+            console.log(this);
+            // e.target 指向我们点击的那个对象，谁触发了这个事件，我们点击的是 li  ，e.target  指向的就是 li 标签
+            console.log(e.target);
+        })
+    </script>
+</body>
+</html>

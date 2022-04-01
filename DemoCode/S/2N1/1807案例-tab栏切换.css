@@ -1,0 +1,18 @@
+.tab_list ul,.tab_list li{
+    margin: 0;
+    padding: 0;
+}
+.tab ul li{
+    list-style: none;
+    float: left;
+    border: 1px solid black;
+    border-left: none;
+    padding: 20px;
+}
+.current{
+    color: white;
+    background-color: red;
+}
+.item{
+    display: none;
+}

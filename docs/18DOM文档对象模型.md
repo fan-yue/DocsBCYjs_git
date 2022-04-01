@@ -1202,7 +1202,7 @@ parentNode.firstElementChild
 
 - 第一个子结点(兼容性)
 - `firstElementChild` 返回第一个子节点，找不到则返回null
-- 有兼容性问题，IE9以上才支持
+- 有`兼容性`问题，IE9以上才支持
 
 
 
@@ -1213,7 +1213,7 @@ parentNode.lastChild
 ```
 
 - `lastChild` 返回最后一个子节点，找不到则返回null
-- 同样，也是包含所有的节点
+- 同样，也是包含`所有的节点`
 
 ```
 parentNode.lastElementChild

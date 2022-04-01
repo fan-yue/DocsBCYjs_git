@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://www.baidu.com">
+        <input type="submit" value="提交" name="sub">
+    </form>
+
+    <script>
+        // 阻止默认行为(事件) 让链接不跳转，或者让提交按钮不提交
+        /* var a1 = document.querySelector('a');
+        a1.addEventListener('click',function(e){
+            e.preventDefault();     //dom标准写法
+        }) */
+
+        // 传统的注册方式
+        var a1 = document.querySelector('a');
+        a1.onclick = function(e){
+            // 普通浏览器方法 preventDefault();  方法
+            // e.preventDefault();
+            // 低版本浏览器 ie 6、7、8  属性，低版本ie 6、7、8浏览器才会生效
+            // e.returnValue;
+            // 利用 return false 也能阻止默认行为，没有兼容性问题，特点：return 后面的代码不执行，而且只限于传统的注册方式
+            return false;
+                // 特点：return 后面的代码不执行
+            alert('哈哈');
+        }
+    </script>
+</body>
+</html>

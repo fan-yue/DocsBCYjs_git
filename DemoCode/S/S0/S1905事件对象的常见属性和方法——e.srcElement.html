@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background-color: pink;"></div>
+
+    <script>
+        var div1 = document.querySelector('div');
+        // 因为ie浏览器不识别 addEventListener() 方法，所以我们需要使用  传统注册方法进行事件绑定
+        div1.onclick = function(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab_list ul,.tab_list li{
+            margin: 0;
+            padding: 0;
+        }
+        .tab ul li{
+            list-style: none;
+            float: left;
+            border: 1px solid black;
+            border-left: none;
+            padding: 20px;
+        }
+        .current{
+            color: white;
+            background-color: red;
+        }
+        .item{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current" >商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(50000)</li>
+                <li>手机社区</li>            
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">商品介绍模块</div>
+            <div class="item">规格与包装模块</div>
+            <div class="item">售后保障模块</div>
+            <div class="item">商品评价模块</div>
+            <div class="item">手机社区模块</div>
+        </div>
+    </div>
+    
+    <script>
+        // 获取元素
+        var tab_list = document.querySelector('.tab_list');
+        var list = tab_list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        // 利用for循环绑定点击事件
+        for(var i = 0;i < list.length;i++){
+            // 开始给5个li标签设置index属性和值
+            list[i].setAttribute('index',i);
+            list[i].onclick = function(){
+                // 1.模块选项卡，点击某一个，默认第一个li标签的中的底色是红色，其余不变(利用排他思想)修改类名的方式
+                // 使用排它思想，将所有li中的class样式current清除
+                for(var i = 0;i<list.length;i++){   
+                    list[i].className = '';
+                }
+                // 给自己加样式
+                this.className = 'current';
+                // 2、选项卡解决了，需要处理内容模块。当点击对应的选项卡，出现对应的内容.
+                // 利用li标签中自定义属性的功能，自定义一个属性。
+                var index = this.getAttribute('index');
+                console.log(index);
+                // 使用排它思想，将所有item中的div全部隐藏
+                for(var i = 0;i < items.length;i++){
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

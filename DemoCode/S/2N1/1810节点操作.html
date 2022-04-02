@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>123</li>
+
+        <li>456</li>
+
+    </ul>
+
+    <script>
+        // createElement ,创建节点
+        var li1 = document.createElement('li');
+        // 先获取父元素
+        var ul1 = document.querySelector('ul');
+            // 添加节点,添加到后面
+            ul1.appendChild(li1);
+
+        var li2 = document.createElement('li');
+        ul1.insertBefore(li2,ul1.children[1]);
+    </script>
+
+    <!-- <div>我是div</div>
+    <span>我是span</span>
+    
+    <script>
+        var span1 = document.querySelector('span');
+        // console.log(div1.nextElementSibling);
+        console.log(span1.previousElementSibling);
+    </script> -->
+
+    <!-- <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li3</li>
+        <li>我是li1</li>
+    </ol>
+
+    <script>
+        var ol1 = document.querySelector('ol');
+        console.log(ol1.children[ol1.children.length-1]);
+    </script> -->
+</body>
+</html>

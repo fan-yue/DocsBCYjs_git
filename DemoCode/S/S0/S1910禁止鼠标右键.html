@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>contextmenu  禁用鼠标右键菜单 事件</p>
+    <p>这是一段不能被选中的文字</p>
+
+    <script>
+        // 1、contextmenu  禁用鼠标右键菜单 事件
+        document.addEventListener('contextmenu',function(e){
+            e.preventDefault();
+        })
+
+        // 2、selectstatr  禁止选中文字事件 
+        document.addEventListener('selectstart',function(e){
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>

@@ -7,18 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <div style="width: 100px;height: 100px;background-color: pink;"></div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
     <script>
-        var a = 5;
-        var arr = [10,2,0,20,5];
-        for(var i = 0;i<arr.length;i++){
-            if(arr[i] == a){
-                var b = '存在';
-                break;
-            }else{
-                var b = '不存在';
-            }
-        }
-        console.log(b);
+        var div1 = document.querySelector('div');
+        // 1. e.target 返回的是触发事件的对象（元素）  this 返回的是绑定事件的对象（元素）
+        // 区别 ： e.target 点击了那个元素，就返回那个元素 this 那个元素绑定了这个点击事件，那么就返回谁
+        div1.addEventListener('click',function(e){
+            console.log(this);
+        })
     </script>
 </body>
 </html>

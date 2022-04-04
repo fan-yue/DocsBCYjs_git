@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 使用所学键盘事件，完成键盘按下s键，自动选中搜索框 -->
+    <input type="text">
+    <script>
+        var search1 = document.querySelector('input');
+        document.addEventListener('keyup',function(e){
+            if(e.keyCode === 83){
+                search1.focus();
+            }
+        })
+    </script>
+</body>
+</html>

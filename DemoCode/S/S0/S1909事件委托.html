@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>甲</li>
+        <li>乙</li>
+        <li>丙</li>
+        <li>丁</li>
+    </ul>
+    
+    <script>
+        // 通过单独给每个li标签分别给甲、乙、丙、丁添加点击事件
+        
+        // var lis = document.querySelectorAll('li');
+        // lis[0].addEventListener('click',function(){
+        //     console.log('ha');
+        // })
+        // lis[1].addEventListener('click',function(){
+        //     console.log('ha');
+        // })
+        // lis[2].addEventListener('click',function(){
+        //     console.log('ha');
+        // })
+        // lis[3].addEventListener('click',function(){
+        //     console.log('ha');
+        // })
+
+        // 事件委托核心原理：不是给每一个子节点单独设置事件监听器,而是将事件监听器设置在其父节点上，利用事件冒泡原理影响每一个子节点
+        // 使用事件委托，对ul标签了，添加时间
+        var ul1 = document.querySelector('ul');
+        ul1.addEventListener('click',function(e){
+            // console.log('ha');
+            // e.target 可以获取到我们点击的对象
+            e.target.style.backgroundColor = 'yellow';
+        })
+    </script>
+</body>
+</html>

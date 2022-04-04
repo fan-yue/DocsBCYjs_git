@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // keyup 键盘弹起时触发
+        document.addEventListener('keyup',function(){
+            console.log('键盘弹起时触发');
+        })
+        // keypress 键盘按下时触发，但是它不识别功能键，比如 ctrl shift 箭头等
+        document.addEventListener('keypress',function(){
+            console.log('键盘按下时触发');
+        })
+        // keydown，也是键盘按下触发，但是可以识别ctrl shift 箭头等多功能键,因为跟其他软件多功能键冲突，所以不建议使用
+        document.addEventListener('keydown',function(){
+            console.log('也是键盘按下触发，但是可以识别ctrl shift 箭头等多功能键');
+        })
+    </script>
+</body>
+</html>

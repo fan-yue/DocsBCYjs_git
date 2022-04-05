@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="strat">开启重复定时器</button>
+    <button class="stop">关闭重复定时器</button>
+    
+    <script>
+        // 获取元素
+        var strat1 = document.querySelector('.strat');
+        var stop1 = document.querySelector('.stop');
+
+/*         // 添加事件,，使用 clearInterval ('定时器的名字') 方法  ,但是在运行中会报错。因为停止计时器clearInterval ('定时器的名字') ，中的「定时器名字」，和开始的定时器变量不在同一个作用域，所以会报错。
+        strat1.addEventListener('click',function(){
+            var time = setInterval(function(){
+                console.log('开启定时器时，每1s加载一次');
+            },1000);
+        })
+        stop1.addEventListener('click',function(){
+            clearInterval(time);
+        }) */
+
+        // 解决 因为停止计时器clearInterval ('定时器的名字') ，中的「定时器名字」，和开始的定时器变量不在同一个作用域，导致报错的解决方法
+        // 定义一个全局变量为空的对象
+        var time = null;
+        strat1.addEventListener('click',function(){
+            time = setInterval(function(){
+                console.log('开启定时器时，每1s加载一次');
+            },1000)
+        })
+        stop1.addEventListener('click',function(){
+            clearInterval(time);
+        })
+    </script>
+</body>
+</html>

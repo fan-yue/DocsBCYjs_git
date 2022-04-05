@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    手机号码：<input type="number" >
+    <button>发送</button>
+
+    <script>
+        var btn1 = document.querySelector('button');
+        var time = 5;  //定义剩下5秒的全局变量
+        btn1.addEventListener('click',function(){
+            btn1.disabled = true;
+            // btn1.innerHTML = '还剩下5秒才可以再次点击';
+            setInterval(fntime,1000)
+        })
+        function fntime(){
+            if(time == 0){
+                    // 清楚定时器并且复原按钮
+                    clearInterval(time);
+                    btn1.disabled = false;
+                    btn1.innerHTML = '发送';
+                    //  time = 5,需要重新赋值
+                    time = 5;
+                }else{
+                    btn1.innerHTML = '还剩下'+time+'秒才可以再次点击';
+                    time--;
+                }
+        }
+    </script>
+</body>
+</html>

@@ -360,8 +360,10 @@ window.setTimeout(调用函数,[延迟的毫秒数]);
 **注意：**
 
 - `window`可以省略
+
 - 里面的参数就是定时器的标识符
-- 
+
+  
 
 `例子————利用clearTimeout()练习 停止广告弹窗案例`
 
@@ -460,4 +462,107 @@ window.setInterval(回调函数,[间隔的毫秒数]);
 
 
 
-#### 
+#### clearInterval() 停止定时器
+
+概念：`clearInterval ( )` 方法取消了先前通过调用 `setInterval()` 建立的定时器
+
+**注意：**
+
+- `window`可以省略
+
+- 里面的参数就是定时器的标识符
+
+  
+
+`例子————创建全局变量，完成clearInterval()事件`
+
+```
+    <button class="strat">开启重复定时器</button>
+    <button class="stop">关闭重复定时器</button>
+    
+    <script>
+        // 获取元素
+        var strat1 = document.querySelector('.strat');
+        var stop1 = document.querySelector('.stop');
+
+/*         // 添加事件,，使用 clearInterval ('定时器的名字') 方法  ,但是在运行中会报错。因为停止计时器clearInterval ('定时器的名字') ，中的「定时器名字」，和开始的定时器变量不在同一个作用域，所以会报错。
+        strat1.addEventListener('click',function(){
+            var time = setInterval(function(){
+                console.log('开启定时器时，每1s加载一次');
+            },1000);
+        })
+        stop1.addEventListener('click',function(){
+            clearInterval(time);
+        }) */
+
+        // 解决 因为停止计时器clearInterval ('定时器的名字') ，中的「定时器名字」，和开始的定时器变量不在同一个作用域，导致报错的解决方法
+        // 定义一个全局变量为空的对象
+        var time = null;
+        strat1.addEventListener('click',function(){
+            time = setInterval(function(){
+                console.log('开启定时器时，每1s加载一次');
+            },1000)
+        })
+        stop1.addEventListener('click',function(){
+            clearInterval(time);
+        })
+    </script>
+```
+
+
+
+#### this指向    <font color=aqua	>了解</font>
+
+`this`的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定`this`到底指向谁
+
+目前所学阶段，我们先需要了解如下几个`this`指向
+
+- 全局作用域或者普通函数中`this`指向全局对象`window`(注意定时器里面的this指向window)
+- 方法调用中谁调用`this`指向谁
+- 构造函数中`this`指向构造函数实例
+
+
+
+`例子————研究  this   指向的相关问题`
+
+```
+    <button>点击</button>
+    <script>
+        // 1、全局作用域或者普通函数中 this  指向全局对象  window (注意定时器里面的this指向window)
+        console.log(this);      // window
+        
+        function fn1(){
+            console.log(this);  // window
+        }
+        fn1();
+
+        setTimeout(function(){
+            console.log(this);
+        },1000)
+
+        // 2、方法调用中谁调用  this 指向谁
+        var a = {
+            SayHi: function(){
+                console.log(this);      // this 指向的是 a 这个对象
+            }
+        }
+        a.SayHi();
+
+        var btn1 = document.querySelector('button');
+            //传统点击事件
+        /* btn1.onclick = function(){
+            console.log(this);  //this 指向的是 btn 按这个按钮元素
+        } */
+    
+        btn1.addEventListener('click',function(){
+            console.log(this);  //this 指向的是 btn 按这个按钮元素
+        })
+
+        // 3、构造函数中 this 指向构造函数实例
+        function Fun(){
+            console.log(this);  // this 指向的是 fun 实例的对象
+        }
+        var fun1 = new Fun();
+    </script>
+```
+

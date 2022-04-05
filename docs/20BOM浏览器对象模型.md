@@ -19,7 +19,9 @@
 
 #### BOM的构成
 
-![](/Users/yangfan/Desktop/test/DocsBCYjs_git/docs/20BOM浏览器对象模型.assets/image-20220405115937547.png)
+![image-20220405223453900](20BOM浏览器对象模型.assets/image-20220405223453900.png)
+
+
 
 - BOM 比 DOM 更大。它包含 DOM。
 

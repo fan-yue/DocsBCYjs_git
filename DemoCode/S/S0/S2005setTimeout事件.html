@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1、语法规范， window.setTimeout(调用的函数，延时时间)
+        window.setTimeout(function(){
+            console.log('3秒过后，我会被输出');
+        },3000)
+        // 2、window 在代码中可以被省略，
+        setTimeout(function(){
+            console.log('3秒过后，我会被输出');
+        },3000)
+        // 3、延时时间也可以省略，如果没有设置，默认是 0 ，
+        setTimeout(function(){
+            console.log('0秒过后，我会被输出');
+        })
+        // 4、调用函数可以直接写函数，也可以写函数名，外部调用
+        setTimeout(fn1,5000);
+        function fn1(){
+            console.log('5秒过后，我会被输出，使用的是函数外部调用');
+        }
+            // 4.另外一种写法是 '函数名()',知道写法就可以了，不推荐。
+        setTimeout('fn1()',1000);
+        function fn1(){
+            console.log("1秒过后，我会被输出，使用的是'函数名()'调用");
+        }
+    </script>
+    
+    <script>
+        // 5、常规网页中会有很多定时器，我们需要给定时器加名字，进行区别。
+        function fn2(){
+            console.log('一个函数，出现两次输出');
+        }
+        var time1 = setTimeout(fn2,1000);
+        var time2 = setTimeout(fn2,2000);
+    </script>
+</body>
+</html>

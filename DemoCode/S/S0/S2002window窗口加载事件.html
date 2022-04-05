@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--     <script>
+        window.onload = function(){
+            var btn1 = document.querySelector('button');
+            btn1.onclick = function(){
+                alert('按下按钮出现弹窗');
+            }
+        }
+        // 
+        window.onload = function(){
+            var btn1 = document.querySelector('button');
+            btn1.onclick = function(){
+                alert('因为 window.onload 是传统注册事件，只能写一次，如果有多个，会按照最后一个 window.onload 为准');
+            }
+        }
+    </script> -->
+
+<!--     <script>
+        // 使用window.addEventListener 添加事件,因为addEventListener(),是一个方法监听事件，可以在一个元素中设置多个事件
+        window.addEventListener('load',function(){
+            var btn1 = document.querySelector('button');
+            btn1.addEventListener('click',function(){
+                alert('使用window.addEventListener 添加事件,因为addEventListener(),是一个方法监听事件，可以在一个元素中设置多个事件');
+            })
+        })
+        window.addEventListener('load',function(){
+            var btn1 = document.querySelector('button');
+            btn1.addEventListener('click',function(){
+                alert('使用window.addEventListener 添加事件,看，这就是同一个元素中的第二个事件');
+            })
+        })
+    </script> -->
+
+    <script>
+        window.addEventListener('load',function(){
+            var btn1 = document.querySelector('button');
+            btn1.addEventListener('click',function(){
+                alert('我用了 window.addEventListener, 中的 load 事件');
+            })
+        })
+        window.addEventListener('load',function(){
+            var btn1 = document.querySelector('button');
+            btn1.addEventListener('click',function(){
+                alert('我用了 window.addEventListener, 中的 load 事件');
+            })
+        })
+        window.addEventListener('DOMContentLoaded',function(){
+            var btn1 = document.querySelector('button');
+            // DOMContentLoade  是DOM 加载完毕后，不包图片 flash css等就可以执行的窗口加载事件，加载速度比load更改一些
+            btn1.addEventListener('click',function(){
+                alert('DOMContentLoaded  是DOM 加载完毕后，不包图片 flash css等就可以执行的窗口加载事件，加载速度比load更改一些');
+            }) 
+        })
+    </script>
+    <button>按钮</button>
+</body>
+</html>

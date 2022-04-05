@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('load',function(){
+            var div1 = document.querySelector('div');
+            // resize 事件，窗口大小发生像素变化，就会触发这个事件
+            window.addEventListener('resize',function(){
+                // innerWidth  , window中的一个属性，获取屏幕对应的宽度
+                console.log(window.innerWidth);
+                // 利用resize事件，模拟CSS中的多媒体查询,检测屏幕当前宽度是否小于900px，如果小于，则div由aqua变为blue,大于则为aqua
+                if(window.innerWidth <= 900){
+                    div1.style.backgroundColor = 'blue';
+                }else{
+                    div1.style.backgroundColor = 'aqua';
+                }
+            })
+        })
+    </script>
+    <div style="width: 100px;height: 100px;background-color: aqua;"></div>
+</body>
+</html>

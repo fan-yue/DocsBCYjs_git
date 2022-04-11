@@ -568,3 +568,185 @@ window.setInterval(回调函数,[间隔的毫秒数]);
     </script>
 ```
 
+
+
+### location对象
+
+- window 对象给我们提供了一个 `location`属性用于获取或者设置窗体的url，并且可以解析url。因为这个属性返回的是一个对象，所以我们将这个属性也称为 location 对象。
+
+
+
+#### url
+
+统一资源定位符（uniform resouce locator）是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的 URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。
+
+url 的一般语法格式为：
+
+```
+protocol://host[:port]/path/[?query]#fragment
+
+http://www.baidu.com/index.html?name=andy&age=18#link
+```
+
+
+
+| 组成     | 说明                                     |
+| -------- | ---------------------------------------- |
+| protocol | 通信协议 常用的http,ftp,maito等          |
+| host     | 主机(域名)www.baidu.com                  |
+| port     | 端口号，可选                             |
+| path     | 路径 由零或多个`'/'`符号隔开的字符串     |
+| query    | 参数 以键值对的形式，通过`&`符号分隔开来 |
+| fragment | 片段 `#`后面内容 常见于链接 锚点         |
+
+
+
+#### location对象属性
+
+| location对象属性  | 返回值                            |
+| ----------------- | --------------------------------- |
+| location.href     | 获取或者设置整个URL               |
+| location.host     | 返回主机（域名）www.baidu.com     |
+| location.port     | 返回端口号，如果未写返回空字符串  |
+| location.pathname | 返回路径                          |
+| location.search   | 返回参数                          |
+| location.hash     | 返回片段 #后面内容常见于链接 锚点 |
+
+重点记住： `href`和`search`
+
+`例子`
+
+```
+    <script>
+        console.log(location.href);
+        console.log(location.host);
+        console.log(location.port);
+    </script>
+```
+
+
+
+##### 案例—— location.href  做 404 页面跳转，在当前页面5秒钟跳转页面
+
+```
+    <!-- 使用 location.href  做 404 页面跳转-->
+    <div>404页面，还有5秒后跳转页面</div>
+    <script>
+        var div1 = document.querySelector('div');
+        var times = 5;
+        fn1();
+        function fn1(){
+            if(times ==  0){
+                location.href = 'http://www.baidu.com';
+            }else{
+                 div1.innerHTML = '这个网页还有' + times + '秒之后跳转到首页';
+                 times-- ;
+            }
+        }
+        setInterval(fn1,1000);
+    </script>
+```
+
+
+
+
+
+#### location对象方法
+
+| location对象方法   | 返回值                                                       |
+| ------------------ | ------------------------------------------------------------ |
+| location.assign()  | 跟href一样，可以跳转页面（也称为重定向页面）                 |
+| location.replace() | 替换当前页面，因为不记录历史，所以不能后退页面               |
+| location.reload()  | 重新加载页面，相当于刷新按钮或者 f5 ，如果参数为true 强制刷新 ctrl+f5 |
+
+`例子`
+
+```
+    <button>按钮</button>
+    <script>
+        var btn1 = document.querySelector('button');
+        btn1.addEventListener('click',function(){
+            // 跟href一样，可以跳转页面（也称为重定向页面）,记录浏览历史，所以可以实现后退功能
+            // location.assign('http://www.baidu.com');
+            // 替换当前页面，因为不记录历史，所以不能后退页面
+            // location.replace('http://www.baidu.com');
+            // 重新加载页面，相当于刷新按钮或者 f5 ，如果参数为true 强制刷新 ctrl+f5
+            location.reload(true);
+        })
+    </script>
+```
+
+
+
+### navigator对象
+
+- navigator 对象包含有关浏览器的信息，它有很多属性
+- 我们常用的是`userAgent`,该属性可以返回由客户机发送服务器的`user-agent`头部的值
+
+
+
+`例子`
+
+```
+    <script>
+        console.log(navigator);
+    </script>
+```
+
+
+
+下面前端代码可以判断用户是用哪个终端打开页面的，如果是用 PC 打开的，我们就跳转到 PC 端的页面，如果是用手机打开的，就跳转到手机端页面
+
+```
+    <script>
+        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            window.location.href = "http://www.baidu.com";     //手机
+        } else {
+            window.location.href = "http://www.jingdong.com";     //电脑
+        }
+    </script>
+```
+
+
+
+### history对象
+
+- window 对象给我们提供了一个 history 对象，与浏览器历史记录进行交互
+- 该对象包含用户（在浏览器窗口中）访问过的 URL。
+
+| history对象方法 | 作用                                                         |
+| --------------- | ------------------------------------------------------------ |
+| back()          | 可以后退功能                                                 |
+| forward()       | 前进功能                                                     |
+| go(参数)        | 前进后退功能，参数如果是 1 前进1个页面 如果是 -1 后退1个页面 |
+
+
+
+`a_index.html`
+
+```
+    <a href="./S2017history_list.html">点击前往list详情页</a>
+    <button>前进</button>
+    <script>
+        var btn1 = document.querySelector('button');
+        btn1.addEventListener('click',function(){
+            // history.forward();
+            history.go(1);
+        })
+    </script>
+```
+
+`b_list.html`
+
+```
+    <a href="./S2016history_index.html">点击前往首页</a>
+    <button>后退</button>
+    <script>
+        var btn1 = document.querySelector('button');
+        btn1.addEventListener('click',function(){
+            // history.back();
+            history.go(-1);
+        })
+    </script>
+```
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1，传统移除事件</button>
+    <button>按钮2，remove移除事件</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        btns[0].onclick = function(){
+            alert('这是传统事件的添加方式');    
+        }
+        // 传统移除事件的方式
+        btns[0].onclick = null;
+
+        btns[1].addEventListener('click',fn);
+        function fn(){
+            alert('这是事件监听添加事件')
+        }
+        // removeEventListener(),移除事件
+        btns[1].removeEventListener('click',fn);
+    </script>
+<!--     <button>按钮1,传统的注册事件</button>
+    <button>按钮2,事件监听</button>
+    <script>
+        var btn1 = document.querySelectorAll('button');
+        btn1[0].onclick = function(){
+            console.log('哈哈');
+        }
+        btn1[0].onclick = function(){
+            console.log('这是第二个事件');
+        }
+
+        btn1[1].addEventListener('click',function(){
+            alert('123');
+        });
+        
+    </script> -->
+</body>
+</html>

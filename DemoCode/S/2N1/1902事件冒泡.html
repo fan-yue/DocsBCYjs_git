@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: olivedrab;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+
+        son.addEventListener('click',fn1);
+        function fn1(){
+            alert('儿子');
+        }
+        father.addEventListener('click',fn2);
+        function fn2(){
+            alert('付清');
+        }
+    </script>
+</body>
+</html>

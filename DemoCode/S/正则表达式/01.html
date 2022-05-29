@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 必须需要return才可以实现阻拦form表单跳转 -->
+    <form action="success.html" method="get" onsubmit="return a()">
+        账号:<input type="text" id="input_text" onblur="zh()">
+        <span id="span1"></span>
+        <br>
+        密码:<input type="password" onblur="ps()" id="input_ps">
+        <span id="span2"></span>
+        <br>
+        确认密码:<input type="password" id="input_ps2" onblur="ps2()">
+        <span id="span3"></span>
+        <br>
+        性别：
+        男：<input type="radio" name="sex" onclick="sex_test()">
+        女：<input type="radio" name="sex" onclick="sex_test()">
+        <span id="span4"></span>
+        <hr>
+        <input type="button" value="全选" onclick="qx()">
+        <input type="button" value="反选">
+        <input type="button" value="全不选">
+        <br>
+        HTML<input type="checkbox" name="" id="">
+        CSS<input type="checkbox" name="" id="">
+        JavaScript<input type="checkbox" name="" id="">
+        jquery<input type="checkbox" name="" id="">
+        <br>
+        <input type="submit" value="提交按钮" id="sub">
+    </form>
+    <script>
+        // form表单提交的函数
+        function a(){
+            // 中间使用 & 相连接
+            if(zh()&ps()&ps2()&sex_test()){
+                alert('成功');
+                return true;
+            }else{
+                alert('失败');
+                return false;
+            }
+        }
+        //多选
+        
+
+        // 性别验证
+            // 第一种写法，性别验证
+        function sex_test(){
+            var count = 0;
+            var sex_name = document.getElementsByName('sex');
+            var span4 = document.getElementById('span4');
+            for(var i = 0;i<sex_name.length;i++){
+                if(sex_name[i].checked == true){
+                    span4.innerHTML = "<font color='green'>√</font>";
+                    return true;
+                }
+                else{
+                    span4.innerHTML = "<font color='color'>请选择性别</font>";
+                }
+            }
+        }
+            // 第二种写法，性别验证
+        /* function sex_test(){
+            var count = 0;
+            var sex_name = document.getElementsByName('sex');
+            var span4 = document.getElementById('span4');
+            for(var i = 0;i<sex_name.length;i++){
+                if(sex_name[i].checked == true){
+                    count++;
+                }
+            }
+            if(count>=1){
+                span4.innerHTML = "<font color='green'>√</font>";
+            }else{
+                span4.innerHTML = "<font color='color'>请选择性别</font>";
+            }
+
+        } */
+
+        // 账号验证
+        function zh(){
+            var zhValue = document.getElementById('input_text').value;
+            var span1  = document.getElementById('span1');
+            var zhegnze = /Hello/g;
+            if(zhegnze.test(zhValue)){
+                span1.innerHTML = "<font color='green'>√</font>";
+                return true;
+            }else{
+                span1.innerHTML = "<font color='red'>请输入和Hello相匹配的字符</font>";
+                return false;
+            }
+        }
+        // 密码验证
+        function ps(){
+            var psValue = document.getElementById('input_ps').value;
+            var span2  = document.getElementById('span2');
+            var zhegnze = /Hello/g;
+            if(zhegnze.test(psValue)){
+                span2.innerHTML = "<font color='green'>√</font>";
+                return true;
+            }else{
+                span2.innerHTML = "<font color='red'>请输入和Hello相匹配的字符</font>";
+                return false;
+            }
+        }
+        // 确认密码
+        function ps2(){
+            var psValue = document.getElementById('input_ps').value;
+            var span3  = document.getElementById('span3');
+            var psValue2 = document.getElementById('input_ps2').value;
+            // 判断密码框和确认密码框是否相等，并且不为 空 
+            if(psValue == psValue2 && psValue2 !== ''){
+                span3.innerHTML = "<font color='green'>√</font>";
+                return true;
+            }else{
+                span3.innerHTML = "<font color='red'>请输入和Hello相匹配的字符</font>";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

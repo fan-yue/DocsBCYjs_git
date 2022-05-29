@@ -88,6 +88,27 @@ doucument.getElementsByTagName('标签名');
 
 
 
+#### getElementsByName()根据标签中的属性名获取
+
+根据标签中的**属性名**获取元素，返回一个**伪数组**的集合，同样也需要**遍历**
+
+```
+doucument.getElementsByName('属性名');
+```
+
+`例子`
+
+```
+    <div name="demo"></div>
+    <div name="demo"></div>
+    <script>
+        var demoList = document.getElementsByName('demo');
+        console.log(demoList);
+    </script>
+```
+
+
+
 #### HTML5新增的方法获取
 
 ##### getElementsByClassName	，根据类名返回元素对象合集
@@ -154,6 +175,8 @@ document.querySelector('选择器');
     </script>
 ```
 
+
+
 ##### document.querySelectorAll    ，根据指定选择器返回所有元素对象
 
 根据指定选择器返回所有元素对象
@@ -186,6 +209,8 @@ document.querySelectorAll('选择器');
 ```
 
 <font color=red>注意：querySelector和querySelectorAll里面的选择器需要加符号,比如:document.querySelector('#nav');</font>
+
+
 
 
 
@@ -284,6 +309,35 @@ document.documentElement;
 | onmousemove | 鼠标移动触发     |
 | onmouseup   | 鼠标弹起触发     |
 | onmousedown | 鼠标按下触发     |
+
+
+
+#### 表单事件 	<font color=red>重要</font>
+
+| onsubmit | onsubmit 事件在表单提交时触发 |
+| -------- | ----------------------------- |
+
+`例子`
+
+```
+    <form action="a.html" method="get" id="sub">
+        账号<input type="text" value="测试文字">
+        <input type="submit" value="提交信息" id="sub">
+    </form>
+    <script>
+        /* 通过HTML属性的方式添加 */
+        function a(){
+            alert('测试');
+        }
+
+        /* 通过js事件的方式添加，注意：此时不需要 form 标签中的 onsubmit属性 */
+        var form1 = document.getElementById('sub');
+        
+        form1.onsubmit = function a(){
+            alert('测试');
+        }
+    </script>
+```
 
 
 

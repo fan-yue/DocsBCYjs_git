@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        for(var k in obj){
+            console.log(k);         //k变量输出 属性名
+            console.log(obj[k]);    //使用 obj[k]   输出 属性值
+        }
+    </script>
+</body>
+</html>

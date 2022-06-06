@@ -248,7 +248,7 @@ document.documentElement;
 
 ### 事件基础
 
-概念：JavaScript 使我们有能力创建动态页面，而事件是可以被 JavaScript 侦测到的行为。
+概念：JavaScript 使我们有能力创建动态页面，而事件是可以被 `JavaScript` 侦测到的行为。
 
 网页中的每个元素都可以产生某些可以触发 JavaScript 的事件，例如，我们可以在用户点击某按钮时产生一个事件，然后去执行某些操作。
 
@@ -272,6 +272,8 @@ document.documentElement;
         }
     </script>
 ```
+
+
 
 #### 执行事件的步骤
 
@@ -304,8 +306,8 @@ document.documentElement;
 | onclick     | 鼠标点击左键触发 |
 | onmouseover | 鼠标经过触发     |
 | onmouseout  | 鼠标离开触发     |
-| onfocus     | 获得鼠标焦点触发 |
-| onblur      | 失去鼠标焦点触发 |
+| onfocus     | 获得表单焦点触发 |
+| onblur      | 失去表单焦点触发 |
 | onmousemove | 鼠标移动触发     |
 | onmouseup   | 鼠标弹起触发     |
 | onmousedown | 鼠标按下触发     |
@@ -411,7 +413,7 @@ element.innerHTML
         
         function getTimes() {
             var now = new Date();
-            var year = now.getFullYear();   
+            var year = now.getFullYear(); 
             var month = now.getMonth() + 1;
             var day = now.getDate();
             var hours = now.getHours();
@@ -1593,7 +1595,7 @@ node.appendChild(child)
   
 
 ```
-node.insertBefore(child,指定元素)
+node.insertBefore(child,指定元素的位置)
 ```
 
 - `node.insertBefore()` 方法将一个节点添加到父节点的指定子节点**前面**。类似于 CSS 里面的 before 伪元素。
@@ -1613,7 +1615,7 @@ node.insertBefore(child,指定元素)
         // 先获取父亲ul
         var ul = document.querySelector('ul');
         ul.appendChild(li);
-        // // 3. 添加节点 node.insertBefore(child, 指定元素);
+        // // 3. 添加节点 node.insertBefore(child, 指定元素的位置);
         var lili = document.createElement('li');
         ul.insertBefore(lili, ul.children[0]);
 

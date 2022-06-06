@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button id="a">点击为A图片</button>
+    <button id="b">点击为B图片</button>
+    <img src="./images/.png" alt="文字" title="">
+    <button>点击该按钮，更改alt属性的属性值，就是把文字变了</button>
+    <button>改title</button>
+    <script>
+        var a = document.getElementById('a');
+        var b = document.getElementById('b');
+        // 获取 img 标签元素
+        var img = document.querySelector('img');
+        // 对b按钮进行操作
+        b.onclick = function(){
+            img.src = './images/B.png';
+        }
+        // 对A按钮进行操作
+        a.onclick = function(){
+            img.src = './images/A.png';
+        }
+    </script>
+</body>
+</html>

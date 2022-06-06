@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>123</li>
+        
+    </ul>
+
+    <script>
+        // 创建节点
+        var li1 = document.createElement('li');
+        // 获取ul标签的
+        var ul1 = document.querySelector('ul');
+        ul1.appendChild(li1);
+
+        // 创建标签
+        var li0 = document.createElement('li');
+        ul1.insertBefore(li0);
+    </script>
+</body>
+</html>

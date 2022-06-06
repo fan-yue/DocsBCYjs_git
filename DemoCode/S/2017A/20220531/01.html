@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>文字</div>
+    <span>span标签</span>
+    <script>
+        var div1 = document.querySelector('div');
+        // innerText 改变文字，不解析标签和元素
+        div1.innerText = '<b>1231</b>';
+        // innerHTML 改变元素内容，解析标签和元素
+        var sp1 = document.querySelector('span');
+        sp1.innerHTML = '<b>1231</b>';
+    </script>
+</body>
+</html>

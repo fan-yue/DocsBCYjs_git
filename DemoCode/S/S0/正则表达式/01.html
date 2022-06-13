@@ -23,15 +23,6 @@
         女：<input type="radio" name="sex" onclick="sex_test()">
         <span id="span4"></span>
         <hr>
-        <input type="button" value="全选" onclick="qx()">
-        <input type="button" value="反选">
-        <input type="button" value="全不选">
-        <br>
-        HTML<input type="checkbox" name="" id="">
-        CSS<input type="checkbox" name="" id="">
-        JavaScript<input type="checkbox" name="" id="">
-        jquery<input type="checkbox" name="" id="">
-        <br>
         <input type="submit" value="提交按钮" id="sub">
     </form>
     <script>
@@ -47,12 +38,11 @@
             }
         }
         //多选
-        
+            // 全选
 
         // 性别验证
             // 第一种写法，性别验证
-        function sex_test(){
-            var count = 0;
+            function sex_test(){
             var sex_name = document.getElementsByName('sex');
             var span4 = document.getElementById('span4');
             for(var i = 0;i<sex_name.length;i++){
@@ -61,10 +51,13 @@
                     return true;
                 }
                 else{
-                    span4.innerHTML = "<font color='color'>请选择性别</font>";
+                    span4.innerHTML = "<font color='red'>请选择性别</font>";
                 }
             }
         }
+        
+
+        
             // 第二种写法，性别验证
         /* function sex_test(){
             var count = 0;

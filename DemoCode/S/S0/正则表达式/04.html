@@ -18,7 +18,7 @@
         inp.onblur = function demo(){
             var inp_value = inp.value;
             // 正则匹配
-            zhengze =  /Hello/g;           
+            zhengze =  /\u4e00-\u9fa5/;           
             if(zhengze.test(inp_value)){
                 sp1.innerHTML = "<font color='green'>√</font>";
                 return true

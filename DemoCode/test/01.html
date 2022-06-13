@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 输入框输入某年某月某日，判断这一天是这一年的第几天？ -->
+    <script>
+            var year = parseInt(prompt("请输入年份："));
+            var month = parseInt(prompt("请输入月份："));
+            var day = parseInt(prompt("请输入日期："));
+            
+            /*假设都是平年，2月28天*/
+            var sum = 0;
+                switch(month-1){
+                case 12:
+                    sum += 31;
+                case 11:
+                    sum += 30;
+                case 10:
+                    sum += 31;
+                case 9:
+                    sum += 30;
+                case 8:
+                    sum += 31;
+                case 7:
+                    sum += 31;
+                case 6:
+                    sum += 30;
+                case 5:
+                    sum += 31;
+                case 4:
+                    sum += 30;
+                case 3:
+                    sum += 31;
+                case 2:
+                    sum += 28;
+                case 1:
+                    sum += 31;
+            }
+            if((year%4==0&&year%100!=0||year%400==0)&&month>2){
+                sum += (day+1);
+            }else{
+                sum += day;
+            }
+            document.write("您输入的日期为"+year+"-"+month+"-"+day+"<br />为该年的第"+sum+"天");
+    </script>
+</body>
+</html>

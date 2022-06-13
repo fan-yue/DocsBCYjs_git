@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        输入身份证号码<input type="text">
+        <span id="span1"></span>
+    </form>
+
+    <script>
+        var inp = document.querySelector('input');
+        var sp1 = document.querySelector('#span1');
+        inp.onblur = function demo(){
+            var inp_value = inp.value;
+            // 正则匹配
+            var zhengze =  /^622/; 
+            if(zhengze.test(inp_value)){
+                sp1.innerHTML = "<font color='green'>√</font>";
+                return true;
+            }else{
+                sp1.innerHTML = "<font color='red'>×</font>";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

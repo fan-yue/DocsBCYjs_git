@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded',function(){})
 
 
 
-`例子————使用  DOMContentLoaded 和 window.onload 进行比较`3
+`例子————使用  DOMContentLoaded 和 window.onload 进行比较`
 
 ```
     <script>
@@ -214,7 +214,7 @@ window.addEventListener('DOMContentLoaded',function(){})
 
 
 
-#### 调整窗口大小事件	window.onresize 
+#### 调整窗口大小事件	window.onresize
 
 概念：`window.onresize` 是调整窗口大小加载事件，当触发时就调用的处理函数
 
@@ -253,6 +253,142 @@ window.addEventListener('resize',function(){});
     </script>
     <div style="width: 100px;height: 100px;background-color: aqua;"></div>
 ```
+
+`例子————利用resize事件，模拟CSS中的多媒体查询`
+
+```
+    <div style="width:100px;height: 100px;background-color: aqua;"></div>
+    <script>
+        window.onresize = function(){
+            var div1 = document.querySelector('div');
+            // console.log(window.innerWidth);
+            if(window.innerWidth < 900){
+                div1.style.backgroundColor = 'blue';
+            }else{
+                div1.style.backgroundColor = 'aqua';
+            }
+        }
+    </script>
+```
+
+
+
+### window对象方法
+
+| 方法         | 描述                                         |
+| ------------ | -------------------------------------------- |
+| **alert()**  | 显示带有一段消息和一个“确定〞按钮的警告框    |
+| **open()**   | 打开一个新的浏览器窗口或查找一个已命名的窗口 |
+| **close()**  | 关闭浏览器窗口                               |
+| **moveTo()** | 把窗口的左上角移动到一个指定的坐标           |
+
+<hr>
+
+#### open()
+
+打开一个新的浏览器窗口或查找一个已命名的窗口
+
+**语法：**
+
+```
+window.open(URL,name,specs,replace)
+```
+
+| 参数    | **说明**                                                     |
+| ------- | ------------------------------------------------------------ |
+| URL     | 可选。打开指定的页面的URL。如果没有指定URL，打开一个新的空白窗口 |
+| name    | 可选。指定target属性或窗口的名称。支持以下值：<br />`_blank` - URL加载到一个新的窗口。这是默认<br />`_parent` - URL加载到父框架<br />`_self` - URL替换当前页面<br />`_top` - URL替换任何可加载的框架集<br />`name` - 窗口名称 |
+| specs   | 可选。一个逗号分隔的项目列表。支持以下值：<br />`height=pixels`，窗口的高度。最小值为100<br />`left=pixels`，该窗口的左侧位置<br />`location=yes|no|1|0`，是否显示地址字段.默认值是yes<br />`menubar=yes|no|1|0`,是否显示菜单栏.默认值是yes<br />![image-20220613195550130](20BOM浏览器对象模型.assets/image-20220613195550130.png) |
+| replace | 规定了装载到窗口的 URL 是在窗口的浏览历史中创建一个新条目，还是替换浏览历史中的当前条目。支持下面的值：<br />`true` - URL 替换浏览历史中的当前条目。<br />`false` - URL 在浏览历史中创建新的条目。 |
+
+`例子`：直接打开一个窗口
+
+```
+    <script>
+        // 直接打开一个窗口
+        window.open('01.html','_balnk','width=200,height=100');
+    </script>
+```
+
+`例子`：点击按钮打开一个新窗口
+
+```
+    <button>按钮</button>
+    <script>
+        var btn1 = document.querySelector("button");
+        btn1.onclick = function(){
+            window.open('01.html','_blank','width=200,height=100');
+        }
+    </script>
+```
+
+
+
+<hr>
+
+#### close() 
+
+close() 方法用于关闭浏览器窗口。
+
+**语法：**
+
+```
+window.close()
+```
+
+`例子`：关闭打开的新窗口
+
+```
+    <button id="btn1">打开新窗口</button>
+    <button id="btn2">关闭窗口</button>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById('btn2');
+        btn1.onclick = function(){
+            openW = window.open('01.html','_blank','width=400,height=400');
+        }
+        btn2.onclick = function(){
+            openW.close();
+        }
+    </script>
+```
+
+
+
+<hr>
+
+#### moveTo()
+
+把窗口的左上角移动到一个指定的坐标
+
+**语法：**
+
+```
+window.moveTo(x,y)
+```
+
+`例子`
+
+```
+        
+    <input type="button" value="打开窗口" onclick="openWin()" />
+    <br><br>
+    <input type="button" value="移动窗口" onclick="moveWin()" />
+
+<script>
+    function openWin(){
+        myWindow=window.open('01.html','_blank','width=200,height=100');
+        myWindow.document.write("<p>这是我的窗口</p>");
+    }
+    function moveWin(){
+        myWindow.moveTo(200,200);
+    }
+</script>
+```
+
+
+
+<hr>
 
 
 

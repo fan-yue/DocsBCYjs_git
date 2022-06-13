@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="button" value="全选" id="btn1">
+        <input type="button" value="全不选" id="btn2">
+        <input type="button" value="反选" id="btn3">
+        <br>
+        HTML<input type="checkbox" name="a" id="" >
+        CSS<input type="checkbox" name="a" id="">
+        JavaScript<input type="checkbox" name="a" id="">
+        jquery<input type="checkbox" name="a" id="">
+    </form>
+
+    <script>
+        var btn3 = document.getElementById('btn3');
+        btn3.onclick = function(){
+            var che = document.getElementsByName('a');
+            for(var i = 0;i<che.length;i++){
+                che[i].checked = !che[i].checked;
+            }
+        }
+
+        // 全选
+        var btn1 = document.getElementById('btn1');
+        btn1.onclick = function(){
+            var che = document.getElementsByName('a');
+            for(var i = 0;i<che.length;i++){
+                che[i].checked = true;
+            }
+        }
+
+        // 全不选
+        var btn2 = document.getElementById('btn2');
+        btn2.onclick = function(){
+            var che = document.getElementsByName('a');
+            for(var i = 0;i<che.length;i++){
+                che[i].checked = false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--     <button onclick="openwin()">打开窗口</button>
+    <button onclick="moveWin()">移动窗口</button>
+
+    <script>
+        function openwin(){
+            a = window.open('01.html','_blank','width=400,height=300');
+        }
+        function moveWin(){
+            a.moveTo(100,200);
+        }
+    </script> -->
+
+            
+    <input type="button" value="打开窗口" onclick="openWin()" />
+    <br><br>
+    <input type="button" value="移动窗口" onclick="moveWin()" />
+
+    <script>
+        function openWin(){
+            myWindow=window.open('01.html','_blank','width=200,height=100');
+            myWindow.document.write("<p>这是我的窗口</p>");
+        }
+        function moveWin(){
+            myWindow.moveTo(200,200);
+        }
+    </script>
+</body>
+</html>

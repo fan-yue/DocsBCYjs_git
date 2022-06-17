@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span class="day">0</span><b>天</b>
+        <span class="hour">0</span><b>小时</b>
+        <span class="minute">0</span><b>分钟</b>
+        <span class="second">0</span><b>秒</b>
+    </div>
+
+    <script>
+        // 获取元素
+        var day1 = document.querySelector('.day');
+        var hour1 = document.querySelector('.hour');
+        var minute1 = document.querySelector('.minute');
+        var second1 = document.querySelector('.second');
+         
+        function demo(time) { 
+            var nowTime = +new Date();          //获取现在距离1970年的总毫秒数
+            var input = +new Date('2022-6-15 18:00:00');        //获取活动截止日期距离1970年的总毫秒数
+            var times = (input - nowTime) / 1000;   //活动截止日期 - 现在时间 = 距离活动截止的倒计时
+            var d = parseInt(times/60/60/24);  //计算天数
+            d = d < 10 ? '0' + d : d;
+            day1.innerHTML = d;     //将原先span中的值替换
+            var h = parseInt(times/60/60%24);  //计算小时
+            h = h < 10 ? '0' + h : h;
+            hour1.innerHTML = h;
+            var m = parseInt(times/60%60);    //计算分数
+            m = m < 10 ? '0' + m : m;
+            minute1.innerHTML = m;
+            var s = parseInt(times%60);    //计算当前秒数
+            s = s < 10 ? '0' + s : s;
+            second1.innerHTML = s;
+        }
+         //解决方法就是单独设置函数先调用一下
+        demo();
+        // 开启定时器 setInterval()，每隔1s触发一次,但是单独调用会有一个延迟效果，延迟效果根据你设置的时间而定，因为setInterval 是回调函数。解决方法就是单独设置函数先调用一下
+        setInterval(demo,1000);
+    </script>
+</body>
+</html>

@@ -471,7 +471,7 @@ window.setTimeout(调用函数,[延迟的毫秒数]);
 
 ##### setTimeout()定时器 —— 回调函数
 
-- `setTimeout()` 这个调用函数我们也称为**回调函数** callback
+- `setTimeout()` 这个调用函数我们也称为**回调函数** `callback`
 
 - 普通函数是按照代码顺序直接调用，而这个函数，需要等待时间，时间到了才会去调用这个函数，因此称为回调函数。
 
@@ -617,7 +617,7 @@ window.setInterval(回调函数,[间隔的毫秒数]);
 ```
     <button class="strat">开启重复定时器</button>
     <button class="stop">关闭重复定时器</button>
-    
+
     <script>
         // 获取元素
         var strat1 = document.querySelector('.strat');
@@ -646,6 +646,33 @@ window.setInterval(回调函数,[间隔的毫秒数]);
         })
     </script>
 ```
+
+
+
+`例子————创建全局变量，完成clearInterval()事件`
+
+```
+    <button class="start">开启重复定时器</button>
+    <button class="stop">关闭重复定时器</button>
+
+    <script>
+        var start1 = document.querySelector('.start');
+        var stop1 = document.querySelector('.stop');
+
+        start1.onclick = function(){
+            time = setInterval(function(){
+                console.log('开启定时器，每1s加载一次');
+            },1000)
+        }
+        stop1.onclick = function(){
+            clearInterval(time);
+        }
+    </script>
+```
+
+
+
+<hr>
 
 
 
@@ -708,7 +735,7 @@ window.setInterval(回调函数,[间隔的毫秒数]);
 
 ### location对象
 
-- window 对象给我们提供了一个 `location`属性用于获取或者设置窗体的url，并且可以解析url。因为这个属性返回的是一个对象，所以我们将这个属性也称为 location 对象。
+- window 对象给我们提供了一个 `location`属性用于获取或者设置窗体的url，并且可以解析url。因为这个属性返回的是一个对象，所以我们将这个属性也称为 `location` 对象。
 
 
 
@@ -721,7 +748,7 @@ url 的一般语法格式为：
 ```
 protocol://host[:port]/path/[?query]#fragment
 
-http://www.baidu.com/index.html?name=andy&age=18#link
+http://www.baidu.com	/index.html?name=andy&age=18#link
 ```
 
 
@@ -885,4 +912,6 @@ http://www.baidu.com/index.html?name=andy&age=18#link
         })
     </script>
 ```
+
+
 

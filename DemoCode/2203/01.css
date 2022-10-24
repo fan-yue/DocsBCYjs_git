@@ -1,0 +1,14 @@
+*{
+    margin: 0 auto;
+}
+.box{
+    width: 1500px;
+    height: 980px;
+    background-color: aqua;
+}
+.box > div{
+    width: 350px;
+    height: 450px;
+    border: 1px solid black;
+    display: inline-block;
+}

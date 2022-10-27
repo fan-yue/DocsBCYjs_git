@@ -5,24 +5,1845 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        div{
-            width: 200px;
-            height: 200px;
-            background-color: pink;
-        }
-    </style>
 </head>
 <body>
-    <div></div>
-    <script>
-        // 1、获取元素
-        var div1 = document.querySelector('div');
-        div1.onclick = function(){
-            // div.style 里面的属性，采取驼峰命名法
-            this.style.backgroundColor = 'red';
-            this.style.width = '250px';
-        }
+<!--     <script>
+        console.log(1+1);   //2
+        console.log(1-1);   //0
+        console.log(1*1);   //1
+        console.log(1/1);   //1
+        //取余数
+        console.log(4%2);   //0
+        console.log(5%3);   //2
+        console.log(4%5);   //4,小值取大值，等于小数
+    </script> -->
+    <!-- <script>
+        console.log(0.07*100);  //7.000000000000001
+        var num = 0.1+0.2;
+        console.log(num==0.3);     //false
     </script>
+    <script>
+        console.log(1+1);   //2
+        //数学里面1+1=2
+        //编程中2 = 1+1
+        var num = 1+1;  //2
+    </script> -->
+    <!-- <script>
+        var num = 10;
+        console.log(10 + num++); // 20
+        console.log(num);   //11
+    </script> -->
+    <!-- <script>
+        // 前置自增运算
+        var a = 10;
+        ++a;    //11 a=11
+        var b = ++a +2; //  a=12 ++a=12
+        console.log(b); //14
+        //后置自增运算
+        var c = 10;
+        c++;    //c++=11 c=11
+        var d = c++ +2; //c++ = 11
+        console.log(d); //13
+        console.log(c); //12
+        //汇总练习
+        var e = 10;
+        var f = e++ + ++e;  //e++ 后置递增,先返回原值，后自加1  e++  = 10  e = 11;
+        //++e 前置递增，先自加1，后返回值。此时e = 11; ++e = 12
+        console.log(f); //22
+    </script> -->
+    <!-- <script>
+        var num = 7;
+        var str = '这是不是7个字';
+        console.log(num > 5 && str.length >=num) ;      //ture,&&逻辑与（和）结果为真
+        console.log(num < 5 && str.length >=num);       //false
+        console.log(!(num<10)); //false
+        console.log(!(num <10 || str.length == num));   //false
+    </script> -->
+    <!-- <script>
+        console.log(0 && 1 + 2 && 45 * 10000);  //0
+        console.log('' && 1 + 2 && 45 * 10000);  // 
+        console.log(null && 1 + 2 && 45 * 10000);  // null
+        console.log(undefined && 1 + 2 && 45 * 10000);  //undefined
+        console.log(NaN && 1 + 2 && 45 * 10000);        //NaN
+        //如果有空的或者否定的为假，其余都是真的 0 '' null undefined NaN
+    </script> -->
+    <!-- <script>
+        //if的语法结构 ，if如果
+        if (条件表达式) {
+            //执行语句
+        }
+        //执行顺序，如果if里面的条件表达式为真true时，则执行大括号里面的执行语句，如果条件表达式为false时，则不执行大括号里面的语句，按照顺序结构执行代码。
+
+    </script>
+    <script>
+        if (3 < 5) {
+            console.log('测试');
+        }
+    </script> -->
+    <!-- <script>
+        var age = prompt('....');
+        if (age >= 18 ) {
+            console.log('欢迎光临');
+        }
+    </script> -->
+    <!-- <script>
+        // 条件成立，执行if里面代码，否则执行else里面的代码
+        if(条件表达式)
+        {
+            //[如果]条件成立执行的代码
+        }
+        else{
+            //[否则]执行的代码
+        }
+    </script> -->
+    <!-- <script>
+        var age = prompt('输入值');
+        if (age >=18) {
+            console.log('大于等于18');
+        } else {
+            console.log('小于18');
+        }
+    </script> -->
+    <!-- <script>
+        if(条件表达式1){
+            语句1;
+        }else if(条件表达式2){
+            语句2;
+        }else if(条件表达式3){
+            语句3;
+        }else{
+            //上述条件都不成立执行此处代码
+            
+        }
+    </script> -->
+    <!-- <script>
+        var fenshu = prompt('分数');
+        if (fenshu >= 90) {
+            console.log('90分以上');
+        } 
+        else if(fenshu >= 80){
+            console.log('80分以上');
+        }
+        else if(fenshu >= 70){
+            console.log('70分以上');
+        }
+        else if(fenshu >= 60){
+            console.log('60分以上');
+        }
+        else {
+            alert('啊这，分数。');
+        }
+    </script> -->
+    <!-- <script>
+        var num = 10;
+        var re = num > 5 ? '是的' : '不是的'; //10>5,为真，返回表达式1的值。
+        console.log(re);
+    </script> -->
+    <!-- <script>
+        var num = 10;
+        if(num > 5 ){
+            console.log('正确');
+        }else{
+            console.log('错误');
+        }
+    </script> -->
+    <!-- <script>
+        switch (4) {
+            case 1:
+                console.log('这是1');
+                break;
+            case 2:
+                console.log('这是2');
+            case 3:
+                console.log('这是3');
+            default:
+                console.log('啥都不是');
+        }
+    </script> -->
+    <!-- <script>
+        //switch注意事项
+        var num = 1;
+        switch (num) {
+            case 1:
+                console.log(1);
+                break;
+            case 2:
+                console.log(2);
+                break;
+            default:
+                console.log(3);
+        }
+        //1.开发里面，表达式我们经常写变量。
+        //2.我们num的值和case里面的值相匹配的时候是 全等 === ，必须是值和数据类型一直才可以 num === 1;
+        //3.break如果当前的case里面没有break ，则不会推迟switch，会执行下一个case。
+    </script> -->
+    <!-- <script>
+        // 1、弹出promet输入框，让用户输入水果名称，把这个值取过来保存变量。
+
+        // 2、将这个变量作为switch括号里面的表达式。
+
+        // 3、case后面的值写几个不同的水果名称，注意一定要加引号，因为是全等匹配。
+
+        // 4、弹出不同的价格即可。同样注意每个case之后加上break，需要退出switch语句。
+
+        // 5、将default设置为没有无。
+        var fruit = prompt('输入水果名称');
+        switch (fruit) {
+            case '苹果':
+                console.log('apple price is 3.5/500g');
+                break;
+            case '榴莲':
+                console.log('榴莲不好吃');
+            default:
+                alert('抱歉，只有两个水果。');
+        }
+    </script> -->
+    <!-- <script>
+        //循环的目的：可以重复执行某些代码。
+        console.log('哈哈哈');
+        console.log('哈哈哈');
+        console.log('哈哈哈');
+        console.log('哈哈哈');
+        console.log('哈哈哈');
+        console.log('--------------------------');
+        for(var i = 1;i <= 100; i++){
+            console.log('哈哈哈');
+        }
+    </script> -->
+    <!-- <script>
+        //for 语法结构
+        // for(初始化变量;条件表达式;操作表达式){
+        //     //循环体
+        // }
+        //1、初始化变量，使用var声明的一个普通变量，通常用于作为计数器使用
+        //2、条件表达式，用来决定每一次循环是否继续执行，简单来说是终止条件。
+        //3、操作表达式，每次循环最后执行的代码，通常用于计数器变量进行更新（递增或者递减）
+        //4、代码演示，循环100句，hello world
+        for(var i=1;i<=100;i++){
+            console.log('hello world');
+        }
+    </script> -->
+    <!-- <script>
+        //for   循环的执行过程
+        for(var i=1;i<=100;i++){
+            console.log('hello world');
+        }
+        // 1、首先执行里面的计数器变量 var i = 1,在for里面只执行一次。
+        // 2、i<=100 用来判断是否满足条件。如果满足条件，就去执行循环体，不满足条件则退出循环。
+        // 3、最后去执行 i++  i++是单独写的代码，表示递增。
+        // 4、接着去执行 i <= 100 ,如果满足条件，则接着执行循环体，不满足条件退出循环(第二轮)。
+    </script> -->
+    <!-- <script>
+        // for循环可以执行相同的代码
+        for (var i = 1;i < 10;i++) {
+            console.log('123123');
+        }
+        // 通过prompt来控制输出循环的次数
+        var a = prompt('...');
+        for(var i = 1;i <= a;i++){
+            console.log('我是可以被控制得');
+        }
+    </script> -->
+    <!-- <script>
+        // 循环金额一重复执行不同的代码 ，因为我们有计数器变量 i 的存在 i 每次循环值都在变化
+        // 我们想要输出1个人的年龄，1~99岁
+        for(var i = 1; i < 100;i++){
+            console.log('我今年是'+ i +'岁');
+        }
+        // for循环中使用if else if多分支语句
+        for(var i = 1;i < 100 ;i++){
+            if(i == 1){
+                console.log('1岁刚出生');
+            }else if(i == 99){
+                console.log('真棒，活到了99岁了呢');
+            }else{
+                console.log('我今年是'+ i +'岁');
+            }
+        }
+    </script> -->
+    <!-- <script>
+        var sum = 0;  //和的变量，值为0
+        var average = 0; //存储平均数的变量
+        for(var i = 1;i <= 100;i++){
+            // sum = sum + i;
+            // += 赋值运算符的写法
+            sum += i;
+        }
+        average = sum / 100;
+        console.log(average);
+    </script> -->
+    <!-- <script>
+        var even = 0;
+        var odd = 0;
+        for(var i = 1;i <= 100; i++){
+            if(i % 2 == 0){
+                even += i;
+            }else{
+                odd += i;
+            }
+        }
+        console.log('偶数和为'+even);
+        console.log('奇数和为'+odd);
+    </script> -->
+    <!-- <script>
+        var res = 0; //存储1~100能够被3整除的数字之和的变量
+        for(var i = 1;i <= 100;i++){
+            if(i % 3 ===0){
+                res += i;
+            }
+        }
+        console.log('1~100能够被3整除的数字之和为'+res);
+    </script> -->
+    <!-- <script>
+        //双重for循环
+        for(外循环的初始;外循环的条件;外形循环的操作表达式){
+            for(内循环的初始;内循环的条件;内循环的操作表达式){
+                需执行的代码;
+            }
+        }
+        //1、内循环可以理解为 console.log(）
+        //2、外层循环一次，里面的循环将全部执行。
+    </script>
+    <script>
+        // 例子：
+        for(var i = 1;i < 4;i++){
+            console.log('外层循环第'+i+'次');
+            for(var j = 1;j < 3; j++){
+                console.log('内循环'+j+'次');
+            }
+        }
+    </script> -->
+    <!-- <script>
+        // 用双重for循环打印3行3列⭐
+        var str = '';
+        for(var i = 1; i <= 3;i++){ //负责打印3行
+            for(var j = 1; j <= 3; j++){    //内循环负责每一次打印出来的内容
+                str = str + '⭐';
+            }
+            str = str + '\n'    //当内循环的星星循环完后，需要添加转移字符 \n , 否则就是以一堆的状态显示出来的
+            // str += '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var a = prompt('几行');
+        var b = prompt('几列');
+        var str = '';
+        for(var i = 1; i <= a;i++){ //负责打印n行
+            for(var j = 1; j <= b; j++){    //内循环负责每一次打印出来的内容
+                str = str + '⭐';
+            }
+            str = str + '\n'    //当内循环的星星循环完后，需要添加转移字符 \n , 否则就是以一堆的状态显示出来的
+            // str += '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var str = '';
+        for(var i = 1;i <= 10;i++){     //i = 1 时，外循环一次，内循环10次
+            // str = str + '⭐' + '\n'; 
+            for(var j = i;j <= 10; j++){        //当内循环10次后，跳出，执行第二次外循环，此时i = 2；内循环j=2，运行9次。依次类推。
+                str = str + '⭐'; 
+            }
+            str = str + '\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var str= '';        
+        // 外循环第一次，i = 1;
+        for(var i = 1; i <= 10;i++){
+            // 外循环第一次时，内循环，j = 1， j<=1, 此时，j只循环一次，显示为一颗星
+            for(var j= 1; j <= i;j++){
+                str = str + '⭐';
+            }
+            str = str +'\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        // 99乘法表
+        // 一共有9行，因为每行个数不一样，所有需要用到双重 for 循环
+        // 外层的 for 循环控制 行数 i 
+        // 内循环 for 循环控制 公示的循环 j
+        // 核心算法，每一行的公示个数正好要和行数一致。j<=i
+        // 每行打印完后，需要重新换行，使用 \n 换行符进行换行。
+        var str= '';        
+        // 外循环第一次，i = 1;
+        for(var i = 1; i <= 9;i++){
+            // 外循环第一次时，内循环，j = 1， j<=1, 此时，j只循环一次
+            for(var j= 1; j <= i; j++){
+                // 1 * 1 = 1;
+                // 1 * 2 = 2;
+                str += i +'*'+ j + '=' + i * j + '\t';
+            }
+            str = str +'\n';
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        while (条件表达式) {
+            //循环制行语句
+        }
+        // 执行思路：当条件表达式为true时，执行循环体，否则，退出循环体。
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        while (a <= 100) {
+            console.log('我今年'+a+'岁了');
+            a++;
+        }
+    </script> -->
+    <!-- <script>
+        var sum = 0;
+        var j = 1;
+        while(j <= 100){
+            sum += j;
+            j++
+        }
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        var msg = prompt('请输入123');
+        while(msg !== '123'){
+            msg = prompt('不输入123，是看不到后面的内容的');
+        }
+        alert('真乖！');
+    </script> -->
+    <!-- <script>
+        do {
+            // 循环体，条件表达式为 true 时，重复执行循环体代码
+        } while (条件表达式);
+    </script> -->
+    <!-- <script>
+        var i = 1;
+        do {
+            console.log('今年我'+i+'岁了');
+            i++
+        } while (i <= 10);
+    </script> -->
+    <!-- <script>
+        var sum = 0;
+        var i = 1;
+        do {
+            sum += i;
+            i++
+        } while (i <= 100);
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        do {
+            var msg = prompt('请输入123');
+        } while (msg !== '123');
+        alert('真乖~');
+    </script> -->
+    <!-- <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                console.log('这个包子有虫子，扔掉');
+                continue; // 跳出本次循环，跳出的是第3次循环 
+            }
+            console.log('我正在吃第' + i + '个包子呢');
+        }
+    </script> -->
+    <!-- <script>
+        // 求1~100之间，除了能够被7整除之外的整数和
+        var sum = 0;
+        for(var i = 1; i <= 100; i++){
+            if(i % 7 == 0){
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum);
+    </script> -->
+    <!-- <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                console.log('这个包子有虫子，扔掉,后面的我也不吃了。。。。');
+                break; // 当 i == 3 时，直接结束循环 
+            }
+            console.log('我正在吃第' + i + '个包子呢');
+        }
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        var b = [1,2,3,4,5,6];
+    </script>
+    <script>
+        var 数组名 = new Array();
+        var arr = new Array(); //创建一个新的空数组
+    </script> -->
+    <!-- <script>
+        // 1.利用数组字面量方式创建空的数组 
+        var 数组名 =[];
+        // 2.使用数组字面量方式创建带初始值的数组
+        var 数组名 =['小白','小黑','小黄','瑞奇'];
+        // 3.数组中可以存放任意类型的数据，例如字符串，数字，布尔值等
+        var arrStus =['小白',12,true,28.9];
+    </script>
+    <script>
+        var arrStus =['小白',12,true,28.9];
+        console.log(arrStus[0]);    //小白
+        console.log(arrStus[1]);    //12
+        console.log(arrStus[2]);    //true
+        console.log(arrStus[3]);    //28.9
+        console.log(arrStus[4]);    //undefined
+    </script> -->
+    <!-- <script>
+        var arr = ['星期一','星期二','星期三','星期四','星期五','星期六','星期七'];
+        console.log(arr[6]);
+    </script> -->
+    <!-- <script>
+        // 数组索引访问数组中的元素
+        var arr = ['red','green', 'blue'];
+        console.log(arr[0]) // red
+        console.log(arr[1]) // green
+        console.log(arr[2]) // blue
+
+        // for循环遍历数组
+        var arr = ['red','green', 'blue'];
+        for (var i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+        //1、因为数组索引值是从0开始的，所以初始化变量也是从0开始， i<3; 0、1、2,三个值
+        //2、输出的时候,arr[i], i 计数器作为索引号进行使用。
+    </script> -->
+    <!-- <script>
+        var arr = [1,2,'哈哈哈','成龙',100,900];
+        for(var i = 0;i < arr.length; i++){
+            console.log(arr[i]);
+        }
+    </script> -->
+    <!-- <script>
+        // 1、求数组[2,6,1,7,4]里面所有元素的和以及平均值。
+        // 思路：
+        //      1.声明一个求和变量 sum。
+        //      2.遍历这个数组，把里面每个数组元素加到 sum 里面。
+        //      3.用求和变量 sum 除以数组的长度就可以得到数组的平均值。
+        var arr = [2,6,1,7,4];
+        var sum = 0;
+        var average = 0;
+        for(var i = 0; i < arr.length;i++){
+            sum = sum + arr[i];     //i是计数器，我们需要加的是数组的元素，所以需要 arr[i] 来获取。 
+            // sun += arr[i];   
+        }
+        average = sum / arr.length;
+        console.log('arr这个数组的总和是'+sum+',平均数是'+average);
+    </script> -->
+    <!-- <script>
+        // 求数组[2,6,1,77,52,25,7]中的最大值
+        // 声明一个保存最大元素的变量max
+        // 默认最大值可以取第一个数组的元素
+        // 遍历数组，将每个数组元素和 max 进行比较
+        // 如果这个数组元素大于 max ，就讲数组元素存在 max 里面，否则进行下一轮匹配
+        // 最后输入 max
+        var arr = [2,6,1,77,52,25,7];   
+        var max = arr[0];          //默认数组中的第一个元素为当前最大值。
+        for(var i = 0; i < arr.length; i++ ){   //遍历数组元素
+            if(arr[i] < max){       //当循环第一个数组元素时，如果数组元素大于默认的第一个值时，就通过变量更新，使 max 的值为6。通过 for 循环，依次进行判断。
+                max = arr[i];
+            }
+        }
+        console.log(max);           //循环完毕后，输入最大值为77   
+    </script> -->
+    <!-- <script>
+        // 数组转换为分割字符串，将数组  ['red','green','blue','pink']  转换为分割字符串，并且用 | 或者其他符号分割。
+        var arr = ['red','green','blue','pink'];
+        // 1、创建一个新变量
+        // 2、遍历原来的数组，分别把里面数据取出来，加到字符串里面，并且在后面加一个分隔符
+        var str = '';           // 1、创建一个空字符串
+        var a = '&'+'\t';       // 2、可以定义的连接符
+        for(var i = 0;i < arr.length; i++){            //遍历数组
+            str += arr[i]+a;        //更新字符变
+        }
+        console.log(str);
+    </script> -->
+    <!-- <script>
+        var arr = ['red', 'green', 'blue', 'pink'];
+        // arr[4] = op;
+        console.log(arr[8]);
+        arr.length = 7;
+        console.log(arr);
+        console.log(arr[4])
+        console.log(arr[5]);
+        console.log(arr[6]); 
+    </script> -->
+    <!-- <script>
+        var arr = ['red', 'green', 'blue', 'pink'];
+        console.log(arr);   //'red', 'green', 'blue', 'pink'
+        arr[3] = 'demo';    
+        console.log(arr);    //'red', 'green', 'blue', 'pink','demo'
+        arr[4] = 'oooo';
+        console.log(arr);   //'red', 'green', 'blue', 'pink','demo','oooo'
+        arr[8] = '8888';
+        console.log(arr);   // ['red', 'green', 'blue', 'demo', 'oooo', 空属性 × 3, '8888'],索引靠后，之间会显示空的数组元素。
+        arr[0] = 'No red';
+        console.log(arr);   //['No red', 'green', 'blue', 'demo', 'oooo', 空属性 × 3, '8888'] ,修改已有的数组索引号，会替换掉之前的数组元素。
+        arr1 = '试一试';
+        console.log(arr1);  //试一试,直接给数组名赋值，等于更新数据，数组元素直接被修改为字符串。
+    </script> -->
+    <!-- <script>
+        var arr = [];   //创建一个空数组
+        for(var i = 0; i < 100; i++){       
+            arr[i] = i + 1;            //通过遍历数组，arr[i] 是数组的索引值， i+1 是数组元素的值。
+        }
+        console.log(arr);
+    </script> -->
+    <!-- <script>
+        // 案例：将数组 [2, 0, 6, 11, 77, 0, 52, 0, 25, 7] 中大于等于10的元素选出来，放入新数组。
+        // 1、声明一个新的数组用来存放新数据 newArr.
+        // 2、遍历原来的旧数组，使用 if 判断大于等于 10 的元素
+        // 3、依次存放到新数组中。
+        var arr = [2, 0, 6, 11, 77, 0, 52, 0, 25, 7];
+        var newArr = [];        // 定义一个变量 用来计算 新数组的索引号
+        var j = 0;              
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {     //如果数组arr中的元素大于等于10时，就存放到新的数组中去，否则就不执行 if 中的语句。 2>=10 不成立，0>=10 不成立 6，1都不成立，11>=10 ,成立,依次类推，77，25都成立。
+                // 给新数组         
+                newArr[j] = arr[i];     //newArr[0] = 11,第一个数组为11，  newArr[1] = 77, newArr[2] = 25
+                j++;        // 索引号 不断自加
+            }
+        }
+        console.log(newArr);    // 11,77,52,25
+    </script> -->
+    <!-- <script>
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 因为新数组为空，所以，数组的长度为0
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                // 给新数组,索引号应该从0开始，依次递增，newArr.length 的值是 0;
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);
+    </script> -->
+    <!-- <script>
+        // 案例1：删除指定数组元素（数组去重），将数组[2, 0, 6, 1, 77, 0, 52, 0, 25, 7]中的 0 去掉后，形成一个不包含 0 的新数组。
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // 创建空的新数组，用来储存不包含0的新数组
+        var newArr = [];
+        // 遍历数组
+        for( var i = 0;i < arr.length; i++){    
+            // 如果 arr 的数组元素 不等于 0 ，第一次循环，2 不等于 0 ，成立，第二次循环 0 = 0 ，不执行if中的执行语句。依次类推。
+            if(arr[i] != 0){        
+                // newArr[0] = 2 ，
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);    //for循环第一次循环，遍历出了，2,依次类推，将不包含0的元素排除掉即可。
+    </script>   -->
+    <!-- <script>
+        // 案例2：将数组 ['red','green','blue','pink'] 的内容翻过来存放。
+        // 1、声明一个新数组 
+        // 2、需要把旧数组索引号第3个取过来 （arr.length - 1）——>数组长度减1，给新数组索引号第0个元素（newArr.length）
+        // 3、因为需要需要翻转数组，索引是从3,2,1,0 依次递减的。所以需要采用 i-- 的方式。从3-2-1-0
+        var arr = ['red','green','blue','pink'];
+        var newArr = [];
+        for(var i = arr.length - 1;i >= 0;i--){
+            newArr[newArr.length] = arr[i];
+        }
+        console.log(newArr);
+    </script> -->
+    <!-- <script>
+        var a = 100;
+        var b = 1000;
+        var temp;
+        temp = a;
+        a = b;
+        b = temp;
+        console.log(a,b);
+    </script> -->
+    <!-- <script>
+        // 冒泡排序
+        var arr = [5,4,2,1,3];
+        for(var i = 0; i <= arr.length - 1;i++){    //外循环一次
+            for(var j = 0;j <= arr.length - i - 1;j++){     //内循环全部执行
+                if(arr[j] < arr[j+1]){
+                    var temp = arr[i];
+                    arr[j] = arr[j+1]
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    </script> -->
+    <!-- <script>
+        // 1、求1~100的累加和
+        var sum = 0;
+        for(var i = 1;i <= 100; i++){
+            sum = sum + i;
+            // sum += i;
+        }
+        console.log(sum);
+        // 2、求10~50的累加和
+        var sum = 0;
+        for(var i = 10;i <= 50;i++){
+            sum += i ;
+        }
+        console.log(sum);
+
+        // 3、使用函数,通过封装的方法将一段可以重复调用的代码块，进行重复使用。
+        function getSum(num1,num2) {
+            var sum = 0;
+            for(var i = num1;i <= num2;i++){
+                sum += i ;
+            }
+            console.log(sum);
+        }
+        getSum(1,2);    //3
+        getSum(3,7);    //25
+    </script> -->
+    <!-- <script>
+        // 声明函数
+        function 函数名(){
+            //函数体代码
+        }
+    </script> -->
+    <!-- <script>
+        function hh() {
+            console.log('hello world');
+        }
+        hh();
+    </script> -->
+    <!-- <script>
+        function getSum() {
+            var sum = 0;
+            for(var i = 1;i <= 100; i++){
+                sum = sum + i;
+                // sum += i;
+            }
+            console.log(sum);
+        }
+        getSum();
+    </script> -->
+    <!-- <script>
+        //声明函数
+        function 函数名(形参1,形参2,形参3....){
+
+        }
+        // 调用函数
+        函数名(实参1,实参2,实参3);
+    </script> -->
+    <!-- <script>
+        function look(aru,aru2) {       //形参是接受实参的，aru = '内容',形参类似于一个变量
+            console.log(aru,aru2);
+        }
+        look('这就是实参，aru这个就是形参，形参和实参都是可以自定义的。','呐，这是第二个实参');
+        look('实参是可以变的，你看我现在就输出的是另外的内容。','呐,呐，呐。');
+    </script> -->
+    <!-- <script>
+        function getboth(a,b) {
+            console.log(a+b);
+        }
+        getboth(1,2);
+    </script> -->
+    <!-- <script>
+        function getSum(start,end){
+            sum = 0;
+            for(var a = start;a <= end; a++){
+                sum += a;
+            }
+            console.log(sum);
+        }
+        getSum(1,3)
+    </script> -->
+    <!-- <script>
+        function sum(num1, num2) {
+            console.log(num1 + num2);
+        }
+        sum(100, 200);             // 300，形参和实参个数相等，输出正确结果
+
+        sum(100, 400, 500, 700);   // 500，实参个数多于形参，只取到形参的个数
+
+        sum(200);                  // 实参个数少于形参，多的形参定义为undefined，结果为NaN
+    </script> -->
+    <!-- <script>
+        // 声明函数
+        function 函数名（）{
+            ...
+            return  需要返回的值;
+        }
+        // 调用函数
+        函数名();    // 此时调用函数就可以得到函数体内return 后面的值
+    </script> -->
+    <!-- <script>
+        // 声明函数
+        function sum(){
+            return  666;
+        }
+        // 调用函数
+        console.log(sum());     // 此时 sum 的值就等于666，因为 return 语句会把自身后面的值返回给调用者 
+        
+        function sum1(num1,num2){
+            return num1+num2;
+        }
+        console.log(sum1(1,2));
+    </script> -->
+    <!-- <script>
+        function getmax(a,b) {
+            if(a > b){
+                return a;
+            }else{
+                return b;
+            }
+            // return a > b ? a : b;   //三元表达式写法
+        }
+        console.log(getmax(3,10));
+    </script> -->
+    <!-- <script>
+        // 利用函数求数组[5,2,99,101,67,77] 中的最大数值
+        function getArrMax(arr) {    //形参，接受一个数组
+            var max = arr[0];
+            for(var i = 1;i <=arr.length; i++){
+                if(arr[i] > max){
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        // console.log(getArrMax([5,2,99,101,67,77]));     //实参，传一个数组过去
+        var re = getArrMax([5,2,99,101,67,77]);         //通过变量的方式将 调用函数，保存起来
+        console.log(re);    //输出变量
+    </script> -->
+    <!-- <script>
+        function add(num1,num2){
+            //函数体
+            return num1 + num2; // 注意：return 后的代码不执行
+            alert('我不会被执行，因为前面有 return');
+        }
+        var resNum = add(21,6); // 调用函数，传入两个实参，并通过 resNum 接收函数返回值
+        alert(resNum);          // 27
+    </script> -->
+    <!-- <script>
+        function add(num1,num2){
+            //函数体
+            return num1,num2;
+        }
+        var resNum = add(21,6); // 调用函数，传入两个实参，并通过 resNum 接收函数返回值
+        alert(resNum);          // 6
+    </script> -->
+    <!-- <script>
+        function getfn(num1,num2){
+            return [num1 + num2,num1 - num2,num1 * num2,num1 / num2];
+        }
+        var re = getfn(1,2);
+        console.log(re);
+    </script> -->
+    <!-- <script>
+        function fun() {
+            
+        }
+        console.log(fun());     //undefined
+    </script> -->
+    <!-- <script>
+        function maxValue() {
+        var max = arguments[0];
+        for (var i = 0; i < arguments.length; i++) {
+            if (max < arguments[i]) {
+                max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(maxValue(2, 4, 5, 9)); // 9
+        console.log(maxValue(12, 4, 9)); // 12
+    </script> -->
+    <!-- <script>
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = reverse([1, 3, 4, 6, 9]);
+        console.log(arr1);
+    </script> -->
+    <!-- <script>
+        function sort(arr) {
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j+1]) { 
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1]; 
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        var re = sort([5,7,3,8,1]);
+        console.log(re);
+    </script> -->
+    <!-- <script>
+        // arguments的使用，只有函数才有arguments对象，而且每个函数都内置好了这个arguments；
+        // 函数声明
+        function fn() {
+            console.log(arguments);  //里面存储了所有传递过来的实参
+            console.log(arguments); // 3
+            console.log(arguments[2]); // 3
+        }
+        // 函数调用
+        fn(1,2,3);
+    </script> -->
+    <!-- <script>
+        // 可以按照数组的方式遍历arguments,来获取实际参数的个数
+        function fn() {
+            for(var i = 0;i < arguments.length;i++){
+                console.log(arguments[i]);
+            }
+        }
+        fn(10,11);
+        fn(1,2,3,4,5,6,7,8);
+    </script> -->
+    <!-- <script>
+        // 使用arguments,来用函数求任意个数的最大值。
+        function getmax(){
+            var max = arguments[0];
+            for(var i = 1;i<arguments.length; i++){
+                if(arguments[i] > max){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var re = getmax(1,4,23,23,5,3,43);
+        var re1 = getmax(100,123,1231231123,123123);
+        console.log(re,re1);
+    </script> -->
+    <!-- <script>
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = reverse([1, 3, 4, 6, 9]);
+        console.log(arr1);
+        var arr2 = reverse(['qwe','asd','zxv']);
+        console.log(arr2);
+    </script> -->
+    <!-- <script>
+        // 利用函数判断是否为闰年，闰年特性，能被4整除并且不能被100整数，或者能被400整除
+        function getYear(year){
+            // 如果是闰年我们返回 true ，否则返回 false
+            var flag = false;
+            if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                flag = true;
+            }
+            return flag;
+        }
+        var re = getYear(2000); //true
+        console.log(re);
+        var re2 = getYear(1999);    //false
+    </script> -->
+    <!-- <script>
+        //函数是可以相互调用的
+        function fn1(){
+            console.log(11);
+            fn2();    
+        }
+
+        function fn2(){
+            console.log(22);
+        }
+        fn1();
+    </script> -->
+    <!-- <script>
+        function fn1(){
+            console.log(111);
+            fn2();
+            console.log('fn1');
+        }
+        function fn2(){
+            console.log(222);
+            console.log('fn2');
+        }
+        fn1();
+    </script> -->
+    <!-- <script>
+        function monthDay(){
+            var year = prompt('请输入年份');
+            if(getYear(year)){
+                alert('是闰年，2月有29天');
+            }else{
+                alert('是平年，2月有28天');
+            }
+        }
+        monthDay();
+
+         // 利用函数判断是否为闰年，闰年特性，能被4整除并且不能被100整数，或者能被400整除
+         function getYear(year){
+            // 如果是闰年我们返回 true ，否则返回 false
+            var flag = false;
+            if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                flag = true;
+            }
+            return flag;
+        }
+    </script> -->
+    <!-- <script>
+        // 自定义函数（命名函数）
+        function 自定义函数名(){
+
+        }
+    </script> -->
+    <!-- <script>
+        var fn = function(a){
+            console.log('哈哈哈哈');
+            console.log(a);
+        }
+        fn('真好玩');
+    </script> -->
+    <!-- <script>
+        var num = 10;
+        var num = 11;   //全局作用域
+        function fn() {
+            var num = 20;   //局部作用域（函数作用域），只在函数内部起效果。
+            console.log(num);
+        }
+        fn();
+        console.log(num);
+    </script> -->
+    <!-- <script>
+        var num = 1;
+        function fn() {
+            console.log(num);
+        }
+        fn();
+    </script> -->
+    <!-- <script>
+        function fn() {
+            var num = 1;
+            num2 = 2;
+        }
+        fn();
+        // console.log(num);   //报错,已声明的局部变量不可以在外部调用。
+        console.log(num2);  //2;如果在函数内部，没有声明，直接赋值的变量也属于全局变量。
+    </script> -->
+    <!-- <script>
+        // 作用域链: 内部函数访问外部函数的变量，采取的是链式查找的方式来决定取哪个值，这种结构我们称为作用域链表
+        var num = 10;
+        function fn() { //外部函数
+            var num = 20;
+            
+            function fun() { //内部函数
+                console.log(num);  // 20 ,一级一级访问
+            }
+            fun();
+        }
+        fn();   
+    </script> -->
+    <!-- <script>
+        // 案例：根据作用域链，判断以下代码的结果是几？
+        function fn1() {
+            var num = 123;
+            function fn2() {
+                var num = 0;
+                console.log(num);   //0
+            }
+            fn2();
+        }
+        var num = 4567;
+        fn1();
+    </script> -->
+    <!-- <script>
+        var a = 1;
+        function fn1() {
+            var a = 2;
+            var b = '22';
+            fn2();
+            function fn2() {
+                var a = 3;
+                fn3();
+                function fn3() {
+                    var a = 4;
+                    console.log(a);     //求a的值？
+                    console.log(b);     //求b的值？
+                }               
+            }
+        }
+        fn1();
+    </script> -->
+
+    <!-- <script>
+        console.log(a);     //输出？
+    </script> -->
+    
+    <!-- <script>
+        // 变量提升，把所有变量声明到当前作用域的最前面，但是不提升赋值操作。
+        console.log(num);   //输出？
+        var num = 1;
+        
+        // 以上代码相当于执行了以下代码
+        var a;
+        console.log(a);
+        a = 10;
+
+    </script> -->
+
+    <!-- <script>
+        fn1();          //输出？
+        function fn1(){
+            console.log(111);       
+        }
+    </script> -->
+
+    <!-- <script>
+        fn2();         //输出？  
+        var fn2 = function(){
+            console.log(222);       
+        }
+        // fn2();
+
+        // 以上代码相当于执行如下操作
+        var fn3;    //
+        fn3();
+        fn3 = function(){
+            console.log(333);
+        }
+    </script> -->
+
+    <!-- <script>
+        var num = 60;
+        fun();
+        function fun(){
+            console.log(num);
+            var num = 20;
+        }
+    </script> -->
+
+    <!-- <script>
+        var num = 10;
+        function fn() {
+            console.log(num);
+            var num = 20;
+            console.log(num);
+        }
+        fn();
+    </script> -->
+
+    <!-- <script>
+        var num;
+        function fn(){
+            var num;
+            console.log(num);
+            num = 20;
+            console.log(num);
+        }
+        num = 10;
+        fn();
+    </script> -->
+
+    <!-- <script>
+        var a = 18;
+        fn1();
+        function fn1(){
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+    </script> -->
+    
+    <!-- <script>
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9;
+            // 相当于 var a = 9; b = 9;c = 9;  b和c的前面没有var声明,当全局变量看
+            // 集体声明 var a = 9,b = 9,c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+    </script> -->
+    
+    <!-- <script>
+        function f1() {
+            var a;
+            a = b = c = 9;
+            console.log(a);	//9
+            console.log(b);	//9
+            console.log(c);	//9
+        }
+        f1();
+        console.log(c);	//9
+        console.log(b);	//9
+        console.log(a);	//报错 a是局部变量
+
+    </script> -->
+
+    <script>
+        // 1、利用字面量创建对象
+        // 创建一个空的对象
+        var obj = {};  
+    </script>
+
+    <!-- <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        //对象名.属性名
+        console.log(obj.username,obj.age);
+        // 对象名['属性名']
+        console.log(obj['age']);
+        // 对象名.方法名()  ,注意，方法名后面一定要带括号
+        obj.sayHi();
+    </script> -->
+    
+    <!-- <script>
+        // 利用 new object 创建对象
+        var obj = new Object(); //创建了一个空的对象
+        obj.name = '张三丰';
+        obj.age = 18;
+        obj.sex = '男';
+        obj.sayHi = function() {
+            console.log('hi~');
+        }
+
+        //1.我们是利用等号赋值的方法添加对象
+        //2.每个属性和方法之间用分号结束
+        console.log(obj.name);
+        console.log(obj['sex']);
+        obj.sayHi();
+    </script> -->
+
+    <!-- <script>
+        //构造函数的语法格式
+        function 构造函数名() {
+            this.属性 = 值;
+            this.方法 = function() {}
+        }
+        new 构造函数名();
+    </script> -->
+
+    <!-- <script>
+        function Star(uname,age,sex) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang){
+                console.log(sang);
+            }
+        }
+        var ldh = new Star('刘德华',18,'男');
+        console.log(typeof ldh) // object对象，调用函数返回的是对象
+        console.log(ldh.name);
+        console.log(ldh['sex']);
+        ldh.sing('冰雨');
+        //把冰雨传给了sang
+
+        var zxy = new Star('张学友',19,'男');
+    </script> -->
+
+    <!-- <script>
+        for(变量 in 对象名字){
+            // 在此执行代码
+        }
+    </script> -->
+
+    <!-- <script>
+        var obj = {
+            username: '你的名字',
+            age : 18,
+            sex : '男性',
+            sayHi : function () {
+                console.log('HiHiHi');
+            }
+        }
+        for(var k in obj){
+            console.log(k);         //k变量输出 属性名
+            console.log(obj[k]);    //使用 obj[k]   输出 属性值
+        }
+    </script> -->
+
+    <!-- <script>
+        // Math数学对象，不是一个构造函数，所以我们不需要new 来调用，而是直接使用里面的属性和方法即可
+
+        //Math.PI   圆周率    是静态属性，使用中不带括号
+        console.log(Math.PI);
+
+        var re = Math.max(1,5,23,123,0);
+        //Math.max()  函数返回一组数中的最大值     是静态方法，需要带括号。
+        console.log(re);
+    </script> -->
+
+    <!-- <script>
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        var a = getMaxOfArray([1,0,23,123,1231234,5454545]);
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        var myMath = {
+            PI: 3.141592653,
+            max: function() {
+                var max = arguments[0];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            min: function() {
+                        var min = arguments[0];
+                        for (var i = 1; i < arguments.length; i++) {
+                            if (arguments[i] < min) {
+                                min = arguments[i];
+                            }
+                        }
+                        return min;
+                    }
+        }
+        console.log(myMath.PI);
+        console.log(myMath.max(1, 5, 9));
+        console.log(myMath.min(1, 5, 9));
+    </script> -->
+
+    <!-- <script>
+        console.log(Math.abs(1));
+        console.log(Math.abs(-1));
+        console.log(Math.abs('-1'));    //隐式转换，会把字符串 -1 转换为数字型
+        console.log(Math.abs('string'));       //NaN
+    </script> -->
+
+    <!-- <script>
+        console.log(Math.floor(1.1));       //1
+        console.log(Math.floor(1.9));       //1
+    </script>
+
+    <script>
+        console.log(Math.ceil(1.1));        //2
+        console.log(Math.ceil(1.9));        //2
+    </script>
+
+    <script>
+        // round()，四舍五入，但是.5特殊，会往大了取。
+        console.log(Math.round(1.1));       //1
+        console.log(Math.round(1.5));       //2
+        console.log(Math.round(1.9));       //2
+        console.log(Math.round(-1.1));      //-1
+        console.log(Math.round(-1.5));      //-1
+    </script> -->
+
+    <!-- <script>
+        console.log(Math.random());
+    </script> -->
+
+    <!-- <script>
+
+        var g = getRandomInt(1,10);
+        console.log(g);
+
+        
+        
+        
+    </script> -->
+
+    <!-- <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        }
+        var arr = ['张三','李四','王二麻子'];
+        var arrR = getRandomInt(0,2);   //通过索引值，进行判定
+        console.log(arr[arrR]);
+        // 优化方法
+        var arr1 = ['张三','李四','王二麻子','甲','乙','丙','丁'];
+        var arrR1 = getRandomInt(0,arr1.length-1);
+        console.log(arr1[arrR1]);
+    </script> -->
+
+
+    <!-- <script>
+        var now = new Date();
+        console.log(now);
+    </script> -->
+
+    <!-- <script>
+        // 2.参数常用的写法 数字型 2019,10,1  字符串型 '2019-10-1 8:8:8' 时分秒
+        // 如果Date()里面写参数，就返回括号里面输入的时间 
+        var data = new Date(2019,10,1);
+        console.log(data);  // Fri Nov 01 2019 00:00:00 GMT+0800 (中国标准时间)  ,  返回的是11月不是10月
+
+        var data2 = new Date('2019-10-1 8:8:8');
+        console.log(data2); // Tue Oct 01 2019 08:08:08 GMT+0800 (中国标准时间) ,有时间值的
+    </script> -->
+
+    <!-- <script>
+        var now = new Date();
+        console.log(now.getFullYear()); //获取当前年份
+        console.log(now.getMonth()+1);    //获取月份（0-11）,返回的月份小一个月 记得月份 +1
+        console.log(now.getDate()); //返回的是几号
+        console.log(now.getDay());  //周一返回1 周6返回六 周日返回0
+        console.log(now.getHours());    //获取当前小时
+        console.log(now.getMinutes());  //获取当前分钟数
+        console.log(now.getSeconds());  //获取当前秒钟数
+    </script> -->
+
+    <!-- <script>
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        console.log('今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒');        
+    </script> -->
+
+    <!-- <script>
+        var arr = [1, 23];
+        var obj = {};
+        console.log(arr instanceof Array); // true
+        console.log(obj instanceof Array); // false
+        console.log(Array.isArray(arr));   // true
+        console.log(Array.isArray(obj));   // false
+    </script> -->
+
+    <!-- <script>
+        // 1.push() 在我们数组的末尾，添加一个或者多个数组元素 push 推
+        var arr = [1, 2, 3];
+        arr.push('哈哈哈', '秦晓');
+        console.log(arr.push('哈哈哈', '秦晓'));
+        console.log(arr);
+        console.log(arr.push(4, '秦晓'));
+        console.log(arr);
+        // push 完毕之后，返回结果是新数组的长度
+    </script> -->
+
+    <!-- <script>
+        // unshift 在我们数组的开头 添加一个或者多个数组元素
+        var arr = [1, 2, 3];
+        arr.unshift('blue');
+        console.log(arr.unshift('red'));
+        console.log(arr);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,3];
+        console.log(arr.pop());
+    </script> -->
+
+    <!-- <script>
+        // 封装一个函数返回当前的时分秒   格式 08:08:08
+        function getTime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0'+h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0'+m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0'+s : s;
+            return h+':'+m+':'+s;
+        }
+        console.log(getTime());
+    </script> -->
+    
+    <!-- <script>
+        // 获得Date总的毫秒数(时间戳)，注意：不是当前时间的毫秒数，而是距离1970年1月1号过了多少毫秒数
+        // 1、通过valueOf()、getTime() 两种方法来获取
+        // 使用途径，可以用来生成订单数(少量订单)，因为不同时间的毫秒数是不一样的。
+        var date = new Date();
+        console.log(date.valueOf());    //是现在时间距离1970.1.1 总的毫秒数
+        console.log(date.getTime());  
+        // 2、+new Date()  较为简单的写法
+        var date1 = +new Date();    // +new Date()   返回的也是总毫秒数
+        console.log(date1);   
+
+        // 3、H5新增的方法，获取总毫秒数。
+        console.log(Date.now());    //H5新增的方法，也是获取距离1970年1月1号的总毫秒数。
+    </script> -->
+
+    <!-- <script>
+        var date = new Date();
+        var d = parseInt(总秒数/60/60/24); //计算天数
+        var h = parseInt(总秒数/60/60%24); //计算小时
+        var m = parseInt(总秒数/60%60);    //计算分数
+        var s = parseInt(总描述%60);    //计算当前秒数
+    </script> -->
+
+    <!-- <script>
+        function demo(time) {
+            var nowTime = +new Date();          //获取现在距离1970年的总毫秒数
+            var input = +new Date(time);        //获取活动截止日期距离1970年的总毫秒数
+            var times = (input - nowTime) / 1000;   //活动截止日期 - 现在时间 = 距离活动截止的倒计时
+            var d = parseInt(times/60/60/24);  //计算天数
+            d = d < 10 ? '0' + d : d;
+            var h = parseInt(times/60/60%24);  //计算小时
+            h = h < 10 ? '0' + h : h;
+            var m = parseInt(times/60%60);    //计算分数
+            m = m < 10 ? '0' + m : m;
+            var s = parseInt(times%60);    //计算当前秒数
+            s = s < 10 ? '0' + s : s;
+            return d + '天' + h + '时' + m + '分' + s + '秒';
+        }
+        console.log(demo('2022-3-18 18:00:00'));
+        var date = new Date();
+        console.log(date);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,3,4];
+    </script> -->
+
+    <!-- <script>
+        var arr1 = new Array(); //创建了一个空数组
+        var arr2 = new Array(2);    //一个2,代表了数组长度为2，但是里面的数组元素为空
+        var arr3 = new Array(2,3)   //等价于 [2,3]  ,里面有两个数组元素 2,3
+        console.log(arr1);
+        console.log(arr2);
+        console.log(arr3);
+    </script> -->
+
+    <!-- <script>
+        var arr = [1, 23];
+        var obj = {};
+        console.log(arr instanceof Array); // true
+        console.log(obj instanceof Array); // false
+    </script> -->
+
+    <!-- <script>
+        // 翻转数组
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = reverse([1, 3, 4, 6, 9]);
+        console.log(arr1);
+        var arr2 = reverse(['qwe','asd','zxv']);
+        console.log(arr2);
+
+    </script> -->
+
+    <!-- <script>
+        var arr = [1, 23];
+        var obj = {};
+        // instanceof 运算符，可以判断一个对象是否属于某种类型
+        console.log(arr instanceof Array); // true
+        console.log(obj instanceof Array); // false
+        // Array.isArray()  用于判断一个对象是否为数组，isArray() 是 HTML5 中提供的方法
+        console.log(Array.isArray(arr));   // true
+        console.log(Array.isArray(obj));   // false
+    </script> -->
+
+    <!-- <script>
+        // 通过翻转数组来举例，如果函数输入的不是一个数组，就不会实现我们想要的数组翻转的效果。
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = reverse([1, 3, 4, 6, 9]);
+        console.log(arr1);  
+        // 通过此例子可以看出，我们需要修改代码，来判定输入的值，是否为一个数组
+        var arr2 = reverse('qwe','asd','zxv');
+        console.log(arr2); 
+    </script> -->
+
+    <!-- <script>
+        function reverse(arr) {
+            if(arr instanceof Array){
+                var newArr = [];
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    newArr[newArr.length] = arr[i];
+                }
+                return newArr;
+            }else{
+                return '函数参数要求必须为数组格式[1,2,3,4]';
+            }
+        }
+        console.log(reverse(1,2,3,4,5));
+    </script> -->
+
+    <!-- <script>
+        //pop()  删除数组最后一个元素，一次只能删除一个元素  返回它删除的元素的值  ,不加参数
+        var arr = [1,2,3,4,5];
+        console.log(arr.pop());
+    </script> -->
+
+    <!-- <script>
+        // shift()   删除数组的第一个元素，数组长度减1，无参数，修改原数组  ，并返回第一个元素，不加参数
+        var arr = [1,2,3,4,5];
+        console.log(arr.shift());
+    </script> -->
+    
+    <!-- <script>
+        var arr = [1500, 1200, 2000, 2100, 1800];
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] < 2000) {
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr);
+    </script> -->
+    
+    <!-- <script>
+        // 数组排序
+        // 1、翻转数组
+/*         var arr = ['red','blue','green'];
+        arr.reverse();
+        console.log(arr);   // ['green', 'blue', 'red']
+
+        // 2、数组排序(冒泡排序)
+        var arr1 = [3,4,1,2,9];
+        arr1.sort();
+        console.log(arr1);  //[1, 2, 3, 4, 9] */
+
+        var arr2 = [2,31,23,41,9,0];
+        arr2.sort(function(a,b){
+            return a - b; //升序的顺序排列
+            return b - a; //降序的排列
+        });
+        console.log(arr2);
+    </script> -->
+
+    <!-- <script>
+        //返回数组元素索引号方法 indexOf(数组元素)  作用就是返回该数组元素的索引号,只返回第一个满足条件的索引号，从前面开始查找
+        //它只发返回第一个满足条件的索引号
+        //如果找不到元素，则返回-1
+        var arr = ['red','green','blue','pink','blue'];
+        console.log(arr.indexOf('blue'));  // 2
+        // 返回数组元素索引号方法 lastIndexOf(数组元素)  作用就是返回该数组元素的索引号,只返回第一个满足条件的索引号，从后面开始查找
+        console.log(arr.lastIndexOf('blue')); // 4
+    </script> -->
+
+    <!-- <script>
+        // 封装一个去重的函数 unique 独一无二的
+        function unique(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        var demo = unique(['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']);
+        var demo1 = unique(['blue','green','blue']);
+        console.log(demo);
+        console.log(demo1);
+    </script> -->
+
+    <!-- <script>
+        // 数组转换为字符串
+        // 1、toString() 将数组转换为字符串
+        var arr = [1,2,3];
+        console.log(arr.toString());
+    </script> -->
+
+    <!-- <script>
+        var arr = [1,2,3];
+        console.log(arr.join());    //括号里面不写值，默认使用逗号分割
+        console.log(arr.join('.')); //写值后，可以自定义分割符号
+        console.log(arr.join('&')); 
+    </script> -->
+
+    <!-- <script>
+        var str = 'abc';
+        console.log(str.length);
+        // 对象 才有属性和方法   复杂数据类型才有  属性和方法
+        // 简单数据类型为什么会有 length 属性呢？
+        // js中的基本包装类型: 会把简单数据类型  包装成为了  复杂数据类型
+        // 1、把简单数据类型包装为复杂数据类型
+        var temp = new String('abc');   //使用 new String 创建的字符串为  复杂数据类型
+        // 2、通过临时变量的值 给 str
+        str = temp;
+        // 3、销毁这个临时变量
+        temp = null;
+    </script> -->
+
+    <!-- <script>
+        // 字符串的不可变性
+        var str = 'demo';
+        console.log(str);
+        str = 'new demo';
+        console.log(str);       //当字符串重新赋值后，会占用一块内存资源，当赋值的字符串过多后，内存占用过大，会造成电脑卡顿。
+        // 所以根据字符串的不可变性，不建议大量拼接字符串
+        var str = '';
+        for(var i = 1;i <= 1000000; i++){
+            str += i;
+        }
+        console.log(str);
+    </script> -->
+
+    <!-- <script>
+        // 字符串对象  根据字符返回位置  str.indexOf('要查找的字符', [起始的位置])
+        var str = '改革春风吹满地，春天来了';
+        console.log(str.indexOf('春')); //默认从0开始查找 ，结果为2
+        console.log(str.indexOf('春', 3)); // 从索引号是 3的位置开始往后查找，结果是8
+    </script> -->
+
+    <!-- <script>
+        // 查找字符串 “abcoefoxyozzopp” 中所有o出现的位置以及次数
+        // 核心算法：先查找第一个o出现的位置
+        // 然后 只要 indexOf返回的结果不是 -1 就继续往后查找
+        // 因为 indexOf 只能查找到第一个，所以后面的查找，一定是当前索引加1，从而继续查找
+        var str = "abcoefoxyozzopp";
+        var index = str.indexOf('o');   //3
+        var num = 0;
+        // console.log(index);
+        while (index !== -1) {
+            console.log(index);
+            num++;
+            index = str.indexOf('o', index + 1);
+        }
+        console.log('o出现的次数是: ' + num);
+    </script> -->
+
+    <!-- <script>
+        var arr = 'andy';
+        console.log(arr.charAt(3)); //y
+        // 遍历所有字符
+        for(var i = 0;i < arr.length;i++){
+            console.log(arr .charAt(i));
+        }
+    </script> -->
+
+    <!-- <script>
+        // charCodeAt(index)       获取指定位置处字符的ASCII码(index索引号)  目的：判断用户按下了那个键位
+        var str = 'andy';
+        console.log(str.charCodeAt(0));
+    </script> -->
+
+    <!-- <script>
+        var arr = 'andy';
+        console.log(arr[0]);
+    </script> -->
+
+    <!-- <script>
+        // 判断一个字符串 “abcoefoxyozzopp” 中出现次数最多的字符，并统计其次数
+        // 核心算法：利用 charAt() 遍历这个字符串
+        // 把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1
+        // 遍历对象，得到最大值和该字符
+        // 有一个对象 来判断是否有该属性 对象['属性名']
+        var o = {
+            age: 18
+        }
+        if (o['sex']) {
+            console.log('里面有该属性');
+
+        } else {
+            console.log('没有该属性');
+
+        }
+
+        //  判断一个字符串 'abcoefoxyozzopp' 中出现次数最多的字符，并统计其次数。
+        // o.a = 1
+        // o.b = 1
+        // o.c = 1
+        // o.o = 4
+        // 核心算法：利用 charAt() 遍历这个字符串
+        // 把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1
+        // 遍历对象，得到最大值和该字符
+        var str = 'abcoefoxyozzopp';
+        var o = {};
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i); // chars 是 字符串的每一个字符
+            if (o[chars]) { // o[chars] 得到的是属性值
+                o[chars]++;
+            } else {
+                o[chars] = 1;
+            }
+        }
+        console.log(o);
+        // 2. 遍历对象
+        var max = 0;
+        var ch = '';
+        for (var k in o) {
+            // k 得到是 属性名
+            // o[k] 得到的是属性值
+            if (o[k] > max) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('最多的字符是' + ch);
+    </script> -->
+
+    <!-- <script>
+        var arr = 'string';
+        console.log(arr.concat('red'));         //stringred
+    </script> -->
+
+    <!-- <script>
+        // substr('截取的起始位置','截取几个字符')
+        var str = '改革春风吹满地';
+        console.log(str.substr(2,2));   //春风 ,第一个2是索引号的2,从第几个开始，第二个2,是取几个字符
+    </script> -->
+
+    <!-- <script>
+        // slice('截取的起始位置','截取的截止位置，截止位置不取')		
+        // 从 start 位置开始，截取到 end 位置 ，end 取不到 (两个都是索引号)
+         var str = '改革春风吹满地';
+         console.log(str.slice(0,3));   //革春,0和3都是索引号
+    </script> -->
+
+    <!-- <script>
+        // substring('截取的起始位置','截取的截止位置，截止位置不取')		
+        // 从 start 位置开始，截取到 end 位置 ，end 取不到 (基本和 slice 相同，但是不接受负)
+        var str = '改革春风吹满地';
+        console.log(str.substring(0,2));    //改革,0和2都是索引号
+    </script> -->
+    
+    <!-- <script>
+        // 1. 替换字符 replace('被替换的字符', '替换为的字符')  它只会替换第一个字符
+        var str = 'andyandy';
+        console.log(str.replace('a', 'b'));         //bndyandy
+        // 有一个字符串 'abcoefoxyozzopp'  要求把里面所有的 o 替换为 *
+        var str1 = 'abcoefoxyozzopp';
+        while (str1.indexOf('o') !== -1) {
+            str1 = str1.replace('o', '*');
+        }
+        console.log(str1);      //abc*ef*xy*zz*pp
+    </script> -->
+
+    <!-- <script>
+        var str = 'a,b,c,d';
+        console.log(str.split(','));
+        // 返回的是一个数组 ['a', 'b', 'c', 'd']
+    </script> -->
+    
+    <!-- <script>
+        // 2. 字符转换为数组 split('分隔符')    前面我们学过 join 把数组转换为字符串
+        var str2 = 'red, pink, blue';
+        console.log(str2.split(','));       //['red', ' pink', ' blue']
+        var str3 = 'red&pink&blue';
+        console.log(str3.split('&'));       //['red', 'pink', 'blue']
+    </script> -->
+
+    <!-- <script>
+        var arr = 'ABC';
+        console.log(arr.toLowerCase(arr));  //abc
+    </script> -->
+    
+    <!-- <script>
+        // 简单数据类型 null ，返回的是一个空的对象 object
+        var timer = null;   
+        console.log(typeof timer);      //object
+        // 如果
+    </script> -->
+
 </body>
 </html>

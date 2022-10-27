@@ -5,4 +5,8 @@
 | script | js的解析标签       |
 | alert  | 弹窗               |
 | click  | 点击               |
+| error  | 错误               |
+|        |                    |
+|        |                    |
+|        |                    |
 

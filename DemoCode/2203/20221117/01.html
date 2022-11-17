@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 100px;
+            height: 100px;
+            background-color:blue;
+            float: left;
+            margin-left: 5px;
+            position: relative;
+            top: 100px;
+        }
+        .one:hover{
+            background-color: red;
+        }
+        .two{
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            float: left;
+        }
+        .two_1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .two_black{
+            width: 5px;
+            height: 40px;
+            background-color: black;
+            position: relative;
+            left: 75px;
+            top: 60px;
+        }
+        .two_fc1{
+            width: 3px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 5px;
+            transform: rotate(45deg);
+            position: relative;
+            left: 73px;
+            top:8px;
+        }
+        .two_fc1:hover{
+            transform: rotate(1000360deg);
+            transition:transform 100s linear;
+        }
+        .two_fc2{
+            width: 3px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 5px;
+            transform: rotate(-45deg);
+            position: relative;
+            left: 75px;
+            top:-25px;
+        }
+        .two_fc2:hover{
+            transform: rotate(9360deg);
+            transition:transform 10s linear;
+        }
+        .two_2{
+            width: 35px;
+            height: 35px;
+            background-color: green;
+            transform: rotate(45deg);
+            position: relative;
+            top: 8px;
+            left: 15px;
+        }
+    </style>    
+</head>
+<body>
+    <!-- 风车动画 -->
+    <div class="one"></div>
+    <div class="one"></div>
+    <div class="one"></div>
+    <div class="two">
+        <div class="two_1">
+            <div class="two_black"></div>
+            <div class="two_fc1"></div>
+            <div class="two_fc2"></div>
+        </div>
+        <div class="two_2"></div>
+    </div>
+</body>
+</html>

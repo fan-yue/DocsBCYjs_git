@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 转换成数值类型 */
+        var str = '123';
+        var b = '3.1415926';
+
+        // parseInt(),转换为 数值整数 类型，使用方法如下
+        console.log(parseInt(str));
+        // parseFloat(),转换为 数值类型 浮点型，，使用方法如下
+        console.log(parseFloat(b));
+        // Number(),转换为数值类型，整数、小数点皆可转换。
+        var c = '456.12';
+        console.log(Number(c));
+        // js隐式转换( - * / ), 转换为数值类型。使用方法如下。
+        var a = '12' - 0;
+        var a1 = '10' * 1;
+        var a2 = '15' / 5; 
+        console.log(a);
+        console.log(a1);
+        console.log(a2);
+    </script>
+
+    <!-- <script>
+        /* var a = prompt('数字1');
+        var b = prompt('数字2');
+        console.log(a+b); */
+
+    /* 转换为字符串型 */
+        // toString(),转成字符串，使用方法如下。
+        var a = 123;
+        console.log(a.toString());
+
+        // String(),转换成字符串，使用方法如下。
+        var b = 456;
+        console.log(String(b));
+
+        // 加号字符串拼接，字符串+任何数据类型 = 字符串类型
+        var str = 'abc';
+        var num = 123;
+        console.log(str+num);
+    </script> -->
+</body>
+</html>

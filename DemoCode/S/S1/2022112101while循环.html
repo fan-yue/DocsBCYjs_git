@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    /* while循环    
+        练习1：假设银行存款的年利率为5%，问1000快存多少年可以变成5000块？
+    */
+    // 创建一个变量的钱数
+    let money = 1000;
+
+    let year = 0;
+    // 创建一个计数器来记录循环执行的次数
+    while(money < 5000){
+        money = money * 1.05;
+        // 赋值运算符写法
+        // money *= 1.05;
+        year++
+    }
+    document.write(`需要存${year}年，最终存的钱数为${money}`);
+   </script> 
+</body>
+</html>

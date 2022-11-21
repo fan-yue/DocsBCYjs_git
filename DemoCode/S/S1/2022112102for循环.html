@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+        for循环 
+        练习3：获取用户输入大于1的整数（暂时不考虑输错的情况）
+            然后编写代码检查这个数字是否是质数，并打印结果。（质数的概念：一个数如果只能被1和它本身整除，那么这个数就是质数；备注：1不是质数也不是合数）
+
+    */
+        let num = prompt('请输入大于1的整数');
+        
+
+    /* 
+        for循环 练习2：求1000以内的水仙花数
+            水仙花数，一个n位数( n >= 3) ,如果他各个位上的数字的n次幂之和还等于这个数，那么这个数就是一个水仙花数。
+            - 153， 1  5  3 ， 1  125  27 ————> 153
+    */
+/*    
+        // 获取1000以内所有的3位数
+        for(let i = 100; i < 1000; i++){
+        // 如果 i 的百位数字 十位数字  个位数字 的立方和 还等于 i 则 i 就是水仙花数
+            // 获取 百位数
+            let bai = parseInt(i / 100);
+            // 获取 十位数
+            let shi = parseInt((i - bai*100) /10);
+            // 获取 个位数
+            let ge = i % 10;
+            
+            if(bai**3 + shi**3 + ge**3 == i ){
+                console.log(i);
+            }
+        }
+ */
+
+
+    /* 
+        for循环 练习1： 求100以内3的倍数（求他们的个数和总和）？
+    */
+
+    /*    
+        let count = 0;   //计数器
+        let result = 0;  //累加器
+        for(let i = 1; i <=100; i++){
+            // 获取3的倍数
+            if( i % 3 == 0){
+                document.write(i+'\n');
+                count++;
+                // result = result + i;
+                // 赋值运算符
+                result += i;
+            }
+        }
+        // 能被3整除的个数
+        document.write(`个数为${count}个,总和为${result}`);
+
+    //  精简版
+        for(var i = 3; i<=100; i+=3){
+            count++;
+            result += i;
+        }
+        document.write(`<br>100以内能被3整除的个数是${count},总和是${result}`); */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 通过修改数组的长度，对数组进行扩容 */
+        /* var arr = ['red','green','blue','pink'];
+        arr.length = 7 ;
+        console.log(arr[5]); */
+    
+    /* 通过修改数组的索引 */
+        /* var arr = ['red','green','blue','pink'];
+
+        arr[3] = 'demo';
+        document.write(arr+'<br>');
+
+        arr[7] = '8888';
+        document.write(arr+'<br>');
+
+        arr = [0,0,0,0];
+        document.write(arr); */
+
+    /* 案例：将数组 [2, 0, 6, 11, 77, 0, 52, 0, 25, 7] 中大于等于 10 的元素选出来，放入新数组 */
+        var arr = [2, 0, 6, 11, 77, 0, 52, 0, 25, 70];
+        var newArr = [];
+        var j = 0;
+
+        for(var i = 0; i < arr.length ; i++){
+            if(arr[i] >= 10){
+                newArr[j]  = arr[i];
+                j++;
+            }
+        }
+        document.write(newArr);
+    </script>
+</body>
+</html>

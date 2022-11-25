@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 添加删除数组元素 */
+        var arr = [1,2,3];
+        // push()   给数组 末尾添加 一个或者给多个元素
+        arr.push('测试','这是第二个值');
+        console.log(arr);
+
+        var arr2 = [10,20,30];
+        // unshift()  给数组 开头 添加一个或者更多元素 ，
+        arr2.unshift('5',4);
+        console.log(arr2);
+
+        var arr3 = [100,110,120];
+        // pop() ,删除数组的最后一个元素，一次只能删除一个，返回被删除的元素的值
+        arr3.pop();
+        console.log(arr3);
+
+        var arr4 = [200,210,220];
+        // shift() ,删除数组的第一个元素，数组长度减 1， 括号内没有参数，修改原数组，并返回第一个元素。
+        arr4.shift();
+        console.log(arr4);
+    </script>
+</body>
+</html>

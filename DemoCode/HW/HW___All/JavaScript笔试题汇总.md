@@ -766,7 +766,7 @@ console.log(res)
 
 <hr>
 
-##### 44.以下代码输出的结果是
+##### 44.[数组]___以下代码输出的结果是
 
 ```
 var str = “qianfengana”; 

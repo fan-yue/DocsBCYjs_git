@@ -797,7 +797,9 @@ console.log(res);
 ```
 
 <hr>
+
 ##### 46.`var arr = [how,are,you]; arr.reverse(); alert(arr)`
+
 
 - A how,are,you
 - B you,are,how

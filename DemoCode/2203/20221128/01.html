@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ['red','blue','green'];
+        // 翻转，颠倒
+        arr.reverse();
+        console.log(arr);
+
+        var arr1 = [3,16,14,12,222,9];
+        // 排序
+        arr1.sort(function(a,b){
+            // return a - b;   //从小到大
+            return b - a;   //从大到小
+        });
+        console.log(arr1);
+    </script>
+</body>
+</html>

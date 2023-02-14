@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getMax(a,b){
+            if(a>b){
+                return a;
+            }else{
+                return b;
+            }
+        }
+        console.log(getMax(100,20));
+
+        function getArrMax(arr){
+            var max = arr[0]; //5
+            for(var i = 1;i<arr.length;i++){
+                if(arr[i] > max){
+                    max = arr[i];   //101
+                }
+            }
+            return max;
+        }
+        var a = getArrMax([5,2,99,101,67,77])
+        console.log(a);
+
+
+        function add(num1,num2){
+            return num1+num2;
+            alert('弹窗');
+        }
+        console.log(add(1,2));
+
+        
+    </script>
+</body>
+</html>

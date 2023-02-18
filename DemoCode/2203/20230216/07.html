@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>地址</th>
+        </tr>
+        <script>
+            var obj1 = [
+                {name:'路人甲',age:18,sex:'男性',address:'陕西省'},
+                {name:'路人乙',age:19,sex:'女性',address:'山西省'},
+                {name:'路人丙',age:20,sex:'男性',address:'河南省'},
+                {name:'路人丁',age:21,sex:'女性',address:'山东省'},
+            ]
+    
+            document.write(`
+                <tr>
+                    <td>${obj1[0].name}</td>
+                    <td>${obj1[0].age}</td>
+                    <td>${obj1[0].sex}</td>
+                    <td>${obj1[0].address}</td>
+                </tr>
+            `);
+        </script>
+    </table>
+</body>
+</html>

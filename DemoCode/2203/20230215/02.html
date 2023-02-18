@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 利用字面量，创建一个空的对象；
+        var obj = {};
+        // 
+        var obj1 = {
+            name:'汉字',
+            age:20,
+            sex:'男性',
+            getSum:function(){
+                return '123';
+            }
+        }
+        // 对象名.属性名
+        console.log(obj1.name,obj1.getSum());
+
+        // 对象名['属性名']
+        console.log(obj1['name']);
+
+        // 对象名.方法名();
+        obj1.getSum();
+
+
+        // 利用 new Object 创建对象
+        var obj2 = new Object();
+        obj2.name = '路人甲';
+        obj2.sex = '男性';
+        obj2.age = 22;
+        obj2.getMax = function(){
+            return '0000';
+        }
+        console.log(obj2.name,obj2.getMax());
+
+        // 利用构造函数创建对象
+        function Demo(a,b,c){
+            this.name = a;
+            this.age = b;
+            this.sex = c;
+            this.sing = function(sang){
+                console.log(sang);
+            }
+        }
+        var a = new Demo('路人乙',30,'女性');
+        console.log(a.name,a['age']);
+        a.sing('某一个');
+    </script>
+</body>
+</html>

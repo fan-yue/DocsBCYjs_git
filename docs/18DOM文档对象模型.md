@@ -1,5 +1,72 @@
 
 
+### 变量声明
+
+-  变量声明有三个 var   let  和 const 
+- 我们应该用那个呢？
+- 首先var 先排除，老派写法，问题很多，可以淘汰掉...
+- let  or  const ?
+-  建议：  `const` 优先，尽量使用`const`，原因是：
+-  `const` 语义化更好
+- 很多变量我们声明的时候就知道他不会被更改了，那为什么不用 const呢？
+-  实际开发中也是，比如react框架，基本const
+- 如果你还在纠结，那么我建议：
+- 有了变量先给const，如果发现它后面是要被修改的，再改为let
+
+#### 总结
+
+1. 以后声明变量我们优先使用哪个？
+    Ø const
+    Ø 有了变量先给const，如果发现它后面是要被修改的，再改为let
+2. 为什么const声明的对象可以修改里面的属性？
+    Ø 因为对象是引用类型，里面存储的是地址，只要地址不变，就不会报错
+    Ø<font color=red> 建议`数组`和`对象`使用 const 来声明</font>
+3. 什么时候使用let声明变量？
+    Ø 如果基本数据类型的值或者引用类型的地址发生变化的时候，需要用let
+    Ø 比如  一个变量进行加减运算，比如 for循环中的 i++
+
+<hr>
+
+### Web API 基本认知
+
+#### 作用和分类
+
+- 作用: 就是使用 JS 去操作 html 和浏览器
+- 分类：DOM (文档对象模型)、BOM（浏览器对象模型）
+
+![image-20230216221731399](18DOM文档对象模型.assets/image-20230216221731399.png)
+
+#### 什么是DOM
+
+1. DOM（Document Object Model——文档对象模型）是用来呈现以及与任意 HTML 或 XML文档交互的API
+2. DOM是浏览器提供的一套专门用来 操作网页内容 的功能
+3. DOM作用：开发网页内容特效和实现用户交互
+
+
+
+#### 总结
+
+1. Web API阶段我们学习那两部分？
+    - DOM
+    - BOM
+2. DOM 是什么？有什么作用？
+    - DOM 是文档对象模型
+    - 操作网页内容，可以开发网页内容特效和实现用户交互
+
+<hr>
+
+
+
+### DOM树是什么?
+
+1. 将 HTML 文档以树状结构直观的表现出来，我们称之为文档树或 DOM 树
+2.  描述网页内容关系的名词
+3.  作用：<font color=red>文档树直观的体现了标签与标签之间的关系</font>
+
+![image-20230217074754938](18DOM文档对象模型.assets/image-20230217074754938.png)
+
+<hr>
+
 ### DOM文档对象模型
 
 文档对象模型（Document Object Model，简称 `DOM`），是 W3C 组织推荐的处理可扩展标记语言（HTML或者XML）的标准`编程接口`
@@ -14,7 +81,11 @@ W3C 已经定义了一系列的 DOM 接口，通过这些 DOM 接口可以改变
 - 元素：页面中的所有标签都是元素，DOM中使用 element 表示
 - 节点：网页中的所有内容都是节点（标签，属性，文本，注释等），DOM中使用node表示
 
-### 获取元素(标签)
+
+
+<hr>
+
+### 获取DOM元素(标签)
 
 #### 获取页面元素
 
@@ -343,6 +414,8 @@ document.documentElement;
 
 
 
+<hr>
+
 ### 操作元素
 
 JavaScript 的 DOM 操作可以改变网页内容、结构和样式，我们可以利用 DOM 操作元素来改变元素里面的内容 、属性等。
@@ -426,6 +499,91 @@ element.innerHTML
         var p = document.querySelector('p');
         p.innerText = getTimes();
     </script>
+```
+
+
+
+##### 案例：年会抽奖
+
+需求：从数组随机抽取一等奖、二等奖和三等奖，显示到对应的标签里面。
+		素材：
+				    html文件结构	
+
+​			数组名单   '周杰伦', '刘德华', '周星驰', 'Pink老师', '张学友'
+
+![image-20230217075239691](18DOM文档对象模型.assets/image-20230217075239691.png)
+
+
+
+分析：
+			①：声明数组: const personArr = ['周杰伦', '刘德华', '周星驰', 'Pink老师', '张学友']
+			②：一等奖:随机生成一个数字（0~数组长度），找到对应数组的名字
+			③：通过`innerText` 或者 `innerHTML` 将名字写入`span`元素内部
+			④： 二等奖依次类推
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(./bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <strong>抽奖</strong>
+        <h1>一等奖：<span id="one">???</span></h1>
+        <h3>二等奖：<span id="two">???</span></h3>
+        <h5>三等奖：<span id="three">???</span></h5>
+    </div>
+  
+  <script>
+    //  声明数组
+    const personArr = [  '周杰伦', '刘德华', '周星驰', 'Pink老师', '张学友'];
+    // 一等奖，使用随机数作为数组的下标
+    const random = Math.floor(Math.random() * personArr.length);
+        //  绑定one对应的标签
+    const one = document.querySelector('#one');
+        //  更改元素内容
+    one.innerHTML = personArr[random];
+        // 删除一等奖对应的用户，避免二等奖重复
+    personArr.splice(random,1);
+
+    // 二等奖
+    const random1 = Math.floor(Math.random() * personArr.length);
+        //  绑定two对应的标签
+    const two = document.querySelector('#two');
+        //  更改元素内容
+    two.innerHTML = personArr[random1];
+        // 删除一等奖对应的用户，避免二等奖重复
+    personArr.splice(random1,1);
+
+    // 三等奖
+    const random2 = Math.floor(Math.random() * personArr.length);
+        //  绑定three对应的标签
+    const three = document.querySelector('#three');
+        //  更改元素内容
+    three.innerHTML = personArr[random2];
+        // 删除一等奖对应的用户，避免二等奖重复
+    personArr.splice(random2,1);
+</script>
+</body>
+
+</html>
 ```
 
 
@@ -538,9 +696,78 @@ element.innerHTML
 
 
 
+##### 案例：页面刷新，图片随机更换
+
+​	需求：当我们刷新页面，页面中的图片随机显示不同的图片
+
+​	分析：
+​					①：随机显示，则需要用到随机函数
+​					②：更换图片需要用到图片的 src 属性，进行修改
+​					③：核心思路：		
+
+           						1. 获取图片元素
+           						2. 随机得到图片序号
+           						3. 图片.src = 图片随机路径
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/1.webp" alt="">
+    <script>
+    // 非函数写法
+/*         // 获取图片的随机数
+        var random = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+        
+        // 绑定元素
+        const img = document.querySelector('img');
+
+        // 给图片跟换 img 的 src 属性
+        img.src = `./images/${random}.webp`; */
+
+    // 函数写法
+        // 获取图片的随机数
+        function getRandom(N,M){
+            return Math.floor(Math.random() * (M - N + 1) + N);
+        }
+        
+        // 绑定元素
+        const img = document.querySelector('img');
+
+        const random = getRandom(1,6);
+
+        // 给图片跟换 img 的 src 属性
+        img.src = `./images/${random}.webp`;
+    </script>
+</body>
+</html>
+```
+
+
+
+
+
 ##### 修改表单的属性操作
 
 利用DOM可以操作如下表单元素的属性
+
+- 表单很多情况，也需要修改属性，比如点击眼睛，可以看到密码，本质是把表单类型转换为文本框
+- 正常的有属性有取值的 跟其他的标签属性没有任何区别
+
+###### 语法：
+
+- 获取： DOM对象.属性名
+- 设置： DOM对象.属性名 =  新值
+
+![image-20230217081219114](18DOM文档对象模型.assets/image-20230217081219114.png)
+
+
 
 ```
 type，value，checked，selected，disabled
@@ -683,6 +910,46 @@ div.style.width = '250px';
 
 
 
+###### 案例：页面刷新，页面随机更换背景图片
+
+需求：当我们刷新页面，页面中的背景图片随机显示不同的图片
+		分析：
+				①： 随机函数
+				②： css页面背景图片  background-image
+
+​		③： 标签选择body， 因为body是唯一的标签，可以直接写 document.body.style 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style lang="">
+        body{
+            background: url(./images/desktop_1.jpg) no-repeat  top center/cover;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    // console.log(document.body)
+    // 取到 N ~ M 的随机整数
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N
+    }
+    // 随机数
+    const random = getRandom(1, 10)
+    document.body.style.backgroundImage = `url(./images/desktop_${random}.jpg)`
+    </script>
+</body>
+</html>
+```
+
+
+
 ##### 类名样式操作
 
 语法：
@@ -800,9 +1067,59 @@ div.style.width = '250px';
 
 
 
+##### 操作元素样式属性
+
+- 通过 `classList` 操作类控制`CSS`
+
+- 为了解决`className` 容易覆盖以前的类名，我们可以通过`classList`方式追加和删除类名
+
+- 语法：
+
+    ![image-20230217080424711](18DOM文档对象模型.assets/image-20230217080424711.png)
+
+
+
+
+
 #### 操作元素小结
 
+##### 使用 className 和classList的区别？
+
+Ø 修改大量样式的更方便
+		Ø 修改不多样式的时候方便
+		Ø classList 是追加和删除不影响以前类名
+
 ![image-20220323213905909](18DOM文档对象模型.assets/image-20220323213905909.png)
+
+
+
+##### 案例：轮播图
+
+需求：当我们刷新页面，页面中的轮播图会显示不同图片以及样式
+
+![image-20230217080731659](18DOM文档对象模型.assets/image-20230217080731659.png)
+
+模块：
+
+1. ​	图片会随机变换
+2. ​    底部盒子背景颜色和文字内容会变换
+3. ​    小圆点随机一个高亮显示
+
+
+
+##### 案例：轮播图随机版
+
+需求：当我们刷新页面，页面中的轮播图会显示不同图片以及样式
+
+分析：
+
+1. 准备一个数组对象，里面包含详细信息（素材包含）
+2. 随机选择一个数字，选出数组对应的对象，更换图片，底部盒子背景颜色，以及文字内容
+3. 利用这个随机数字，让小圆点添加高亮的类（addClass）  利用css 结构伪类选择器
+
+![image-20230217080917702](18DOM文档对象模型.assets/image-20230217080917702.png)
+
+
 
 
 
@@ -1123,6 +1440,306 @@ H5规定自定义属性 `data-`开头作为属性名并赋值
 ```
 
 在以后开发中，一定要知道其代码的写法及意义。
+
+
+
+### 定时器——间歇函数
+
+- 网页中经常会需要一种功能：每隔一段时间需要自动执行一段代码，不需要我们手动去触发
+- 例如：网页中的倒计时
+- 要实现这种需求，需要定时器函数
+- 定时器函数有两种，先讲间歇函数
+
+
+
+#### 1. 开启定时器
+
+```
+setInterval(函数,间隔时间);
+```
+
+1. 作用：每隔一段时间调用这个函数
+
+2. 间隔时间单位是毫秒
+
+    
+
+##### 例子：
+
+```html
+    <script>
+        function time(){
+            console.log('一秒只触发了一次');
+        }
+        setInterval(time,1000);
+    </script>
+```
+
+1. 注意：函数不需要加括号。
+2. 定时器返回的是一个`id`数字
+
+
+
+#### 2.关闭定时器
+
+```js
+let 变量名 = setInterval(函数,间隔时间);
+clearInterval(变量名);
+```
+
+一般不会刚创建就停止，而是满足一定条件再停止
+
+##### 例子：
+
+```html
+<script>
+    let timer = setInterval(function(){
+        console.log('一秒只触发了一次');
+    },1000);
+
+    clearInterval(timer);
+</script>
+```
+
+
+
+#### 案例：阅读注册协议
+
+需求：按钮60秒之后才可以使用
+
+分析：
+				①：开始先把按钮禁用（disabled 属性）
+				②：一定要获取元素
+				③：函数内处理逻辑
+								秒数开始减减
+								按钮里面的文字跟着一起变化
+								如果秒数等于0 停止定时器 里面文字变为 同意  最后 按钮可以点击
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10">
+        用户注册协议
+        欢迎注册成为京东用户！在您注册过程中，您需要完成我们的注册流程并通过点击同意的形式在线签署以下协议，请您务必仔细阅读、充分理解协议中的条款内容后再点击同意（尤其是以粗体或下划线标识的条款，因为这些条款可能会明确您应履行的义务或对您的权利有所限制）。
+        【请您注意】如果您不同意以下协议全部或任何条款约定，请您停止注册。您停止注册后将仅可以浏览我们的商品信息但无法享受我们的产品或服务。如您按照注册流程提示填写信息，阅读并点击同意上述协议且完成全部注册流程后，即表示您已充分阅读、理解并接受协议的全部内容，并表明您同意我们可以依据协议内容来处理您的个人信息，并同意我们将您的订单信息共享给为完成此订单所必须的第三方合作方（详情查看
+    </textarea>
+    <br>
+    <button class="btn" disabled>我已经阅读用户协议(5)秒</button>
+
+    <script>
+        // 获取按钮元素
+        const btn = document.querySelector('.btn');
+
+        let i = 5;
+
+        let n = setInterval(function(){
+            i--;
+            btn.innerHTML = `我已经阅读用户协议${i}秒`;
+            if(i === 0){
+                // 关闭定时器
+                clearInterval(n);
+                // 时间到，关闭定时器，开启按钮
+                btn.disabled = false;
+                btn.innerHTML = '同意';
+            }
+        },1000)
+    </script>
+</body>
+</html>
+```
+
+
+
+
+
+### 综合练习：轮播图
+
+需求：每隔一秒钟切换一个图片
+
+分析：
+
+​		①：准备一个数组对象，里面包含详细信息（素材包含）
+​				②：获取元素
+​				③：设置定时器函数
+
+​					设置一个变量++
+​							找到变量对应的对象
+​							更改图片、文字信息
+​							激活小圆点：移除上一个高亮的类名，当前变量对应的小圆点添加类
+
+​		④：处理图片自动复原从头播放（放到变量++后面，紧挨）
+
+​					如果图片播放到最后一张， 就是大于等于数组的长度
+
+​					则把变量重置为0
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轮播图点击切换</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+      width: 560px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      height: 320px;
+    }
+
+    .slider-wrapper img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .slider-footer {
+      height: 80px;
+      background-color: rgb(100, 67, 68);
+      padding: 12px 12px 0 12px;
+      position: relative;
+    }
+
+    .slider-footer .toggle {
+      position: absolute;
+      right: 0;
+      top: 12px;
+      display: flex;
+    }
+
+    .slider-footer .toggle button {
+      margin-right: 12px;
+      width: 28px;
+      height: 28px;
+      appearance: none;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .slider-footer .toggle button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .slider-footer p {
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .slider-indicator {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .slider-indicator li {
+      width: 8px;
+      height: 8px;
+      margin: 4px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .slider-indicator li.active {
+      width: 12px;
+      height: 12px;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slider-wrapper">
+      <img src="./images/slider01.jpg" alt="" />
+    </div>
+    <div class="slider-footer">
+      <p>对人类来说会不会太超前了？</p>
+      <ul class="slider-indicator">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    // 1. 初始数据
+    const sliderData = [
+      { url: './images/slider01.jpg', title: '对人类来说会不会太超前了？', color: 'rgb(100, 67, 68)' },
+      { url: './images/slider02.jpg', title: '开启剑与雪的黑暗传说！', color: 'rgb(43, 35, 26)' },
+      { url: './images/slider03.jpg', title: '真正的jo厨出现了！', color: 'rgb(36, 31, 33)' },
+      { url: './images/slider04.jpg', title: '李玉刚：让世界通过B站看到东方大国文化', color: 'rgb(139, 98, 66)' },
+      { url: './images/slider05.jpg', title: '快来分享你的寒假日常吧~', color: 'rgb(67, 90, 92)' },
+      { url: './images/slider06.jpg', title: '哔哩哔哩小年YEAH', color: 'rgb(166, 131, 143)' },
+      { url: './images/slider07.jpg', title: '一站式解决你的电脑配置问题！！！', color: 'rgb(53, 29, 25)' },
+      { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
+    ]
+    
+    // 获取元素，class为 .slider-warpper 下的图片
+    const img = document.querySelector('.slider-wrapper img');
+    // 获取图片下对应的 p 标签元素
+    const p = document.querySelector('.slider-footer p');
+
+    let i = 0;  //图片的起始量索引
+
+    // 设置定时器
+    setInterval(function(){
+        i++;
+        // 无缝衔接，总共8张图片，到最后一张就是 8 ， 数量长度为 8 
+        if(i >= sliderData.length){
+            i = 0;
+        }
+        // 更换图片路径
+        img.src = sliderData[i].url;
+        // 更换p标签的文字内容
+        p.innerHTML = sliderData[i].title;
+        // 获取小圆点
+        let aq = document.querySelector('.slider-indicator .active');
+        // 移除小圆点的样式
+        aq.classList.remove('active');
+        // 给当前 li 添加 active 样式
+        document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active');
+    },1000)
+  </script>
+</body>
+
+</html>
+```
+
+​				
+
+​	
 
 
 

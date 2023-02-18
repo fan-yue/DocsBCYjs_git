@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        }
+        var arr = ['李浩','石磊','冯泽','']; 
+        var arrR = getRandomInt(0,3);
+        console.log(arr[arrR]);
+
+
+        // 
+        var arr1 = ['李浩','石磊','冯泽','甲','乙','丙','丁'];
+        var index = getRandomInt(0,arr1.length);    //返回某一个数字
+        console.log(arr1[index]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function demo(time){
+            var now = +new Date();
+            var input = +new Date(time);
+            var stop = (input-now)/1000;
+            var day = parseInt(stop/60/60/24);
+            day = day < 10 ? '0' + day : day;
+            var hours = parseInt(stop/60/60%24);
+            hours = hours < 10 ? '0' + hours : hours;
+            var min = parseInt(stop/60%60);
+            min = min < 10 ? '0' + min : min;
+            var se = parseInt(stop%60);
+            se = se < 10 ? '0' + se : se;
+            return (`${day}天${hours}时${min}分${se}秒<br>`);
+        }
+
+        var a217 = demo('2023-2-17 14:45:00');
+        document.write(a217)
+        demo('2023-2-18 14:45:00');
+    </script>
+</body>
+</html>

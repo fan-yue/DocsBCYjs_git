@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = [
+                {
+                    src: 'images/course01.png',
+                    title: 'Think PHP 5.0 博客系统实战项目演练',
+                    num: 1125
+                },
+                {
+                    src: 'images/course02.png',
+                    title: 'Android 网络动态图片加载实战',
+                    num: 357
+                },
+        ]
+        for(var i = 0;i<data.length;i++){
+            console.log(data[i]);
+            document.write(`
+            <div>
+                <img src=${data[i].src} alt="">
+                <a href="#">${data[i].title}</a>
+                <span>${data[i].num}</span>
+            </div>
+            `);
+        }
+
+    </script>
+</body>
+</html>

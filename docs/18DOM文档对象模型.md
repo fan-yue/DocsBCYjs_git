@@ -2,7 +2,7 @@
 
 ### 变量声明
 
--  变量声明有三个 var   let  和 const 
+-  变量声明有三个 `var   let  和 const` 
 - 我们应该用那个呢？
 - 首先var 先排除，老派写法，问题很多，可以淘汰掉...
 - let  or  const ?
@@ -17,7 +17,7 @@
 
 1. 以后声明变量我们优先使用哪个？
     Ø const
-    Ø 有了变量先给const，如果发现它后面是要被修改的，再改为let
+    Ø 有了变量先给`const`，如果发现它后面是要被修改的，再改为`let`
 2. 为什么const声明的对象可以修改里面的属性？
     Ø 因为对象是引用类型，里面存储的是地址，只要地址不变，就不会报错
     Ø<font color=red> 建议`数组`和`对象`使用 const 来声明</font>
@@ -38,8 +38,8 @@
 
 #### 什么是DOM
 
-1. DOM（Document Object Model——文档对象模型）是用来呈现以及与任意 HTML 或 XML文档交互的API
-2. DOM是浏览器提供的一套专门用来 操作网页内容 的功能
+1. DOM（`Document Object Model`——文档对象模型）是用来呈现以及与任意 HTML 或 XML文档交互的API
+2. DOM是浏览器提供的一套专门用来 `操作网页内容` 的功能
 3. DOM作用：开发网页内容特效和实现用户交互
 
 
@@ -78,7 +78,7 @@ W3C 已经定义了一系列的 DOM 接口，通过这些 DOM 接口可以改变
 
 
 - 文档：一个页面就是一个文档，DOM中使用doucument来表示
-- 元素：页面中的所有标签都是元素，DOM中使用 element 表示
+- 元素：页面中的所有标签都是元素，DOM中使用 `element` 表示
 - 节点：网页中的所有内容都是节点（标签，属性，文本，注释等），DOM中使用node表示
 
 
@@ -432,7 +432,7 @@ JavaScript 的 DOM 操作可以改变网页内容、结构和样式，我们可�
 element.innerText
 ```
 
-##### element.innerHTML
+##### innerHTML
 
 起始位置到终止位置的全部内容，包括HTML标签，同时保留空格和换行
 
@@ -1739,10 +1739,6 @@ clearInterval(变量名);
 
 ​				
 
-​	
-
-
-
 
 
 ### 节点操作
@@ -1762,7 +1758,7 @@ clearInterval(变量名);
 
 
 
-#### 节点概述
+#### DOM节点概述
 
 网页中的所有内容都是节点（标签、属性、文本、注释等），在DOM 中，节点使用 node 来表示。
 
@@ -1780,20 +1776,20 @@ HTML DOM 树中的所有节点均可通过 JavaScript 进行访问，所有 HTML
 
   
 
-我们在实际开发中，节点操作主要操作的是**元素节点**
+我们在实际开发中，节点操作主要操作的是**元素节点**。
 
 利用 DOM 树可以把节点划分为不同的层级关系，常见的是**父子兄层级关系**。
 
 
 
-#### 父级节点
+#### 查找节点___父级节点
 
 ```
 node.parentNode
 ```
 
 - `parentNode`属性可以返回某节点的父结点，注意是最近的一个父结点
-- 如果指定的节点没有父结点则返回null
+- 如果指定的节点没有父结点则返回`null`
 
 ###### 例子：
 
@@ -1816,7 +1812,9 @@ node.parentNode
 
 
 
-#### 子结点
+
+
+#### 查找节点___子结点
 
 ```
 parentNode.childNodes(标准)
@@ -1984,7 +1982,6 @@ parentNode.chilren[parentNode.chilren.length - 1]
   Untitled</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
-
 `CSS`
 
 ```
@@ -2108,7 +2105,7 @@ li{
 
 
 
-#### 兄弟节点
+#### 查找节点___兄弟节点
 
 ##### 下一个兄弟节点
 
@@ -2190,7 +2187,7 @@ function getNextElementSibling(element) {
 
 
 
-#### 创建节点
+#### 增加节点___创建节点
 
 ```
 document.createElement('tagName');
@@ -2738,4 +2735,6 @@ W3C已经定义了一系列的DOM接口，通过这些DOM接口可以改变网�
    
 
 ### DOM节点操作小案例
+
+
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <form action="">
+        <input type="text" class="one">
+    </form>
+
+    <script>
+        let btn = document.querySelector('button');
+        // onclick 鼠标点击左键触发
+        btn.onclick = function(){
+            alert('文字');
+        }
+        // onmouseover  鼠标经过触发
+        btn.onmouseover = function(){
+            console.log(123);
+        }
+        // onmouseout   鼠标离开触发
+        btn.onmouseout = function(){
+            console.log(456);
+        }
+
+        let input1 = document.querySelector('.one');
+
+        // onfocus ,获得表单焦点触发
+        input1.onfocus = function(){
+            console.log('当选中表单，就会显示这些文字');
+        }
+
+        input1.onblur = function(){
+            console.log('表单失去焦点，弹出文字');
+        }
+    </script>
+</body>
+</html>

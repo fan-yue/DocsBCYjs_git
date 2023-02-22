@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>123</p>
+    <script>
+        // 当点击显示当前系统时间按钮，div里面的文字需要发生变化
+        // 1.获取元素
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // 2.绑定时间
+        btn.onclick = function(){
+            // div.innerText = '2022-3-20';
+            div.innerText = getTimes();
+        }
+        
+        function getTimes() {
+            var now = new Date();
+            var year = now.getFullYear(); 
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            // console.log('今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒');    
+            return '今天是'+year+'年'+month+'月'+day+'日'+hours+'点'+minutes+'分'+seconds+'秒';
+        }
+        // 元素也可以不添加事件
+        var p = document.querySelector('p');
+        // p.innerText = getTimes();
+    </script>
+</body>
+</html>

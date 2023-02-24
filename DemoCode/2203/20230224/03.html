@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>XXXXX</span>
+    <script>
+        let sp1 = document.querySelector('span');
+        sp1.innerHTML = nowTime();
+        
+        function nowTime(){
+            let now = new Date();
+            let nyear = now.getFullYear();
+            let nmonth = now.getMonth() + 1;  
+            let nday = now.getDate();    
+            let nhours = now.getHours();
+            let nmin = now.getMinutes();
+            let nse = now.getSeconds();
+            return `${nyear}年${nmonth}月${nday}号${nhours}:${nmin}:${nse}`;
+        }
+        
+        setInterval(function(){
+            sp1.innerHTML = nowTime();
+        },1000) 
+    </script>
+</body>
+</html>

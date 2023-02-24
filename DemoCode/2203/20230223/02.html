@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            background-color: rgb(54, 54, 194);
+            color: white;
+            border-radius: 10px;
+        }
+        .two{
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="close">
+        <img src="r_dj.png" alt="" style="background-color:royalblue ;">
+        <span class="one">x关闭</span>
+    </div>
+    
+    <script>
+        let x = document.querySelector('.one');
+        // 通过js进行类名的更改
+        // 获取到的元素.className = '我们需要修改的类名'
+        x.className = 'two';
+
+
+        let x = document.querySelector('span');
+        let img1 = document.querySelector('img');
+        let close = document.querySelector('#close');
+
+        x.onclick = function(){
+            // 通过js进行行内样式更改
+            // 获取到的元素.style.css的属性名称 = ‘css的属性值’
+            close.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

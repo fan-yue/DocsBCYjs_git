@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style lang="">
+        .blue{
+            color: blue;
+        }
+        .fail{
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label >
+            密码：<input type="password" >
+        </label>
+        <span class="blue">输入中</span>
+    </form>
+
+    <script>
+        let input1 = document.querySelector('input');
+        let sp1 = document.querySelector('span');
+        input1.onblur = function(){
+            if(input1.value.length < 6 || input1.value.length > 16){
+                sp1.className = 'fail';
+                sp1.innerHTML = '<span >请输入6~16位的数字或字母</span>'
+            }else{
+                sp1.className = 'success';
+                sp1.innerHTML = '<span>输入成功</span>';
+            }
+        }
+    </script>
+</body>
+</html>

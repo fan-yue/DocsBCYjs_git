@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+        .yuan{
+            border-radius: 10px;
+        }
+        .sec{
+            box-shadow: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="first"></div>
+
+    <script>
+        let div1 = document.querySelector('div');
+        // 添加一个类
+        div1.classList.add('yuan');
+        // 删除一个类
+        div1.classList.remove('sec');
+        // div1.classList.toggle('sec');
+        div1.onclick = function(){
+            // 切换一个类
+            div1.classList.toggle('sec');
+        }
+
+    </script>
+</body>
+</html>

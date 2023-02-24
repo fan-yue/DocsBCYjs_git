@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <a href="01.html">01的页面</a>
+    <p data-index="中文">段落标签</p>
+    
+    <script>
+        let div1 = document.querySelector('div');
+        // 1.获取元素属性值的方法       元素.属性
+        console.log(div1.id);
+        let a1 = document.querySelector('a');
+        console.log(a1.href);
+
+        let p1 = document.querySelector('p');
+        // 2.获取元素属性值的方法   元素.getAttribute('属性名')
+        let one = p1.getAttribute('data-index');
+        let demo = a1.getAttribute('href');
+        console.log(one);
+        console.log(demo);
+
+    </script>
+</body>
+</html>

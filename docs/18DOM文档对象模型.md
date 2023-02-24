@@ -696,7 +696,7 @@ element.innerHTML
 
 
 
-##### 案例：页面刷新，图片随机更换
+##### 案例：改变元素属性src___网站图像页面刷新
 
 ​	需求：当我们刷新页面，页面中的图片随机显示不同的图片
 
@@ -845,7 +845,7 @@ div.style.width = '250px';
 
 
 
-###### 行内样式操作——案例2：
+###### 行内样式操作——案例2：点击关闭让广告页面消失
 
 `html`
 
@@ -998,6 +998,8 @@ div.style.width = '250px';
     </script>
 ```
 
+
+
 注意：
 
 1、js里面的样式采取驼峰命名法，比如： fontSize、backgroundColor
@@ -1104,6 +1106,8 @@ div.style.width = '250px';
 1. ​	图片会随机变换
 2. ​    底部盒子背景颜色和文字内容会变换
 3. ​    小圆点随机一个高亮显示
+
+
 
 
 
@@ -1499,6 +1503,45 @@ clearInterval(变量名);
 
     clearInterval(timer);
 </script>
+```
+
+
+
+#### 案例：时间增长案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>2023年2月23天00:00:00</span>
+    <script>
+        // 获取span元素
+        let time = document.querySelector('span');
+        time.innerHTML = nowTime();
+        // 返回本地时间
+        function nowTime(){
+            let now = new Date();
+            let nyear = now.getFullYear();
+            let nmonth = now.getMonth() + 1;
+            let nday = now.getDate();
+            let nhours = now.getHours();
+            let nminutes = now.getMinutes();
+            let nseconds = now.getSeconds();
+            return `${nyear}年${nmonth}月${nday}日${nhours}:${nminutes}:${nseconds}`;
+        }
+        // 时间计数功能
+        setInterval(function(){
+            time.innerHTML = nowTime();
+        },1000)
+    </script>
+</body>
+</html>
 ```
 
 
@@ -2415,7 +2458,6 @@ node.cloneNode()
   S1824案例-动态生成表格</a> by fan-yue (<a href="https://codepen.io/fan-yue">@fan-yue</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
-
 `HTML`
 
 ```
@@ -2736,5 +2778,5 @@ W3C已经定义了一系列的DOM接口，通过这些DOM接口可以改变网�
 
 ### DOM节点操作小案例
 
-
+​	
 

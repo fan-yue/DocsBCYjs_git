@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>2023年2月23天00:00:00</span>
+    <script>
+        let arrTime;
+        // 获取span元素
+        let time = document.querySelector('span');
+        time.innerHTML = nowTime();
+        // 返回本地时间
+        function nowTime(){
+            let now = new Date();
+            let nyear = now.getFullYear();
+            let nmonth = now.getMonth() + 1;
+            let nday = now.getDate();
+            let nhours = now.getHours();
+            let nminutes = now.getMinutes();
+            let nseconds = now.getSeconds();
+            return `${nyear}年${nmonth}月${nday}日${nhours}:${nminutes}:${nseconds}`;
+            // return arrTime = [nyear,nmonth,nday,nhours,nminutes,nseconds];
+        }
+        // 时间计数功能
+        setInterval(function(){
+            time.innerHTML = nowTime();
+        },1000)
+        // function addZero(arrTime){
+        //     for(let i = 0; i< arrTime.length;i++){
+        //         arrTime[1] < 10 ? '0' + arrTime[1] : arrTime[1];
+        //        /*  if(arrTime[i] < 10){
+        //             arrTime[i] = '0' + arrTime[i];
+        //         }else{
+        //             arrTime[i] = arrTime[i];
+        //         } */
+        //         return arrTime[1];
+        //     }
+        // }
+        // addZero(arrTime);
+        
+    </script>
+</body>
+</html>

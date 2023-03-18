@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>123</li>
+
+    </ul>
+
+    <script>
+        // 创建了一个li标签
+        let li = document.createElement('li');
+
+        let ul1 = document.querySelector('ul');
+
+        // 添加,给尾部添加节点
+        ul1.appendChild(li);
+
+        let li0 = document.createElement('li');
+        // 添加,给指定位置添加节点
+        ul1.insertBefore(li0,ul1.children[0]);
+    </script>
+</body>
+</html>

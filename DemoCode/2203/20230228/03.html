@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <ul>
+        <li>甲</li>
+        <li>乙</li>
+        <li>丙</li>
+    </ul>
+
+    <script>
+        let btn = document.querySelector('button');
+        let ul1 = document.querySelector('ul');
+
+        // 删除节点,removeChild(删除的元素)
+        ul1.removeChild(ul1.children[0]);
+    </script>
+</body>
+</html>

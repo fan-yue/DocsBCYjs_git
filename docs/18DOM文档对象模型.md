@@ -1831,7 +1831,7 @@ HTML DOM 树中的所有节点均可通过 JavaScript 进行访问，所有 HTML
 node.parentNode
 ```
 
-- `parentNode`属性可以返回某节点的父结点，注意是最近的一个父结点
+- `parentNode`属性可以返回某节点的父结点，注意是最近的一个父结点。
 - 如果指定的节点没有父结点则返回`null`
 
 ###### 例子：
@@ -2377,7 +2377,7 @@ node.removeChild(child)
 
 `HTML`
 
-```
+```html
     <textarea>123</textarea>
     <button>发布</button>
     <ul>
@@ -2423,11 +2423,11 @@ node.removeChild(child)
 node.cloneNode()
 ```
 
-- `node.cloneNode()`方法返回调用该方法的节点的一个副本。 也称为克隆节点/拷贝节点
+- `node.cloneNode()`方法返回调用该方法的节点的一个副本。 也称为克隆节点/拷贝节点。
 
-- 如果括号参数为空或者为 false ，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点
+- 如果括号参数为空或者为 false ，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点。
 
-- 如果括号参数为 true ，则是深度拷贝，会复制节点本身以及里面所有的子节点
+- 如果括号参数为 true ，则是深度拷贝，会复制节点本身以及里面所有的子节点。
 
   ###### 例子：
 
@@ -2460,7 +2460,7 @@ node.cloneNode()
 </iframe>
 `HTML`
 
-```
+```html
     <table cellspacing="0" border="1">
         <thead>
             <td>姓名</td>

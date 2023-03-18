@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 必须需要return才可以实现阻拦form表单跳转 -->
+    <form action="success.html" method="get" onsubmit="return a()">
+        账号:<input type="text" id="input_text" onblur="zh()" value="">
+        <span id="span1"></span>
+        <br>
+        密码:<input type="password" onblur="ps()" id="input_ps">
+        <span id="span2"></span>
+        <br>
+        <input type="submit" value="提交按钮" id="sub">
+    </form>
+    
+    <script>
+        // 拦截总跳转
+        function a(){
+            if(zh() & ps()){
+                alert('成功');
+                return true;
+            }else{
+                alert('不匹配');
+                return false;
+            }
+        }
+
+        // 账号的验证
+        function zh(){
+            let input_text = document.querySelector("#input_text").value;
+            let span1 = document.querySelector('#span1');
+            let zhengze = /^1[3,4,5,7,8,9]\d{9}/;
+
+            if(zhengze.test(input_text)){
+                span1.innerHTML = `<font color="green">√</font>`;
+                return true;
+            }else{
+                span1.innerHTML = `<font color='red'>请输入和Hello相匹配的字符</font>`;
+                return false;
+            }
+
+        }
+
+        // 密码验证
+        function ps(){
+            let input_ps = document.querySelector("#input_ps").value;
+            let span2 = document.querySelector('#span2');
+            let zhengze = /Hello/g;
+
+            if(zhengze.test(input_ps)){
+                span2.innerHTML = `<font color="green">√</font>`;
+                return true;
+            }else{
+                span2.innerHTML = `<font color='red'>请输入和Hello相匹配的字符</font>`;
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

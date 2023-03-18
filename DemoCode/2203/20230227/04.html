@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+        <li>我是li5</li>
+        <li>我是li1000</li>
+    </ol>
+
+    <script>
+        let ol1 = document.querySelector('ol');
+        // 第一个子节点,firstElementChild
+        console.log(ol1.firstElementChild);
+        // 最后一个子节点,lastElementChild
+        console.log(ol1.lastElementChild);
+        // 索引
+        console.log(ol1.children[ol1.children.length-1]);
+    </script>
+</body>
+</html>

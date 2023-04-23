@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="height: 2000px;">
+    <div style="width: 200px;height: 200px;overflow: scroll;padding: 20px;" id="box">
+        <div style="width: 400px;height: 400px;background: pink;padding: 10px;border: 1px solid red;margin: 20px;"></div>
+    </div>
+</body>
+
+<script>
+    window.onscroll = function(){
+        console.log(document.documentElement.scrollTop || document.body.scrollTop);
+    }
+    var obox = document.getElementById('box');
+    obox.onscroll = function(){
+        console.log(obox.scrollTop);
+        console.log(obox.scrollLeft);
+        console.log(obox.scrollWidth);
+        console.log(obox.scrollHeight);
+    }
+</script>
+
+<script>
+    window.onresize =  function(){
+        var clientH = document.documentElement.clientHeight;
+        console.log(clientH);
+    }
+</script>
+
+<script>
+    odiv.onclick = function(){}     // onclick 后面的处理函数就是事件函数
+    odiv.onclick = fun1;            // fun1为事件函数
+    function fun1(){};
+</script>
+
+<script>
+    document.onclick = function(ev){
+        console.log(ev);        //标准浏览器事件对象，当事件被触发时，通过事件函数的第一个参数传入
+    }
+</script>
+
+<script>
+    odiv.onclick = function(){
+        alert(1);
+    }
+    odiv.onclick = function(){
+        alert(2);
+    }
+</script>
+
+<script>
+    odiv.onclick = function(){
+        alert(1);
+    }
+    odiv.onclick = function(){
+        alert(2);
+    }
+    // 标准：元素.addEventListener(事件类型(on),事件处理函数,是否捕获);
+    odiv.addEventListener('click',fun2,false);
+    odiv.addEventListener('click',fun1,false);
+</script>
+
+<script>
+    unbind(odiv,'click',fun2);
+    // 解绑兼容处理
+    function unbind(obj,event,callback){
+        if(obj.removeEventListener){
+            obj.removeEventListener(event,callback,false);
+        }else{
+            obj.detachEvent('on'+evne,callback);
+        }
+    }
+</script>
+
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+
+    <script>
+        var odiv = document.getElementsByTagName('div');
+        odiv[0].onclick = function(){alert(this.id)}
+        odiv[1].onclick = function(){alert(this.id)}
+        odiv[2].onclick = function(){alert(this.id)}
+        document.body.onclick = function(){alert('body')};
+    </script>
+
+    <script>
+        function stopEvent(ev){
+            if(ev.stopPropagation){
+                ev.stopPropagation();
+            }else{
+                ev.cancelBubble = true;
+            }
+        }
+    </script>
+
+
+    <!-- 以下效果给每个div加一个30的padding -->
+    <div style="background: red;" id="box1">
+        <div style="background: rosybrown;" id="box2">
+            <div style="background: pink;position: absolute;top: 500px;" id="box3"></div>
+        </div>
+    </div>
+
+    <script>
+        var odiv1 = document.getElementById('box1');
+        var odiv2 = document.getElementById('box2');
+        var odiv3 = document.getElementById('box3');
+        function fun(){
+            alert(this.id);
+        }
+        odiv1.addEventListener('click',fun,true);
+        odiv2.addEventListener('click',fun,true);
+        odiv3.addEventListener('click',fun,false);
+    </script>
+
+    <script>
+        var oul = document.getElementsByTagName('ul')[0];   //定义一个ul
+        document.addEventListener(){
+
+        }
+    </script>
+
+    <script>
+        window.onkeydown = function(ev){
+            var ev = window.event || ev;
+            console.log('按下');
+            console.log(ev.key);        //具体的按键（IE8以下不支持）
+            console.log(ev.keyCode);    //按键对应的编码
+        }
+    </script>
+
+    <script>
+        var odiv = document.getElementById('box');      //div宽高100红色
+        odiv.onmousewheel = fun;                        //标准和IE添加滚轮事件
+        odiv.addEventListener('DOMMouseScroll',fun,false);  //火狐必须用事件绑定
+        function fun(){
+            console.log('滚动');
+        }
+    </script>
+
+    <script>
+        function wheelDelta(ev){
+            if(ev.wheelDelta){
+                return ev.wheelDelta;   //标准，IE
+            }else{
+                return ev.detail * -40; //firefox
+            }
+        }
+    </script>
+
+    <script>
+        var oul = document.getElementsByTagName('ul')[0];
+        oul.onclick =  function(ev){        //将事件添加给父元素
+            var oEvnet = window.event || ev;
+            var target = oEvnet.target || oEvnet.srcElement;        //事件源
+            if(target.nodeName === 'Li'){
+                target.style.background = 'pink';       //通过target 属性找到事件目标
+            }
+        }
+        oul.innerHTML += '<li>6</li>';          //后期添加的子元素依然会有点击事件
+    </script>
+</html>

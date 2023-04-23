@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var body = document.getElementsByTagName('body')[0];
+        // // 外循环控制行，内循环控制列
+        // for(var i = 0; i<5;i++){
+        //     for(var j = 0;j<=i;j++){
+        //         body.innerHTML += '*';
+        //     }
+        //     body.innerHTML += '<br>';
+        // }
+    </script>
+
+    <script>
+        // var json={
+        //     "name":"ujiuye",
+        //     "age" :19,
+        //     "sex" :"女"
+        // }
+        // for(var key in json){
+        //     console.log(key);   //name
+        //     console.log(json[key]);
+        // }
+    </script>
+
+    <script>
+        // var a=1;    //初始化循环变量
+        // while (a<= 100){//结束循环的条件
+        //     console.log(a);
+        //     a++;//更新循环变量
+        // }
+    </script>
+
+    <script>
+        // var a = 0;
+        // do{
+        //     console.log(a);
+        // }while(a > 0);
+    </script>
+
+    <script>
+        // var arr =[1,6,9,3,4,7,5];
+        // for(var k=0;k< arr.length;k++){//遍历
+        //     if(arr[k]%2 === 0)
+        //     console.log(arr[k]);
+        //     //在中途结束循环
+        //     //break；           //跳出循环（结束循环）
+        //     continue;           // 跳出本次循环 本次循环这行代码后面的语句不再执行，直接执行下一次循环
+        //     alert("a");
+        // }
+    </script>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // var oli = document.getElementsByTagName('li');
+        // for(var i = 0; i < oli.length; i++){        //i = 3
+        //     oli[i].onclick = function(){
+        //         console.log(oli[i].innerHTML);
+        //     }
+        // }
+    </script>
+
+    <script>
+        var oli = document.getElementsByTagName('li');
+        for(var i = 0; i < oli.length; i++){
+            oli[i].onclick = function(){
+                // console.log(this);       //当前点击的哪个元素
+                console.log(this.innerHTML);
+            }
+        }
+    </script>
+
+    <script>
+        function sum(){
+            console.log(1);
+        }
+    </script>
+
+    <script>
+        // 1.声明，没有调用前没有作用
+        function sum(){
+            console.log(1);
+        }
+        // 2.调用
+        sum();
+    </script>
+
+    <script>
+        var f = function(){
+            console.log('函数表达式');
+        }
+        f();    //表达式调用
+    </script>
+
+    <script>
+        // 声明函数： function 函数名(){}
+        function sum(){
+            console.log(10+20);
+        }
+        // 调用
+        sum();
+    </script>
+
+    <script>
+        function sum(a){
+            console.log(a);
+        }
+    </script>
+
+    <script>
+        function sum(a){        //var a = 10;
+            console.log(a);
+        }
+        sum(10);    //实参
+    </script>
+
+    <script>
+        function sum(a,b){
+            console.log(a+b);
+        }
+        sum(10,20);
+    </script>
+
+    <script>
+        function sum(a,b){
+            console.log(arguments);     //实参集合
+            console.log(arguments.length,arguments[0]);     //3,1
+        }
+        sum(1,2,3);
+    </script>
+
+    <script>
+        function sum(){
+            var sum = 0;
+            for(var i = 0; i<arguments.length; i++){
+                sum += arguments[i];
+            }
+            console.log(sum);
+        }
+    </script>
+
+    <script>
+        function fun1(fun){
+            fun()
+        }
+        function fun2(){
+            console.log('hello');
+        }
+        fun1(fun2);
+    </script>
+
+    <script>
+        var a = 10;
+        function fun(){
+            a = 20;
+            console.log(a);
+        }
+        fun();
+        function fun(){
+            a = 30;
+            console.log(a);
+        }
+        fun();  //30,函数名相同，后面的会把前面的覆盖掉
+    </script>
+
+    <script>
+        function fun1(a,b){
+            console.log(a+b);
+        }
+        fun1(10,20,40);     //30,如果实参比形参多，取前面的个数
+        fun1(10);           //NaN,如果实参比形参少，后面的参数没有值则为    undefined
+    </script>
+
+    <script>
+        var oli = document.getElementsByTagName('li');
+        for(var i = 0; i<oli.length;i++){
+            oli[i].onclick = function(){
+                // 当前调用方法的对象
+                console.log(this);
+            }
+        }
+    </script>
+
+    <script>
+        sum();
+        function sum() {
+            console.log(this);  //window
+        }
+    </script>
+
+    <script>
+        var obj = {
+            name:'张三',
+            fn:function(){
+                console.log(this);      //{name:"张三",Fn:function}
+            }
+        }
+        obj.fn();
+    </script>
+
+
+    <img src="./img/pic1.jpg" id="pic" alt="" style="display: none;">
+    <script>
+        var pic = document.getElementById('pic');
+        setTimeout(function(){
+            pic.style.display = 'block';
+        },3000)
+    </script>
+
+    <script>
+        var i = 0;
+        setInterval(function(){     //每隔一秒种调用这个函数
+            document.write(i);
+        },1000)
+    </script>
+
+    <script>
+        but.onclick = function(){
+            var s = 60;
+            // 返回id唯一能够标识当前定时器的
+            var timer = setInterval(function(){
+                s--;
+                if(s === 0){
+                    clearInterval(timer);       //关闭定时器
+                }
+                p.innerHTML = s;
+            },1000)
+        }
+    </script>
+
+    <script>
+        console.log(Math.floor(3.999));        //向下取整 去掉小数部分
+        console.log(Math.ceil(3.001));          //向上取整 只要有小数就进位
+        console.log(Math.round(3.14159));       //四舍五入
+        console.log(Math.abs(-100));            //绝对值
+        console.log(Math.max(1,2,36,9));
+        console.log(Math.min(1,2,36,9));
+        console.log(Math.pow(2,10));            //1024
+        console.log(Math.pow(3,2));             //9
+        console.log(Math.sqrt(60));             //开根号8
+    </script>
+
+    <script>
+        for(var i = 0; i < 10; i++){
+            console.log(Math.random());
+        }
+    </script>
+
+    <div> 一等奖：一百万</div>
+    <button>确定</button>
+    <script>
+        var arr =['谢谢惠顾','一等奖：一百,','谢谢惠顾,','二等奖：二百,','谢谢惠顾,','二等奖:1 毛,','三等奖：负一百,','谢谢惠顾,','三等奖：负二百万'];
+        var odiv = document.getElementsByTagName('div')[0];
+        var obtn = document.getElementsByTagName('button')[0];
+        // 随机抽取
+        var timer = setInterval(function(){
+            var index = parseInt(Math.random()*arr.length);
+            odiv.innerHTML = arr[index];
+        },10);
+
+        obtn.onclick = function(){
+            clearInterval(timer);
+        }
+    </script>
+
+    <script>
+        var str="我不是一个真的对象";
+        alert(str.length);
+        //str 被暂时包装成一个String对象，可调用该对象的属性和方法
+    </script>
+
+    <script>
+        var oDate = new Date();
+        console.log(oDate);         // Tue Nov 27 2019 11:29:41GMT+0800（中国标准时间）
+    </script>
+
+    <script>
+        var oDate = new Date();
+        var y = oDate.getFullYear();    
+        console.log(y);                 //年
+        var m = oDate.getMonth()+1;
+        console.log(m);                 //月，获取的月份比实际的少1，用的需要加1
+        var d = oDate.getDate();
+        console.log(d);                 //日
+        var w = oDate.getDay();
+        console.log(w);                 //星期，从0开始
+    </script>
+
+    <script>
+        var oDate = new Date();
+        var h = oDate.getHours();       //小时
+        var m = oDate.getMinutes();     //分钟
+        var s = oDate.getSeconds();     //秒
+        console.log(oDate.getTime());   //时间戳，从1979-1-1开始的毫秒数
+    </script>
+
+    <script>
+        var oDate = new Date();
+        // 本地时间
+        console.log(oDate.toLocaleString());        //2023/04/11 下午 8:44:07
+        console.log(oDate.toLocaleDateString());    //2023/04/11
+        console.log(oDate.toLocaleTimeString());    //下午 8:44:07
+    </script>
+
+    <script>
+        // 获取的当前时间
+        var currentDate = new Date();
+        // 目标时间
+        var targetDate = new Date(2023,06,18,0,0,0);
+        // 获取两个时间之间的时间戳，得到毫秒数
+        var time = parseInt((targetDate - currentDate)/1000);
+        // 计算时间
+        var t = parseInt(time/86400);
+        var h = parseInt(time % 86400 /3600);
+        var m = parseInt(time % 3600/60);
+        var s = time % 60;
+        document.write('距离618还有'+'t'+'h'+'m'+'s');
+    </script>
+
+    <script>
+        var str1 = 'abc';   //字面量的方式进行为变量赋值
+        var str2 = String('aaa');
+        console.log(typeof str2);
+        var str3 = new String('cba');
+        console.log(typeof str3);
+    </script>
+
+    <script>
+        // 字符串 "" '' 括号引起来
+        var str = 'hello';
+        // str.length 返回字符串的长度
+        console.log(str.length);        //5
+    </script>
+
+    <script>
+        var str = 'hello';
+        // str.chartAt(下标)   返回那个对下标的字符
+        console.log(str.chartAt(1));    //e
+    </script>
+
+    <script>
+        var str = 'hello';
+        // str.charCodeAt(下标) 返回对应下标字符的编码
+        console.log(str.charCodeAt(0)); //97
+    </script>
+
+    <script>
+        var str="aeslo0";
+        console.log( str.indexOf('s'));         //2返回s整体在str 当中的位置。
+        console.log( str.indexOf('cf'));        //查找不到得到的值为一1
+        console.log( str.indexOf('a',1));       //-1
+        console.log( str.indexOf('a',-1));       //0负数默认为0
+    </script>
+
+    <script>
+        var str = '123web123';
+        console.log(str.lastIndexOf('123',3));     //0,默认从后往前找
+        console.log(str.lastIndexOf('web',4));     //3
+    </script>
+
+    <script>
+        var str = 'abcdefg';
+        console.log(str.substring(2));      //1个参数，从当前位置开始，到末尾
+        console.log(str.substring(2,5));    //2个参数，start end，包括开始，不包括结束
+        console.log(str.substring(5,2));    //自动调节位置
+        console.log(str.substring(-2,5));   //负数，默认为0
+    </script>
+
+    <script>
+        var str = 'abcdefg';
+        console.log(str.slice(2));       // cdefg,1个参数，从当前位置开始，到末尾
+        console.log(str.slice(2,5));     // cde,2个参数，start end
+        console.log(str.slice(2,-1));    // cdef ,2个参数，-1表示截取到倒数第一个
+    </script>
+
+    <script>
+        var str = 'adcdegf';
+        console.log(str.substr(5,2));   //gf
+    </script>
+
+    <script>
+        var str1 = 'a0Sq';
+        var str2 = 'a0sq';
+        console.log(str1 == str2);      //false
+        console.log(str1.toLocaleLowerCase == str2.toLocaleLowerCase);      //true
+    </script>
+
+    <script>
+        var str = 'wd=a&rsv_spt=1&rsv_iqid=0xbb';
+        var arr = str.split('&');
+        console.log(arr);       //['wd=a','rsv_spt=1','rsv_iqid=0xbb']
+        var str = '2023/04/12';
+        var arr = str.split('/');
+        console.log(arr);       //['2018','11','27']
+    </script>
+
+    <script>
+        var str = '12345678908';
+        console.log(str.replace('4567','****'));    //123****8908
+
+        str.replace('4567',function(a){             //参数中存储被替换的内容
+            console.log(a);     //4567
+            return '****';
+        })
+    </script>
+
+    <script>
+        // 声明了一个数组，数组中的元素为可以是任意数据类型
+        var arr = [1,2,' s' ,[],{}];
+    </script>
+
+    <script>
+        var arr1 = new Array();             //  []
+        var arr1 = new Array(1,2,3,4);
+        console.log(arr1);                  // [1,2,3,4]
+        var arr2= new Array(4);             //如果参数只有一个并且是数值，表示创建数组的个数
+        console.log(arr2);                  //[empty × 4]
+    </script>
+
+    <script>
+        var arr3 = [1,2,3,4,5,6,7];
+        for(var i = 0;i<arr.length;i++){
+            console.log(arr3[i]);
+        }
+    </script>
+    
+    <script>
+        var arr4 = [1,2,3];
+        console.log(arr4.length);       //3
+        arr4.length = 2;
+        console.log(arr4);              // [1,2]
+    </script>
+
+    <script>
+        var arr=["a","b","c","d" ];
+        // 1.push pop在数组元素的末尾添加或删除元素
+        var n= arr.push("e","f");       //参数个数可以有很多个，末尾添加元素，返回当前数组的长度
+        console.log(n);// 6
+        var del = arr.pop();            //在末尾删除一个元素，没有参数返回被删除的元素
+        arr.pop();                      //在末尾删除一个元素，返回被删除的元素
+        arr.pop();                      //在末尾删除一个元素
+        console.log(arr); //["a","b","c"]
+    </script>
+
+    <script>
+        arr.unshift(1,2);       // 在头部添加元素，返回当前数组的长度
+        arr.shift();            //在头部删除一个元素，返回被删除的元素
+        arr.shift();
+        console.log(arr);
+    </script>
+
+    <script>
+        var arr1 =["a","b","c","d"];
+        // 1.1删除
+        var n= arr1.splice(1);      //从下标为1的位置开始删除,一直到最后
+        console.log(n);             //[“b”,“c”,“d”]
+        console.log(arr1);          //[ "a" ]
+        var n= arr1.splice(1,1);    //从1的位置开始删除,只删除一个
+        console.log(n);             //["b"]
+        console.log(arr1);          //["a","c","d" ]
+    </script>
+
+    <script>
+        var arr = [1,5,9];
+        arr.splice(1,0,4);          // 从 1的位置添加一个4
+        console.log(arr);           //[ 1, 4,5, 9]
+    </script>
+
+    <script>
+        arr1.splice(1,1,1);         //从1的位置开始删除，删除一个，用1替换
+        arr1.splice(1,2,"c","f");   //从1的位置开始删除2个，用c，f替换
+    </script>
+
+    <script>
+        var arr = [5,8,7,4,2,11,3,9,6];
+        arr.sort(); //[ 11, 2, 3, 4,5,6, 7,8, 9]
+    </script>
+
+    <script>
+        var arr2 = [5,8,7,4,2,11,7,3,9,6];
+        arr2.sort(function(a,b){        //a b 分别代表相邻的两个数组元素
+            return a-b;                 //从小到大
+            return b-a;                 //从大到小
+
+        })
+        console.log(arr2);
+    </script>
+
+    <script>
+        var arr = [1,2,3];
+        console.log(arr.join('-'));     //1-2-3
+    </script>
+
+    <script>
+        var arr1 =[1,2,3];
+        var an2=['a','b', 'c' ];
+        var arr3=['hahah','heheh','heheh' ];
+        var arr = arr1.concat(arr2, arr3);
+        console.log(arr);       //返回一个新的数组，不改变原数组
+    </script>
+
+    <script>
+        var arr1 = [1,2,3];
+        var n = arr1.reverse();
+        console.log(n);         //[3,2,1]   返回新数组，不改变原数组
+    </script>
+
+    <script>
+        var arr =[1,2, 3,5, 6,7, 8];
+        var n= arr.indexOf(3);      //在数组中查找3
+        console.log(n);             // 2
+        varn= arr.indexOf(3,3);     //从下标为3的位置查找3
+        console.log(n);             //-1
+        varn= arr.indexOf('3');     //查找字符串3
+        console.log(n);             //-1
+    </script>
+
+    <script>
+        var arr = [3, 47, 5, 2, 8, 8];
+        console.log(arr.slice());       // [3,47,5,2,8,8]没有参数，相当于克隆数组
+        console.log(arr.slice(2, 5));   // [ 5, 2, 8]
+    </script>
+    
+</body>
+</html>

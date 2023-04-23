@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ES6案例实践：判断 var 为变量和 let 为变量的区别 -->
+
+    <div class="con">
+        <h2>点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        // 获取元素
+        let itmes= document.querySelectorAll('.item');
+
+
+        //  遍历并绑定事件
+        for(let i = 0;i<itmes.length;i++){
+            itmes[i].onclick = function(){
+                // 修改当前背景颜色,变量为var, 指向为this
+                // this.style.background = 'pink';
+                // 变量为let
+                itmes[i].style.background = 'pink';
+            }
+        }
+        
+    </script>
+</body>
+</html>

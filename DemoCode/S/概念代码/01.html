@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="alert('是否关闭')">关闭</button> -->
+    <script>
+        alert('内嵌引入');
+    </script>
+    <div>web前端</div>
+
+    <script src="index.js" ></script>
+
+    <!-- <script src=" index.js" >
+        // 如果script 是用于引用外部资源，不能再写js代码，不会执行
+        alert(“fd”)；// 没有弹出
+    </script> -->
+    <div id=" div1" ></div>
+    <script>
+        alert(document.getElementByld("div1"));
+    </script>
+
+
+    <button id="but">弹出</button>
+    <script>
+    /*
+        1.找到谁 按钮document.getElementByld(“but”);
+        2.加事件（点击事件）标签.onclick
+        3.要做的事情(function(0)
+        语法：标签，事件=function(){要做的事情}
+    */
+    document.getElementByld("but").onclick = function (){
+        alert( "hello world");
+    }
+    </script>
+
+    <script>
+        // 1.onclick：点击事件
+        document.getElementByld("box").onclick = function(){
+        console.log("点击了");
+        // 2.onmouseover：鼠标移入元素
+        document.getElementByld("box").onmouseover = function(){
+        console.log("鼠标移入元素");
+    </script>
+
+    <div id="box">我是 box</div>
+    
+    /* <script>
+        var x;       //声明变量x
+        alert(x);   // undefined 所有声明了但是没有赋值的变量,结果都为undefined
+        // ×=10;       //×赋值为10,在声明的同时赋值
+        var x= 10;
+        //  同时声明多个变量，每个变量用逗号隔开，建议换行书写，没声明完时，后面要写逗号。
+        var x= 10,
+        y=20,
+        z=30;
+    </script> */
+
+    <script>
+        var a= 10;
+        var b= 20;
+        // 1.一次只能打印一个信息
+        alert(a,b); // 10
+        alert(b);   //没有点击确定之前，这个不会显示
+        // 2.同时打印多个信息
+        console.log(a,b);
+    </script>
+
+    <script>
+        var num1= 10;
+        console.log(typeof(num1), typeof num1);//number number 
+    </script>
+
+    <script>
+        // 1.1普通整数和小数
+        var num1= 10;
+        var num2 = 2.5;
+        console.log(typeof(num1), typeof num2);
+        //1.2负值
+        var num3=-0.2;
+        console.log(num3, typeof num3);
+        //1.3八进制，以0开头并且没有超过 8的值，则为8进制
+        var num4 = 070;
+        console.log(num4, typeof num4); // 56 number
+        //1.4十六进制，0x开头，则为16进制
+        var num5= 0x10;
+        console.log(num5, typeof num5); //15 number
+    </script>
+    
+
+    <script>
+        //1.1 NaN not a number 算术运算不能得到正常数字都会返回 NaN
+        var num5= 'a' -5;
+        console.log(num5, typeof num5); // NaN number
+        // 1.2无穷大
+        var num6 =1/0;
+        console.log(num6, typeof num6); // Infinity number
+        //1.3小数相加会有一点偏差
+        console.log(0.1+0.2); // 0.30000000000000004
+    </script>
+
+
+    <script>
+        var str1= 'abc';
+        var str2="123";
+        console.log(typeof str1,typeof str2); //string string
+    </script>
+
+    <script>
+        oBut.onclick = function (){
+            var value = oln.value;
+            console.log(typeof value); //string
+        }
+    </script>
+
+    <script>
+        var str= "abc";
+        //字符串.length属性 获取字符串的长度，从1开始数
+        console.log(str.length);        //3
+
+        //字符串.charAt(下标）获取字符串中某一位字符 下标（位置）：从0开始
+        console.log(str2.charAt(0));    //a
+        console.log(str2[0]);           //IE7 及以下返回 undefined
+    </script>
+
+    <script>
+        var bool1 = true;
+        var bool2 = false;
+        console.log(typeof bool1);
+        console.log(10>20);     //false
+        if(10>20){  // if的小括号里面，会自动转换成boolean 类型
+            alert(true)
+        }
+    </script>
+
+    <script>
+        //null 表示值为空
+        var nu = null;
+        console.log(nu, typeof nu); // null 'object'
+
+        //undefined
+        var def; 变量没有初始化，表示值的空缺
+        console.log(def, typeof def); // undefined 'undefined'
+    </script>
+
+    <script>
+        console .log(iypeof document);  //object
+        console.log(typeof window);     // object
+
+        var obj = new Object();
+        console.log(typeof obj);        // object
+        var obj1={
+            name:"张三",
+            age:18,
+            city:"北京"
+        }
+        // 获取属性值
+        console.log(obj1.name);     //张三
+        console.log(obj1['age']);   //18 
+        console.log(typeof obj1);   // object
+    </script>
+
+    <script>
+        //声明函数:function函数名(){代码块}
+        function fun(){
+            console.log("函数");
+            
+        }
+        console.log(typeof fun); // function
+        fun();  //调用函数    
+    </script>
+
+    <script>
+        //数组 可以存储任意类型的数据，如下，数组中放了对象和数组
+        var arr =[1,'fd',{ 'name':' fd' },[23,4]);
+    </script>
+
+
+    <script>
+        var a= 10;
+        var b =true;
+        var c="hello";
+        console.log(Number(a));         // 10
+        console.log(Number(b));         //1 Boolean类型转换成number 类型的0和1
+        console.log(Number(null));      //0
+        console.log(Number(undefined)); // NaN
+        console.log(Number(c));         // NaN不是数字，转换不成功返回NaN
+        console.log(Number("123"));     //123数字字符串可以转为数字（全部是数字）
+        console.log(Number("123haha" ));// NaN
+        console.log(Number("00000001"));//1
+        console.log(Number(""));        //0 
+    </script>
+
+    <script>
+        var width = '100px'
+        console.log(parselnt(width));   // 100
+        var str3='a124';
+        console.log(parselnt(str3));    // NaN
+        var str4='12a3'
+        console.log(parselnt(str4));    // 12
+        var str5= '12.5';
+        console.log(parselnt(str5));    // 12
+        console.log(parseFloat(str5));  // 12.5    
+    </script>
+
+    <script>
+        var num='070';
+        console.log(parselnt(num));     //70
+    </script>
+
+    <script>
+        //isNaN内部调用Number()方法，如果Number 能转成功数字，则返回false，如果转不成功，则返回true。
+        console.log(isNaN("Ab"));           // true 
+        console.log(isNaN("1"));            // false 
+        console.log(isNaN(null));           // false
+        console.log(isNaN(function a(){})); // true
+        console.log(isNaN(NaN));            // true
+    </script>
+
+    <script>
+        var num = 10;
+        var str= "hello";
+        var bool = false;
+        var arr =[1,2,3];                   //变量.toString();
+        console.log(num, num.toString());   //10 "10"
+        console.log(str, str.toStringO);    // "hello" "hello"
+        console.log(bool, bool.toString()); // false "false" 
+        console.log(arr, arr.toString());   // [1, 2, 3] "1,2,3"        
+        
+        //范围2-36 转换成相对进制的字符串
+        console.log(num.toString(2));       // 1010
+        // String(变量）
+        console.log(num, String(num));      // 10 "10"
+        console.log(String(undefined));     //'undefined'
+        console.log(String(null));          //'null'    
+    </script>
+
+    <script>
+        console.log(Boolean(""));       // false
+        console.log(Boolean('a'));      // true
+        console.log(Boolean(0));        // false
+        console.log(Boolean(1));        // true
+        console.log(Boolean(-1));       // true
+        console.log(Boolean(NaN));      // false
+        console.log(Boolean(null));     // false
+        console.log(Boolean(undefined)); // false
+        console.log(Boolean([]));        // true
+        console.log(Boolean({}));        // true
+    </script>
+
+    <script>
+        var a= 5;
+        varb='10';
+        console.log(a +b);                      //  '510'
+        var a=5;
+        varb= 10;
+        console.log(a+'和'+b+'的和是'+a+b);      //5和10的和是510
+        console.log(true + false);              // 1
+        console.log(true +'false' );            // truefalse
+        console.log(true + '');                 //true
+        console.log(true + undefined);          // NaN 
+        console.log(true + [true]);             // truetrue
+    </script>
+
+    <script>
+        // ++--（自增，自减)
+        var a = 2;
+        a++;                //a=a+1;
+        console.log(a);     // 3
+        var b=2;
+        ++b;                //b=b+1;
+        console.log(b);     //3
+        var c= 2;
+        var f= 2;
+        d=c++;              //先赋值后自增1 
+        e=++f;              //先自增1后赋值
+        console.log(d);     //2
+        console.log(e);     //3 
+        console.log(c);     //3 
+        console.log(f);     //3
+    </script>
+
+    <script>
+        var num1=2;
+        var num2= 20;
+        var num3 = num1--+ num2;    // 22
+        var num4 = num1 + num2;     //21
+    </script>
+
+    <script>
+        var a = 5- true;    //4
+        var b = NaN - 1;    // NaN
+        var c = 5-3;        // 2
+        var d = 5-"";       // 5 
+        var e = 5-"2";      // 3 
+        var f = 5-null;     // 5
+    </script>
+
+    <script>
+        var m= 10;
+        m=m+2;          //等价m+=2;
+        m+=10;          //往m身上在原来的基础上加东西m=m+10
+        
+        console.log(m); // 22
+        var n=10;
+        n*=2;           //n=n*2
+        console.log(n);
+    </script>
+
+    <script>
+        // 比较运算符 > >= < <=  ==  !=  ===  !==
+        //两个等号的比较，只要值是一样即可，会发生类型的转换（一般调Number转成数字再比较）
+        console.log("10"== 10);     // true
+        console.log("10"!= 10);     // false
+
+        //三个等号的比较，要值和类型都一样
+        console.log( "10" === 10);  // false 
+        console.log( "10"!== 10);   // true
+
+        console.log(undefined==null);   
+        // true，它俩相等，是规定的。它们并不发生类型转换。
+        // 即 null 和undefined同别值进行==的比较时，不会发生类型转换
+        console.log(undefined === null);    // false，类型不一样
+    </script>
+
+    <script>
+        var l = 10;
+        if(l>0 && l<100){alert("成立");}      //真两个为真才为真
+        if(l<0 || l>100){alert("成立");}      //假一真为真
+        //！取反
+        if(!true){
+            alert("条件成立");
+        }
+    </script>
+
+    <script>
+        //  条件？语句一：语句二
+        //  如果条件成立，执行？后面语句。不成立执行：后面的语句
+        var s = 10;
+        s > 0 ? n=100 : n=0;
+        console.log(n); // 100
+    </script>
+
+    <script>
+        console.log(3 + 4 * 5);     //3+20
+        console.log(3>2 && 2>1);    //true
+        console.log(10>5>4);        //false
+    </script>
+
+
+    <script>
+        // 加+
+        console.log(10+100);            //  110
+        console.log(10+'string');       //  10String,当加号有一边是字符串，另一边业转成字符串，变成字符串的拼接
+        console.log(19+10+'age'+18+10); //  29age1810
+        console.log(10+'100');          //  10100
+        console.log(10+true);           //  11,Boolean类型在计算是转成number
+        console.log(true+false);        //  1,1+0=1
+        console.log(10+100);            //  110
+        console.log( '10' + true);      //  10true
+        console.log(''+ 100);           // '100'
+        console.log(10 + null);         //  10, null 在计算是转成 number 0
+        console.log(10 + undefined);    //  NaN, undefined 调Number方法转成NaN
+    </script>
+
+    <script>
+        // 减-
+        console.log(100 - 10);          //  90
+        console.log(100- 't' );         //  NaN
+        console.log(100-'');            //  100,空字符串转成 number0
+        console.log(100 - true);        //  99,boolean 类型在计算是转成number 1
+        console.log(100-'80');          //  20,'80'转成number 80
+        console.log(100- nul);          //  100
+        console.log(100 - undefined);   //  NaN
+    </script>
+
+    <script>
+        // 乘*
+        console.log(100 * 'a' );        //  NaN
+        console.log(100*'');            //  0,''转成number 0
+        console.log(100* '100');        //  10000
+        console.log(100 *null);         //  0
+        console.log(100 * undefined);   //  NaN
+    </script>
+
+    <script>
+        // 除/
+        console.log(100 / 'a' );        //  NaN 
+        console.log(100/'');            //  Infinity 
+        console.log(100/'70');          //  10/7 
+        console.log(100 *nul);          //  0
+        console.log(100 *undefined);    //  NaN
+    </script>
+
+    <script>
+        // 取余%
+        console.log(100 % 'a' );        // NaN
+        console.log(100 % '');          // NaN,'',转成0,100% 0为NaN
+        console.log(100 % '70' );       // 30
+        console.log(100 % null);        // NaN
+        console.log(100 % undefined);   // NaN
+    </script>
+
+    <script>
+        console.log(!true);             // false
+        console.log(!10);               // false
+        console.log(!'web');            // false
+    </script>
+
+    <script>
+        var age = 8;
+        if(age >7){console.log("上学");}
+
+        // { }可以省略，省略了if就只能控制（）后面的第一行语句。
+        //  虽然可以省略，但是我们,建议每次都加上，这样代码结构逻辑更清晰
+        if(age >7)console.log("上学");  //控制台输出“上学”
+        alert(1);                       //不管条件是否成立都会执行，因为这行代码不受i的控制
+    </script>
+
+    <script>
+        var s = 70;
+        if(s >60){
+            //条件成立执行的代码
+            console.log("及格");
+        }else{
+            //条件不成立执行的代码
+            console.log('不及格');
+        }
+    </script>
+
+    <script>
+        // if-else可以一直嵌套，只要有else前面肯定有if
+        var a=85;
+        if(a >90){
+            alert("优秀");}
+        else if(a >80){
+            alert("良好");
+        }
+        else if(a > 70){
+            alert("还行");
+        }else if(a > 60){
+            alert("及格")
+        }
+    </script>
+
+    <script>
+        var s="+";
+        switch (s){
+            case "+":alert(10+10);
+            break;
+            case "_": alert(10-10);
+            break;
+            case "*" :alert(10*10);
+            break;
+            default: alert("都没有匹配到");
+        }
+    </script>
+
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <script>
+        // 通过标签名获取元素
+        var ls = document.getElementsByTagName("li");
+        console.log(ls);      //元素集合HTMLCollection(2)，用法和数组类似，是一个伪数组
+        
+        console.log(ls.length);     //2,获取元素集合中元素的个数
+
+        //给第一个li添加背景颜色
+        ls[O].style.background ="red";  //通过下标获取到某一个
+    </script>
+    
+
+    <ul>
+        <li class="list" >list2</li>
+        <li class="list" >list1</li>
+        <li class="list" >list3</li>
+        <li class="list" >list4</li>
+    </ul>
+    <script>
+        var list = document.getElementsByClassName("list");
+        console.log(list);
+        //元素集合 HTMLCollection(4)
+    </script>
+
+    <script>
+        for(var i= 1;i <= 10;i++){
+            console.log(i);
+        }
+    </script>
+
+
+    <script>
+        for(vari= 1;i <= 10;i++){
+            console.log(i);
+        }
+    </script>
+
+    <script>
+        //添加点击事件
+        var oLi = document.getElementsByTagName("li");
+        for(vari= 0;i < oLi.length;i++){
+            oLi[i].onclick = function (){
+            alert("点击了");
+        }
+    </script>
+
+    <ul id='list'></ul>
+    <script>
+        var oul = document,getElementByld("list");
+        for(vari= 0;i<10;i++){
+            //oul.innerHTML=oUI.innerHTML+"<Ii></i>";
+            oul.innerHTML +="<Ii></li>";
+        }
+    </script>
+
+    <ul>
+        <h2>喜欢吃的东西</h2>    
+        <li>饭</li><li>烤肉</li><li>火锅</li>
+    </ul>
+    <ul>
+        <h2>喜欢玩的东西</h2><li>和平精英</li><li>王者荣耀</li><li>敲代码</li>
+    </ul>
+    <ul>
+        <h2>讨厌的东西</h2><li>写作业</li><li>背诵</li><li>没啦</li>
+    </ul>
+
+    <script>
+        var oul = document.getElementsByTagName('ul');
+        // 外循环一次，内循还一遍
+        for(var i = 0;i < 2;i++){
+            // 0 1 ,循环父元素
+            var oli = oul[i].getElementsByTagName('li');
+            for(var j = 0; j < oli.length;j++){
+                // 循环子元素
+                oli[j].style.border = '1px solid red';
+            }
+        }
+    </script>
+
+</body>
+</html>

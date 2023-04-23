@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let 不存在变量提升，var 同理
+        var a;
+        console.log(a);     //undefined
+        a = 123;
+        console.log(a);     //123
+
+        let b;
+        console.log(b);     //undefined
+        b = 456;
+        console.log(b);     //456
+    </script>
+</body>
+</html>

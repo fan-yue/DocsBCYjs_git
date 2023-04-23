@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6 允许在大括号里面，直接写入变量和函数，作为对象的属性和方法
+        let name = '金科';
+        let change = function(){
+            console.log('这是一个函数');
+        }
+
+        const school = {
+            name,
+            change,
+            // 方法的简写版本
+            import(){
+                console.log('常量对象中的函数简写版本');
+            }
+        }
+        console.log(school);
+    </script>
+</body>
+</html>

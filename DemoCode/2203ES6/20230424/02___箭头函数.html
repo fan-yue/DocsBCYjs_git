@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js 命名函数
+        function demo(a,b){
+            return a+b;
+        }
+        console.log(demo(1,2));
+
+        // js  匿名函数
+        let fn = function(c,d){
+            return c*d;
+        }
+        console.log(fn(10,10));
+
+        //  ES6 的 箭头函数
+        let fn1 = (a1,a2) => {
+            return a1+a2;
+        }
+        console.log(fn1(99,100));
+    </script>
+</body>
+</html>

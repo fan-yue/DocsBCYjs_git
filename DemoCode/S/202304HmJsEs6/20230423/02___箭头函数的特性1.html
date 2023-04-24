@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- `this`是静态的，`this`始终指向函数声明时所在作用域下的`this`的值。 -->
+    <script>
+        function getName(){
+            console.log(this.name);
+        }
+        let getName2 = () => {
+            console.log(this.name);
+        }
+        // 设置 window对象的 name 属性
+        window.name = '金科教育';
+        const SCHOOL = {
+            name:'康博尔'
+        }
+
+        // 直接调用
+        getName();      //金科教育
+        getName2();     //金科教育
+
+        // call方法调用，call方法：更改this的指向。
+        getName.call(SCHOOL);       //康博尔
+        getName2.call(SCHOOL);      //金科教育
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 箭头函数的特性，this的静态的，this始终指向函数声明时所在作用域下的this的值 -->
+    <script>
+        // 声明函数
+        function getName(){
+            console.log(this.name);
+        }
+
+        // 声明一个箭头函数
+        let getName2 = () =>{
+            console.log(this.name);
+        }
+
+        // name = '计算机'
+        window.name = '计算机';
+        const SCHOOL = {
+            name:"康博尔"
+        }
+
+        // 调用函数
+        getName();      //计算机
+        getName2();     //计算机
+
+        // call方法调用，call方法：更改this的指向。
+        getName.call(SCHOOL);       //康博尔
+        getName2.call(SCHOOL);      //计算机
+    </script>
+</body>
+</html>

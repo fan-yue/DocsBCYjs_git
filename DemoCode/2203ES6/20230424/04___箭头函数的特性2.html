@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 使用正常的构造函数，实例化的一个对象。
+        function People(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        let me = new People('小胡',20);
+        console.log(me);                //  People {name: '小胡', age: 20}
+
+        // 箭头函数，是不能作为构造函数进行实例化对象的。
+        let People1 = (name,age) => {
+            this.name = name;
+            this.age = age;
+        }
+        let me1 = new People1('小胡',20)
+        console.log(me1);               //报错
+    </script>
+</body>
+</html>

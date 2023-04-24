@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ad{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+
+    <script>
+        let ad = document.getElementById('ad');
+        /* ad.addEventListener('click',function(){
+            // this.style.background = 'red';
+            setTimeout(function(){              //setTimeout    的对象指向 window 的
+                // console.log(123);
+                console.log(this);                  //而是指向window
+
+                // this.style.background = 'red';      //报错,this指向不到本身，而是指向window
+            },2000)
+        }) */
+
+        ad.addEventListener('click',function(){
+            // this.style.background = 'red';
+            setTimeout( () =>{  
+                console.log(this);          //指向本身的元素
+                this.style.background = 'red';
+            },2000)
+        })
+    </script>
+</body>
+</html>

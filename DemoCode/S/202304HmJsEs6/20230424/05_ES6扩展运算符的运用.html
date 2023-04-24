@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  扩展运算符的应用 -->
+    <script>
+        // 1.数组的合并
+        const ARR1 = [1,2,3,4];
+        const ARR2 = [0,0,0,0];
+            // js,使用concat()方法
+        const ARRSUM = ARR1.concat(ARR2);
+        console.log(ARRSUM);
+            //  ES6,扩展运算符
+        const ARRES6SUN = [...ARR1,...ARR2]
+        console.log(ARRES6SUN);
+    </script>
+
+    <!--  扩展运算符的应用 -->
+    <script>
+        // 2.数组的克隆
+        const ARRZERO = ['HTML','CSS','JS'];
+        const ARRZEROCLONE = [...ARRZERO];
+        console.log(ARRZEROCLONE);
+    </script>
+
+
+    <!--  扩展运算符的应用 -->
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        const divs = document.querySelectorAll('div');
+        console.log(divs);      //  伪数组
+        const DIVARR = [...divs];
+        console.log(DIVARR);    // 数组类型的参数序列
+    </script>
+</body>
+</html>

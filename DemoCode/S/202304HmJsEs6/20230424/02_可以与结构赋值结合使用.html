@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 与结构赋值结合
+        
+        // function connect(options){
+        //     // 使用js原生结构赋值太过于繁琐，每次都要写option
+        //     // let host = options.host;
+        //     // let username = options.username;
+        // }
+
+        // 通过ES6的结构赋值相结合，可以直接访问对应的值
+            // 也可以当对应属性没有值的情况下，访问定值
+        function connect({host='127.0.0.1',username,password,port}){
+            console.log(host,username,password,port);
+        }
+
+        connect({
+            host:'localhost',
+            username:'root',
+            password:'root',
+            port:3306
+        })
+    </script>
+</body>
+</html>

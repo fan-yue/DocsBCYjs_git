@@ -16,7 +16,7 @@
         let me = new People('小胡',20);
         console.log(me);                //  People {name: '小胡', age: 20}
 
-        // 箭头函数，是不能作为构造函数进行实例化对象的。
+        // 箭头函数，不能作为构造函数进行实例化对象的。
         let People1 = (name,age) => {
             this.name = name;
             this.age = age;

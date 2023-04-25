@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明 命名函数
+        function date(){
+            // arguments，js获取实参的方式
+            console.log(arguments);     //object，对象
+        }
+        // 调用函数
+        date('甲','乙','丙');
+
+        // rest参数
+        function date1(...args){
+            console.log(args);          //array，数组类型
+        }
+        date1('a','b','c');
+    </script>
+</body>
+</html>

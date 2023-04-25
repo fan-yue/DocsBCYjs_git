@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通过ES6的解构赋值相结合，可以访问对应的值 -->
+    <script>
+        // 通过js的对象的构造函数的方式，来访问connect里面的值
+        // function connect(a){
+        //     let host = a.host;
+        //     let username = a.username;
+        // }
+
+        function connect({host='127.0.0.1',username,password,port}){
+            console.log(host,username,password,port);
+        }
+
+        connect({
+            host:'localhost',
+            username:'root',
+            password:'root',
+            port:3306
+        })
+    </script>
+</body>
+</html>

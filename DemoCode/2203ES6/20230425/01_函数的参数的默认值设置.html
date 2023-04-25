@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ES6里面允许给函数的参数，设置初始值 -->
+    <script>
+        // js里的命名函数
+        function demo(a,b,c){
+            return a+b+c;
+        }
+        let add = demo(1,2);    //NaN , not a number
+        console.log(add);
+
+        // ES6 的 赋初始值的函数
+        function demo1(a1,b1,c1=100){
+            return a1+b1+c1;
+        }
+        console.log(demo1(10,10));
+        console.log(demo1(50,60,200));
+    </script>
+</body>
+</html>

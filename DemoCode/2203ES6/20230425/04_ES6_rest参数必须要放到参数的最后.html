@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // rest参数必须要放到参数的最后
+        //声明一个 
+        function demo(a,b,c,...args){
+            console.log(a);             //1
+            console.log(b);             //2
+            console.log(c);             //3
+            console.log(...args);       //4,5
+        }
+        // 调用函数
+        demo(1,2,3,4,5);
+    </script>
+</body>
+</html>

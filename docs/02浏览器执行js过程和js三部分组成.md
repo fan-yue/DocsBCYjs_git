@@ -13,7 +13,7 @@
 
 例子：
 
-```
+```js
     <script>
         alert("这是使用js中的alert进行弹窗的文字，第一条");
         alert("这是使用js中的alert进行弹窗的文字，第二条");
